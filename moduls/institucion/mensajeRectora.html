@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta content="Free HTML Templates" name="keywords" />
+    <meta content="Free HTML Templates" name="description" />
+    <title>Mensaje de Nuestra Rectora</title>
+
+    <!-- Favicon -->
+    <link href="/assets/logos/superarse_gris.png" rel="icon" />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Flaticon Font -->
+    <link href="/lib/flaticon/font/flaticon.css" rel="stylesheet" />
+
+    <!-- Libraries Stylesheet -->
+    <link
+      href="/lib/owlcarousel/assets/owl.carousel.min.css"
+      rel="stylesheet"
+    />
+    <link href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/js/main.js" />
+  </head>
+  <body>
+    <div data-include="/moduls/content/menus/header.html"></div>
+
+    <div class="container-fluid py-5 container-top">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-5">
+            <img
+              class="img-fluid rounded mb-5 mb-lg-0"
+              src="/assets/img/institucion/mensajeRectora/mensajeRectora.jpg"
+              alt="Foto de la Rectora del ISTS"
+            />
+          </div>
+          <div class="col-lg-7">
+            <p class="section-title pr-5">
+              <span class="pr-2">Un Mensaje de Bienvenida</span>
+            </p>
+            <h1 class="mb-4">Mensaje de Nuestra Rectora</h1>
+
+            <div>
+              <p>Querida comunidad SUPERARSE,</p>
+              <p>
+                Es un honor darles la más cordial bienvenida al Instituto
+                Superior Tecnológico Superarse, un espacio donde el aprendizaje,
+                la innovación y el compromiso con el conocimiento se combinan
+                para forjar el futuro de nuestra sociedad. Desde nuestros
+                inicios, hemos venido trabajado incansablemente para ofrecer una
+                educación de calidad que prepare a nuestros estudiantes para
+                enfrentar los desafíos del mundo actual.
+              </p>
+              <p>
+                Reafirmamos nuestro compromiso con la excelencia en la docencia,
+                la investigación y la vinculación con la sociedad, pilares
+                fundamentales de nuestra misión. Somos un instituto técnico y
+                tecnológico comprometido con el desarrollo integral de nuestros
+                estudiantes, mediante una educación con énfasis en experiencias
+                formativas prácticas y el fortalecimiento de habilidades
+                blandas. Queremos formar profesionales líderes, emprendedores e
+                innovadores, con sólidos principios y valores, preparados para
+                contribuir al desarrollo sostenible de nuestra sociedad.
+              </p>
+              <p>
+                Juntos, construiremos un entorno inclusivo y dinámico donde las
+                ideas se cristalizan y se conviertan en acciones
+                transformadoras. Con responsabilidad y creatividad, seguiremos
+                superando los retos, consolidando a nuestro Instituto como un
+                referente en la formación de profesionales técnicos y
+                tecnológicos, tanto a nivel nacional como internacional. Con el
+                aporte de todos, aspiramos a que para el año 2028, el
+                Tecnológico Superarse sea una institución acreditada y
+                reconocida por su infraestructura de vanguardia y procesos
+                innovadores que contribuyan significativamente al desarrollo del
+                país.
+              </p>
+              <p>
+                Les doy nuevamente la bienvenida a esta gran comunidad,
+                deseándoles un año lleno de aprendizajes, logros y
+                satisfacciones.
+              </p>
+              <p>Recuerda que siempre es tiempo de SUPERARSE.</p>
+              <p class="mt-4">
+                <strong>Msc. Verónica Tamayo</strong><br />
+                Rectora del Instituto Superarse
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-include="/moduls/content/menus/footer.html"></div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="/js/main.js"></script>
+
+    <script>
+      function includeHTML() {
+        const elements = document.querySelectorAll("[data-include]");
+        elements.forEach((el) => {
+          const file = el.getAttribute("data-include");
+          fetch(file)
+            .then((response) => {
+              if (response.ok) return response.text();
+              else throw new Error("Archivo no encontrado");
+            })
+            .then((data) => {
+              el.innerHTML = data;
+            })
+            .catch((error) => {
+              el.innerHTML = "<p>Error al cargar " + file + "</p>";
+            });
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", includeHTML);
+    </script>
+  </body>
+</html>

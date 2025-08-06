@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta content="Free HTML Templates" name="keywords" />
+    <meta content="Free HTML Templates" name="description" />
+    <title>Cumplimiento Tributario</title>
+
+    <!-- Favicon -->
+    <link href="/assets/logos/superarse_gris.png" rel="icon" />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Flaticon Font -->
+    <link href="/lib/flaticon/font/flaticon.css" rel="stylesheet" />
+
+    <!-- Libraries Stylesheet -->
+    <link
+      href="/lib/owlcarousel/assets/owl.carousel.min.css"
+      rel="stylesheet"
+    />
+    <link href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/js/main.js" />
+  </head>
+  <body>
+    <div data-include="/modules/content/header.html"></div>
+
+    <div class="container-fluid py-5">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-5">
+            <p class="section-title pr-5">
+              <span class="pr-2">Marco Normativo y Legal</span>
+            </p>
+            <h1 class="mb-4">Cumplimiento Tributario</h1>
+            <div>
+              <p>
+                En el Instituto Superior Tecnológico Superarse (ISTS),
+                mantenemos un firme compromiso con la legalidad y la
+                transparencia en todas nuestras operaciones, incluyendo el
+                estricto cumplimiento de nuestras obligaciones tributarias y de
+                seguridad social.
+              </p>
+              <p>
+                Esta sección provee acceso a la documentación que certifica
+                nuestro apego a las normativas del Servicio de Rentas Internas
+                (SRI) y del Instituto Ecuatoriano de Seguridad Social (IESS).
+                Publicamos estos documentos para asegurar que nuestra comunidad
+                y el público en general puedan verificar la gestión responsable
+                y transparente de nuestros compromisos fiscales y laborales.
+              </p>
+              <p>
+                A continuación, puede consultar y descargar los certificados de
+                cumplimiento tributario y con el IESS.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div
+              class="d-flex flex-column justify-content-center h-100 p-4 border rounded"
+            >
+              <h3 class="mb-4 text-center">Documentos de Cumplimiento</h3>
+              <p class="text-center mb-4">
+                Haz clic en cada título para descargar o visualizar el documento
+                correspondiente:
+              </p>
+
+              <div
+                class="list-group-scrollable"
+                style="max-height: 500px; overflow-y: auto"
+              >
+                <ul class="list-group list-group-flush">
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-center"
+                  >
+                    <span>CUMPLIMIENTO IESS</span>
+                    <a
+                      href="/assets/modules/servicios/cumplimientoTributario/docs/CERTIFICADO DE CUMPLIMIENTO IESS_superarse.pdf"
+                      target="_blank"
+                      class="btn btn-sm btn-primary"
+                    >
+                      <i class="fa fa-file-pdf mr-2"></i> Ver PDF
+                    </a>
+                  </li>
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-center"
+                  >
+                    <span>CUMPLIMIENTO TRIBUTARIO</span>
+                    <a
+                      href="/assets/modules/servicios/cumplimientoTributario/docs/CUMPLIMIENTO TRIBUTARIO_superarse.pdf"
+                      target="_blank"
+                      class="btn btn-sm btn-primary"
+                    >
+                      <i class="fa fa-file-pdf mr-2"></i> Ver PDF
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <small class="mt-4 text-muted text-center"
+                >Para visualizar estos documentos, necesitará un lector de
+                archivos PDF.</small
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-include="/modules/content/footer.html"></div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="/js/main.js"></script>
+
+    <script>
+      function includeHTML() {
+        const elements = document.querySelectorAll("[data-include]");
+        elements.forEach((el) => {
+          const file = el.getAttribute("data-include");
+          fetch(file)
+            .then((response) => {
+              if (response.ok) return response.text();
+              else throw new Error("Archivo no encontrado");
+            })
+            .then((data) => {
+              el.innerHTML = data;
+            })
+            .catch((error) => {
+              el.innerHTML = "<p>Error al cargar " + file + "</p>";
+            });
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", includeHTML);
+    </script>
+  </body>
+</html>

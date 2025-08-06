@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta content="Free HTML Templates" name="keywords" />
+    <meta content="Free HTML Templates" name="description" />
+    <title>Remuneracion Mensual</title>
+
+    <!-- Favicon -->
+    <link href="/assets/logos/superarse_gris.png" rel="icon" />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Flaticon Font -->
+    <link href="/lib/flaticon/font/flaticon.css" rel="stylesheet" />
+
+    <!-- Libraries Stylesheet -->
+    <link
+      href="/lib/owlcarousel/assets/owl.carousel.min.css"
+      rel="stylesheet"
+    />
+    <link href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div data-include="/moduls/content/menus/header.html"></div>
+
+    <div class="container-fluid py-5">
+      <div class="container">
+        <p class="section-title pr-5 text-center">
+          <span class="pr-2">Transparencia Institucional</span>
+        </p>
+        <h1 class="mb-5 text-center">Remuneración Mensual</h1>
+
+        <div class="row align-items-start mb-5">
+          <div class="col-lg-6">
+            <h4 class="mb-3">
+              Detalle de la Remuneración Mensual del Personal
+            </h4>
+            <p>
+              En aras de la transparencia y el cumplimiento de la normativa
+              vigente, el Instituto Superior Tecnológico Superarse (ISTS) pone a
+              disposición pública la información detallada sobre la remuneración
+              mensual de sus servidores y servidoras. Este informe refleja la
+              estructura salarial de nuestra institución, garantizando la
+              claridad y el acceso a esta información por parte de la
+              ciudadanía.
+            </p>
+            <p>
+              Este documento es un compromiso con la ética y la gestión
+              responsable de los recursos humanos, ofreciendo una visión clara
+              de cómo se administran los fondos destinados a las remuneraciones,
+              en consonancia con las políticas institucionales y las leyes
+              aplicables.
+            </p>
+          </div>
+          <div class="col-lg-6">
+            <div
+              class="d-flex flex-column align-items-center justify-content-center h-100 p-4 border rounded"
+            >
+              <h3 class="mb-4 text-center">Informe de Remuneración Mensual</h3>
+              <p class="text-center">
+                Descarga o visualiza el documento oficial con el detalle de
+                remuneraciones:
+              </p>
+              <a
+                href="/assets/docs/servicios/remuneracionMensual/3) REMUNERACIÓN MENSUAL.pdf"
+                target="_blank"
+                class="btn btn-primary mt-3 py-3 px-5"
+              >
+                <i class="fa fa-file-pdf mr-2"></i> Descargar PDF
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-include="/moduls/content/menus/footer.html"></div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="/lib/easing/easing.min.js"></script>
+    <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="/lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="/lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="/js/main.js"></script>
+
+    <script>
+      function includeHTML() {
+        const elements = document.querySelectorAll("[data-include]");
+        elements.forEach((el) => {
+          const file = el.getAttribute("data-include");
+          fetch(file)
+            .then((response) => {
+              if (response.ok) return response.text();
+              else throw new Error("Archivo no encontrado");
+            })
+            .then((data) => {
+              el.innerHTML = data;
+            })
+            .catch((error) => {
+              el.innerHTML = "<p>Error al cargar " + file + "</p>";
+            });
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", includeHTML);
+    </script>
+  </body>
+</html>

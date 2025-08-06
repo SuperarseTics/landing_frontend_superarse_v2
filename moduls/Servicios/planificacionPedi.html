@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta content="Free HTML Templates" name="keywords" />
+    <meta content="Free HTML Templates" name="description" />
+    <title>Planificacion - PEDI</title>
+
+    <!-- Favicon -->
+    <link href="/assets/logos/superarse_gris.png" rel="icon" />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Flaticon Font -->
+    <link href="/lib/flaticon/font/flaticon.css" rel="stylesheet" />
+
+    <!-- Libraries Stylesheet -->
+    <link
+      href="/lib/owlcarousel/assets/owl.carousel.min.css"
+      rel="stylesheet"
+    />
+    <link href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/js/main.js" />
+  </head>
+  <body>
+    <div data-include="/modules/content/header.html"></div>
+
+    <div class="container-fluid py-5">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-5">
+            <p class="section-title pr-5">
+              <span class="pr-2">Gestión y Prospectiva</span>
+            </p>
+            <h1 class="mb-4">Plan Estratégico de Desarrollo Institucional</h1>
+            <div>
+              <p>
+                El Plan Estratégico de Desarrollo Institucional (PEDI) del
+                Instituto Superior Tecnológico Superarse (ISTS) es el documento
+                rector que define nuestra visión a largo plazo, los objetivos
+                estratégicos y las líneas de acción que guiarán el crecimiento y
+                la excelencia de nuestra institución. Este plan es el resultado
+                de un análisis exhaustivo de nuestro entorno, nuestras
+                fortalezas y las necesidades de la sociedad.
+              </p>
+              <p>
+                El PEDI articula nuestra misión y visión con metas concretas en
+                áreas clave como la calidad académica, la investigación, la
+                vinculación con la sociedad, la gestión administrativa y el
+                bienestar de nuestra comunidad. Sirve como una hoja de ruta para
+                la toma de decisiones, la asignación de recursos y la evaluación
+                de nuestro desempeño, asegurando que cada paso que damos esté
+                alineado con nuestros propósitos fundamentales.
+              </p>
+              <p>
+                Invitamos a toda nuestra comunidad y a los interesados a revisar
+                este documento, que refleja nuestro compromiso con una educación
+                superior de calidad y con el desarrollo integral de nuestros
+                estudiantes y del país.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div
+              class="d-flex flex-column justify-content-center h-100 p-4 border rounded text-center"
+            >
+              <h3 class="mb-4">Descarga el Plan Estratégico</h3>
+              <p class="text-muted mb-4">
+                Accede a nuestro Plan Estratégico de Desarrollo Institucional
+                para conocer las bases de nuestro futuro.
+              </p>
+              <a
+                href="/assets/modules/servicios/planEstrategicoDesarrolloInstitucional/docs/PLAN_ESTRATEGICO_DE_DESARROLLO_INSTITUCIONAL_2024_2028_superarse.pdf"
+                target="_blank"
+                class="btn btn-primary py-3 px-5 mt-auto mx-auto d-block"
+              >
+                <i class="fa fa-file-pdf mr-2"></i> Descargar PEDI
+              </a>
+              <small class="mt-4 text-muted"
+                >Para visualizar este documento, necesitará un lector de
+                archivos PDF.</small
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-include="/modules/content/footer.html"></div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="/js/main.js"></script>
+
+    <script>
+      function includeHTML() {
+        const elements = document.querySelectorAll("[data-include]");
+        elements.forEach((el) => {
+          const file = el.getAttribute("data-include");
+          fetch(file)
+            .then((response) => {
+              if (response.ok) return response.text();
+              else throw new Error("Archivo no encontrado");
+            })
+            .then((data) => {
+              el.innerHTML = data;
+            })
+            .catch((error) => {
+              el.innerHTML = "<p>Error al cargar " + file + "</p>";
+            });
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", includeHTML);
+    </script>
+  </body>
+</html>
