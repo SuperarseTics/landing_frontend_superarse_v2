@@ -84,35 +84,3 @@ function generarAranceles() {
     contenedorAranceles.innerHTML = htmlContent;
   }
 }
-
-// Función para incluir archivos HTML de forma dinámica
-async function includeHTML() {
-  const elements = document.querySelectorAll("[data-include]");
-  const promises = [];
-
-  elements.forEach((el) => {
-    const file = el.getAttribute("data-include");
-    const promise = fetch(file)
-      .then((response) => {
-        if (response.ok) return response.text();
-        throw new Error("Archivo no encontrado: " + file);
-      })
-      .then((data) => {
-        el.innerHTML = data;
-      })
-      .catch((error) => {
-        console.error(error);
-        el.innerHTML = "<p>Error al cargar " + file + "</p>";
-      });
-    promises.push(promise);
-  });
-
-  // Espera a que todas las promesas de fetch se resuelvan
-  await Promise.all(promises);
-
-  // Ejecuta la generación de aranceles después de que todos los includes se hayan cargado
-  generarAranceles();
-}
-
-// Llama a la función principal al cargar el documento
-document.addEventListener("DOMContentLoaded", includeHTML);
