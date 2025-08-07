@@ -7,35 +7,28 @@
     <meta content="Free HTML Templates" name="description" />
     <title>Por que Elegirnos</title>
 
-    <!-- Favicon -->
     <link href="/assets/logos/superarse_gris.png" rel="icon" />
 
-    <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Font Awesome -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
       rel="stylesheet"
     />
 
-    <!-- Flaticon Font -->
     <link href="/lib/flaticon/font/flaticon.css" rel="stylesheet" />
 
-    <!-- Libraries Stylesheet -->
     <link
       href="/lib/owlcarousel/assets/owl.carousel.min.css"
       rel="stylesheet"
     />
     <link href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
 
-    <!-- Customized Bootstrap Stylesheet -->
     <link href="/css/style.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/js/main.js" />
   </head>
   <body>
     <div data-include="/modules/content/header.html"></div>
@@ -90,60 +83,9 @@
 
             <div class="row pt-2 pb-4">
               <div class="col-6 col-md-8">
-                <ul class="list-inline m-0">
-                  <li class="py-2 border-top border-bottom tooltip-container">
-                    <i class="fa fa-check text-primary mr-3"></i>Carreras únicas
-                    a nivel nacional
-                    <span class="tooltiptext"
-                      >El ISTS brinda una educación diferente, con mayor
-                      proyección para el futuro del estudiante, adoptando
-                      actitudes laborales en el dominio de nuevas tecnologías,
-                      liderazgo o capacidad de iniciativa.</span
-                    >
-                  </li>
-                  <li class="py-2 border-bottom tooltip-container">
-                    <i class="fa fa-check text-primary mr-3"></i>Horarios
-                    flexibles
-                    <span class="tooltiptext"
-                      >Contamos con dos modalidades de estudio, las cuales te
-                      ermiten ser independiente con la oportunidad de organizar
-                      tu tiempo, además de complementar tu aprendizaje con
-                      talleres prácticos y tutorías constantes.</span
-                    >
-                  </li>
-                  <li class="py-2 border-bottom tooltip-container">
-                    <i class="fa fa-check text-primary mr-3"></i>Docentes
-                    altamente especializados
-                    <span class="tooltiptext"
-                      >Nuestros profesores cuentan con gran experiencia en la
-                      Carrera que elijas estudiar, estaran a tu lado para
-                      guiarte y empoderarte a desarrollar todo tu
-                      potencial.</span
-                    >
-                  </li>
-                  <li class="py-2 border-bottom tooltip-container">
-                    <i class="fa fa-check text-primary mr-3"></i>Motivación a
-                    emprender
-                    <span class="tooltiptext"
-                      >Todas nuestras Carreras, imparten un modelo innovador y
-                      escalable, que transforman la educación al formar
-                      profesionales que generen empleo y que contribuyan al
-                      desarrollo económico del país.</span
-                    >
-                  </li>
-                  <li class="py-2 border-bottom tooltip-container">
-                    <i class="fa fa-check text-primary mr-3"></i>Ser innovador
-                    <span class="tooltiptext"
-                      >El ISTS no solo forma emprendedores, sino que también
-                      líderes de mente abierta, valoramos e incentivamos su
-                      pensamiento y acción en la diversidad de su entorno para
-                      innovar, para avanzar y para transformar.</span
-                    >
-                  </li>
-                </ul>
+                <ul class="list-inline m-0" id="ventajas-lista"></ul>
               </div>
             </div>
-            <!--<a href="" class="btn btn-primary mt-2 py-2 px-4">Learn More</a>-->
           </div>
         </div>
       </div>
@@ -151,7 +93,6 @@
 
     <div data-include="/modules/content/footer.html"></div>
 
-    <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
@@ -159,10 +100,12 @@
     <script src="lib/isotope/isotope.pkgd.min.js"></script>
     <script src="lib/lightbox/js/lightbox.min.js"></script>
 
-    <!-- Template Javascript -->
     <script src="/js/main.js"></script>
 
+    <script src="/js/moduls/porQueElegirnos.js"></script>
+
     <script>
+      // Este script es para el include de HTML, no lo necesitas modificar
       function includeHTML() {
         const elements = document.querySelectorAll("[data-include]");
         elements.forEach((el) => {

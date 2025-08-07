@@ -7,33 +7,27 @@
     <meta content="Free HTML Templates" name="description" />
     <title>Balances Auditados</title>
 
-    <!-- Favicon -->
     <link href="/assets/logos/superarse_gris.png" rel="icon" />
 
-    <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Font Awesome -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
       rel="stylesheet"
     />
 
-    <!-- Flaticon Font -->
     <link href="/lib/flaticon/font/flaticon.css" rel="stylesheet" />
 
-    <!-- Libraries Stylesheet -->
     <link
       href="/lib/owlcarousel/assets/owl.carousel.min.css"
       rel="stylesheet"
     />
     <link href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
 
-    <!-- Customized Bootstrap Stylesheet -->
     <link href="/css/style.css" rel="stylesheet" />
     <link rel="stylesheet" href="/js/main.js" />
   </head>
@@ -84,68 +78,7 @@
                 class="list-group-scrollable"
                 style="max-height: 500px; overflow-y: auto"
               >
-                <ul class="list-group list-group-flush">
-                  <li
-                    class="list-group-item d-flex justify-content-between align-items-center"
-                  >
-                    <span>BALANCE GENERAL 2023</span>
-                    <a
-                      href="/assets/modules/servicios/balanceGeneral/docs/BALANCE GENERAL 2022_superarse.pdf"
-                      target="_blank"
-                      class="btn btn-sm btn-primary"
-                    >
-                      <i class="fa fa-file-pdf mr-2"></i> Ver PDF
-                    </a>
-                  </li>
-                  <li
-                    class="list-group-item d-flex justify-content-between align-items-center"
-                  >
-                    <span>BALANCE GENERAL 2022</span>
-                    <a
-                      href="/assets/modules/servicios/balanceGeneral/docs/BALANCE GENERAL 2022_superarse.pdf"
-                      target="_blank"
-                      class="btn btn-sm btn-primary"
-                    >
-                      <i class="fa fa-file-pdf mr-2"></i> Ver PDF
-                    </a>
-                  </li>
-                  <li
-                    class="list-group-item d-flex justify-content-between align-items-center"
-                  >
-                    <span>BALANCE GENERAL 2021</span>
-                    <a
-                      href="/assets/modules/servicios/balanceGeneral/docs/BALANCE GENERAL 2022_superarse.pdf"
-                      target="_blank"
-                      class="btn btn-sm btn-primary"
-                    >
-                      <i class="fa fa-file-pdf mr-2"></i> Ver PDF
-                    </a>
-                  </li>
-                  <li
-                    class="list-group-item d-flex justify-content-between align-items-center"
-                  >
-                    <span>BALANCE GENERAL 2020</span>
-                    <a
-                      href="/assets/modules/servicios/balanceGeneral/docs/BALANCE GENERAL 2022_superarse.pdf"
-                      target="_blank"
-                      class="btn btn-sm btn-primary"
-                    >
-                      <i class="fa fa-file-pdf mr-2"></i> Ver PDF
-                    </a>
-                  </li>
-                  <li
-                    class="list-group-item d-flex justify-content-between align-items-center"
-                  >
-                    <span>BALANCE GENERAL 2019</span>
-                    <a
-                      href="/assets/modules/servicios/balanceGeneral/docs/BALANCE GENERAL 2022_superarse.pdf"
-                      target="_blank"
-                      class="btn btn-sm btn-primary"
-                    >
-                      <i class="fa fa-file-pdf mr-2"></i> Ver PDF
-                    </a>
-                  </li>
-                </ul>
+                <ul class="list-group list-group-flush" id="balances-list"></ul>
               </div>
               <small class="mt-4 text-muted text-center"
                 >Para visualizar estos documentos, necesitará un lector de
@@ -159,7 +92,6 @@
 
     <div data-include="/modules/content/footer.html"></div>
 
-    <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
@@ -167,8 +99,8 @@
     <script src="lib/isotope/isotope.pkgd.min.js"></script>
     <script src="lib/lightbox/js/lightbox.min.js"></script>
 
-    <!-- Template Javascript -->
     <script src="/js/main.js"></script>
+    <script src="/js/moduls/balanceGeneral.js"></script>
 
     <script>
       function includeHTML() {
