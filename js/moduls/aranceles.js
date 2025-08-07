@@ -61,26 +61,3 @@ const aranceles = [
     url: '/assets/docs/servicios/aranceles/DERECHOS PAO NOV24 ABR25 V2.0.pdf'
   }
 ];
-
-// Función para generar y renderizar las tarjetas de aranceles
-function generarAranceles() {
-  const contenedorAranceles = document.querySelector('.row.justify-content-center');
-  let htmlContent = '';
-
-  if (contenedorAranceles) {
-    aranceles.forEach(item => {
-      htmlContent += `
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="p-4 border rounded shadow-sm h-100 d-flex flex-column justify-content-between align-items-center text-center">
-            <h4 class="mb-3">${item.titulo}</h4>
-            <p class="text-muted mb-3">${item.descripcion}</p>
-            <a href="${item.url}" target="_blank" class="btn btn-primary py-2 px-4 mt-auto">
-              <i class="fa fa-file-pdf mr-2"></i> Descargar PDF
-            </a>
-          </div>
-        </div>
-      `;
-    });
-    contenedorAranceles.innerHTML = htmlContent;
-  }
-}

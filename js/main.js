@@ -203,8 +203,123 @@
       },
     },
   });
-
 })(jQuery);
+
+function generarHeader() {
+  const headerContainer = document.querySelector(
+    "body > .container-fluid.bg-light"
+  );
+  if (!headerContainer) {
+    console.error("No se encontró el contenedor principal del header.");
+    return;
+  }
+
+  // Función auxiliar para generar submenús de forma recursiva
+  const generarDropdownMenu = (items) => {
+    let menuHtml = "";
+    items.forEach((item) => {
+      if (item.items) {
+        // Si el ítem tiene sub-ítems, genera otro dropdown (dropright)
+        menuHtml += `
+                    <div class="dropdown dropright">
+                        <a class="dropdown-item dropdown-toggle" href="${
+                          item.enlace || "#"
+                        }" id="${
+          item.id
+        }" aria-haspopup="true" aria-expanded="false">
+                            ${item.texto}
+                        </a>
+                        <div class="dropdown-menu rounded-0 m-0" aria-labelledby="${
+                          item.id
+                        }">
+                            ${generarDropdownMenu(item.items)}
+                        </div>
+                    </div>
+                `;
+      } else {
+        // Si es un ítem simple, genera un enlace
+        menuHtml += `<a href="${item.enlace}" class="dropdown-item" ${
+          item.target ? `target="${item.target}"` : ""
+        }>${item.texto}</a>`;
+      }
+    });
+    return menuHtml;
+  };
+
+  // Construye la barra superior
+  let topbarHtml = `
+        <nav class="navbar navbar-expand-lg py-2 px-0 px-lg-5 fixed-top bg-dark navbar-dark" style="font-size: 0.9rem; z-index: 1030">
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="d-flex justify-content-start w-100">
+    `;
+  headerData.topbar.slice(0, 2).forEach((item) => {
+    topbarHtml += `<a href="${item.enlace}" class="navbar-link ${item.clases}"><i class="${item.icono}"></i>${item.texto}</a>`;
+  });
+  topbarHtml += `</div><div class="navbar-nav ml-auto" style="margin-right: 10%">`;
+  headerData.topbar.slice(2).forEach((item) => {
+    if (item.items) {
+      topbarHtml += `
+                <div class="nav-item dropdown">
+                    <a href="#" class="${item.clases}" data-toggle="dropdown">${
+        item.texto
+      }</a>
+                    <div class="dropdown-menu rounded-0 m-0">
+                        ${generarDropdownMenu(item.items)}
+                    </div>
+                </div>
+            `;
+    } else {
+      topbarHtml += `<a href="${item.enlace}" class="${item.clases}" ${
+        item.target ? `target="${item.target}"` : ""
+      }>${item.texto}</a>`;
+    }
+  });
+  topbarHtml += `</div></nav>`;
+
+  // Construye la barra de navegación principal
+  let mainNavHtml = `
+        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-5 fixed-top" style="margin-top: 40px; z-index: 1020">
+            <a href="/index.html" class="navbar-brand" style="width: min-content; height: min-content">
+                <img src="/assets/img/content/logo/superarse_gris.png" alt="logo" width="150rem" />
+            </a>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav font-weight-bold mx-auto py-0">
+    `;
+  headerData.mainNav.forEach((item) => {
+    if (item.items) {
+      mainNavHtml += `
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">${
+                      item.texto
+                    }</a>
+                    <div class="dropdown-menu rounded-0 m-0">
+                        ${generarDropdownMenu(item.items)}
+                    </div>
+                </div>
+            `;
+    } else {
+      mainNavHtml += `<a href="${item.enlace}" class="nav-item nav-link">${item.texto}</a>`;
+    }
+  });
+  // Añade el enlace final de "Plataformas"
+  mainNavHtml += `
+                </div>
+                <a href="${headerData.finalLink.enlace}" class="${
+    headerData.finalLink.clases
+  }" ${
+    headerData.finalLink.target ? `target="${headerData.finalLink.target}"` : ""
+  }>
+                    ${headerData.finalLink.texto}
+                </a>
+            </div>
+        </nav>
+    `;
+
+  // Inserta el HTML completo en el contenedor del header
+  headerContainer.innerHTML = topbarHtml + mainNavHtml;
+}
 
 // Función para generar y renderizar las tarjetas de aranceles
 function generarAranceles() {
@@ -473,10 +588,385 @@ function generarTestimonios() {
   }
 }
 
+// La función puede ir en tu archivo global.js, main.js o en un nuevo archivo footer.js
+function generarFooter() {
+  const footerContainer = document.querySelector(".footer-container");
+  if (!footerContainer) {
+    console.error("No se encontró el contenedor del footer.");
+    return;
+  }
+
+  let footerHtml = `
+        <a href="${
+          footerData.whatsapp.enlace
+        }" target="_blank" class="whatsapp-float">
+            <img src="${footerData.whatsapp.imagenSrc}" alt="${
+    footerData.whatsapp.alt
+  }" width="50" height="50" />
+        </a>
+
+        <div class="container-fluid bg-secondary text-white mt-5 py-5 px-sm-3 px-md-5">
+            <div class="row pt-5">
+                <div class="col-lg-3 col-md-6 mb-5">
+                    <a href="" class="navbar-brand font-weight-bold text-primary m-0 mb-4 p-0" style="font-size: 40px; line-height: 40px">
+                        <img src="${footerData.info.logo}" height="90px" />
+                    </a>
+                    <p>${footerData.info.descripcion}</p>
+                    <div class="d-flex justify-content-start mt-4">
+                        ${footerData.info.redes
+                          .map(
+                            (red) => `
+                            <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0" style="width: 38px; height: 38px" href="${red.enlace}">
+                                <i class="${red.icono}"></i>
+                            </a>
+                        `
+                          )
+                          .join("")}
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-5">
+                    <h3 class="text-primary mb-4">${
+                      footerData.contacto.titulo
+                    }</h3>
+                    ${footerData.contacto.elementos
+                      .map(
+                        (el) => `
+                        <div class="d-flex">
+                            <h4 class="fa ${el.icono} text-primary"></h4>
+                            <div class="pl-3">
+                                <h5 class="text-white">${el.titulo}</h5>
+                                <p>${el.texto}</p>
+                            </div>
+                        </div>
+                    `
+                      )
+                      .join("")}
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-5">
+                    <h3 class="text-primary mb-4">${
+                      footerData.enlacesRapidos.titulo
+                    }</h3>
+                    <div class="d-flex flex-column justify-content-start">
+                        ${footerData.enlacesRapidos.items
+                          .map(
+                            (item) => `
+                            <a class="text-white mb-2" href="${item.enlace}">
+                                <i class="fa fa-angle-right mr-2"></i>${item.texto}
+                            </a>
+                        `
+                          )
+                          .join("")}
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-5">
+                    <h3 class="text-primary mb-4">${
+                      footerData.admisiones.titulo
+                    }</h3>
+                    <form action="">
+                        <div class="form-group">
+                            <input type="text" class="form-control border-0 py-4" placeholder="${
+                              footerData.admisiones.formulario.placeholderNombre
+                            }" required="required" />
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control border-0 py-4" placeholder="${
+                              footerData.admisiones.formulario.placeholderEmail
+                            }" required="required" />
+                        </div>
+                        <div>
+                            <button class="btn btn-primary btn-block border-0 py-3" type="submit">${
+                              footerData.admisiones.formulario.textoBoton
+                            }</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="container-fluid pt-5" style="border-top: 1px solid rgba(23, 162, 184, 0.2)">
+                <p class="m-0 text-center text-white">
+                    ${footerData.copyright.texto}
+                </p>
+            </div>
+        </div>
+    `;
+
+  footerContainer.innerHTML = footerHtml;
+}
+
+// Esta función puede ir en tu main.js o en un archivo aparte.
+function generarFacilities() {
+  // Encuentra el contenedor principal donde se insertará el HTML
+  const container = document.querySelector(".container-submenu .row");
+
+  if (!container) {
+    console.error("No se encontró el contenedor para las 'Facilities'.");
+    return;
+  }
+
+  let htmlContent = "";
+
+  // Itera sobre el array de datos y crea el HTML para cada tarjeta
+  facilitiesData.forEach((facility, index) => {
+    // Definimos el tamaño de las columnas.
+    // Los primeros 4 elementos tienen 'col-lg-3', el resto 'col-lg-4'
+    const colClass = index < 4 ? "col-lg-3" : "col-lg-4";
+
+    htmlContent += `
+        <div class="${colClass} col-md-4 col-sm-6 pb-1">
+            <a href="${facility.enlace}" class="btn btn-block p-0">
+                <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px">
+                    <i class="${facility.icono} h1 font-weight-normal text-primary mb-3"></i>
+                    <div class="pl-4">
+                        <h4>${facility.titulo}</h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+    `;
+  });
+
+  // Inserta el HTML generado en el contenedor
+  container.innerHTML = htmlContent;
+}
+
+// Menu de Institucional
+
+// Esta función puede ir en tu main.js o en un archivo aparte
+function generarValores() {
+  const listGroupContainer = document.querySelector("#list-tab");
+  const tabContentContainer = document.querySelector("#nav-tabContent");
+
+  if (!listGroupContainer || !tabContentContainer) {
+    console.error("No se encontraron los contenedores para los Valores. Revisa los IDs.");
+    return;
+  }
+
+  // Mapea y crea el HTML para los botones de la lista
+  const listGroupHTML = valoresData.map((valor, index) => {
+    const isActive = index === 0 ? "active" : "";
+    return `
+      <a class="list-group-item list-group-item-action ${isActive}"
+         id="${valor.id}-list"
+         data-bs-toggle="list"
+         href="#${valor.id}"
+         role="tab"
+         aria-controls="${valor.id}">
+        ${valor.nombre}
+      </a>
+    `;
+  }).join("");
+
+  // Mapea y crea el HTML para el contenido de las pestañas
+  const tabContentHTML = valoresData.map((valor, index) => {
+    const isActive = index === 0 ? "show active" : "";
+    return `
+      <div class="tab-pane fade ${isActive}"
+           id="${valor.id}"
+           role="tabpanel"
+           aria-labelledby="${valor.id}-list">
+        <p>${valor.texto}</p>
+      </div>
+    `;
+  }).join("");
+
+  // Inserta el HTML generado en los contenedores respectivos
+  listGroupContainer.innerHTML = listGroupHTML;
+  tabContentContainer.innerHTML = tabContentHTML;
+}
+
+// Esta función puede ir en tu main.js o en un archivo aparte.
+function generarPlanesAcademicos() {
+  // Encuentra el contenedor principal donde se insertarán las tarjetas
+  const container = document.querySelector("#academic-plans-container");
+
+  if (!container) {
+    console.error("No se encontró el contenedor para los planes académicos.");
+    return;
+  }
+
+  // Genera el HTML de las tarjetas usando el array de datos
+  const cardsHTML = academicPlansData.map(item => `
+    <div class="col-md-6 mb-3">
+      <div class="card p-3">
+        <i class="${item.icon} mb-2 text-primary"></i>
+        <h5 class="card-title">${item.title}</h5>
+        <p class="card-text">
+          ${item.description}
+        </p>
+      </div>
+    </div>
+  `).join('');
+
+  // Inserta el HTML completo en el contenedor
+  container.innerHTML = cardsHTML;
+}
+
+// Esta función puede ir en tu main.js o en un archivo aparte.
+function generarEquipoDirectivo() {
+  // Encuentra el contenedor principal donde se insertarán las tarjetas
+  const container = document.querySelector("#equipo-directivo-container");
+
+  if (!container) {
+    console.error("No se encontró el contenedor para el equipo directivo. Revisa el ID.");
+    return;
+  }
+  
+  // Genera el HTML de las tarjetas usando el array de datos
+  const teamHTML = authoritiesData.map(member => `
+    <div class="col-md-4 col-lg-3 mb-4 text-center">
+      <img
+        class="img-fluid-autoridades rounded-circle mb-3"
+        src="${member.image}"
+        alt="${member.altText}"
+      />
+      <h5 class="mb-1">${member.name}</h5>
+      <p class="text-primary mb-1 font-weight-bold">${member.position}</p>
+      <p class="text-muted small">
+        <a href="mailto:${member.email}">
+          ${member.email}
+        </a>
+      </p>
+    </div>
+  `).join('');
+
+  // Inserta el HTML completo en el contenedor
+  container.innerHTML = teamHTML;
+}
+
+// Esta función puede ir en tu main.js o en un archivo aparte.
+function generarModelosAcordeon() {
+  // Encuentra el contenedor principal del acordeón por su ID
+  const accordionContainer = document.querySelector("#modelsAccordion");
+
+  if (!accordionContainer) {
+    console.error("No se encontró el contenedor del acordeón. Revisa el ID.");
+    return;
+  }
+
+  // Genera el HTML completo del acordeón usando el array de datos
+  const accordionHTML = modelsData.map((model, index) => {
+    // Determina si es el primer elemento para aplicar la clase 'active'
+    const isActive = index === 0 ? "show" : "";
+    const isCollapsed = index === 0 ? "" : "collapsed";
+
+    return `
+      <div class="card">
+        <div class="card-header" id="heading${model.id}">
+          <h2 class="mb-0">
+            <button
+              class="btn btn-block text-left d-flex justify-content-between align-items-center ${isCollapsed}"
+              type="button"
+              data-toggle="collapse"
+              data-target="#collapse${model.id}"
+              aria-expanded="${index === 0 ? 'true' : 'false'}"
+              aria-controls="collapse${model.id}"
+            >
+              <span>${model.title}</span>
+              <i class="fa fa-chevron-down"></i>
+            </button>
+          </h2>
+        </div>
+        <div
+          id="collapse${model.id}"
+          class="collapse ${isActive}"
+          aria-labelledby="heading${model.id}"
+          data-parent="#modelsAccordion"
+        >
+          <div class="card-body text-center">
+            <div
+              class="embed-responsive embed-responsive-4by3 w-100 mb-3"
+              style="height: 500px"
+            >
+              <iframe
+                class="embed-responsive-item"
+                src="${model.filePath}"
+                style="width: 100%; height: 100%; border: 0"
+                frameborder="0"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  // Inserta el HTML completo en el contenedor del acordeón
+  accordionContainer.innerHTML = accordionHTML;
+}
+
+// Esta función puede ir en tu main.js o en un archivo aparte.
+function generarReglamentosAcordeon() {
+  const accordionContainer = document.querySelector("#regulationsAccordion");
+
+  if (!accordionContainer) {
+    console.error("No se encontró el contenedor del acordeón. Revisa el ID.");
+    return;
+  }
+
+  const accordionHTML = regulationsData.map((regulation, index) => {
+    // Determina si es el primer elemento para que esté abierto por defecto
+    const isFirst = index === 0;
+    const isActive = isFirst ? "show" : "";
+    const isCollapsed = isFirst ? "" : "collapsed";
+
+    return `
+      <div class="card">
+        <div class="card-header" id="heading${regulation.id}">
+          <h2 class="mb-0">
+            <button
+              class="btn btn-block text-left d-flex justify-content-between align-items-center ${isCollapsed}"
+              type="button"
+              data-toggle="collapse"
+              data-target="#collapse${regulation.id}"
+              aria-expanded="${isFirst ? 'true' : 'false'}"
+              aria-controls="collapse${regulation.id}"
+            >
+              <span>${regulation.title}</span>
+              <i class="fa fa-chevron-down"></i>
+            </button>
+          </h2>
+        </div>
+        <div
+          id="collapse${regulation.id}"
+          class="collapse ${isActive}"
+          aria-labelledby="heading${regulation.id}"
+          data-parent="#regulationsAccordion"
+        >
+          <div class="card-body text-center">
+            <div class="embed-responsive embed-responsive-4by3 w-100 mb-3" style="height: 600px;">
+              <iframe
+                class="embed-responsive-item"
+                src="${regulation.filePath}"
+                style="width:100%; height:100%; border:0;"
+                frameborder="0"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  accordionContainer.innerHTML = accordionHTML;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  generarHeader();
+  generarFooter();
+  generarValores();
+  generarReglamentosAcordeon();
+  generarModelosAcordeon();
+  generarEquipoDirectivo();
+  generarPlanesAcademicos();
+  generarFacilities();
   generarOfertaAcademica();
   generarModalesOfertaAcademica();
   generarSelloUnico();
-  generarTestimonios();
+  generarTestimonios();  
   generarAranceles();
 });

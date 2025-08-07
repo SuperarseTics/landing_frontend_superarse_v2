@@ -1,0 +1,53 @@
+// footerData.js
+
+const footerData = {
+    // Enlace flotante de WhatsApp
+    whatsapp: {
+        enlace: "https://wa.me/593995901732?text=Hola%2C%20necesito%20información%20sobre%20sus%20carreras.",
+        imagenSrc: "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg",
+        alt: "WhatsApp"
+    },
+    // Contenido de la primera columna
+    info: {
+        logo: "/assets/img/content/logo/superarse_gris.png",
+        descripcion: "Labore dolor amet ipsum ea, erat sit ipsum duo eos. Volup amet ea dolor et magna dolor, elitr rebum duo est sed diam elitr. Stet elitr stet diam duo eos rebum ipsum diam ipsum elitr.",
+        redes: [
+            { enlace: "https://twitter.com/superarse1", icono: "fab fa-twitter" },
+            { enlace: "https://www.facebook.com/superarse1/", icono: "fab fa-facebook-f" },
+            { enlace: "https://ec.linkedin.com/company/superarse1", icono: "fab fa-linkedin-in" },
+            { enlace: "https://www.instagram.com/superarse1?igsh=MWJmNmNlNW5qZThtZA==", icono: "fab fa-instagram" }
+        ]
+    },
+    // Contenido de la segunda columna (Contacto)
+    contacto: {
+        titulo: "Póngase en contacto",
+        elementos: [
+            { icono: "fa fa-map-marker-alt", titulo: "Dirección", texto: "Av. General Rumiñahui e Isla Pinta 1111, Sangolqui" },
+            { icono: "fa fa-envelope", titulo: "Email", texto: "matriculas@superarse.edu.ec" },
+            { icono: "fa fa-phone-alt", titulo: "Phone", texto: "(02) 393-0980" }
+        ]
+    },
+    // Contenido de la tercera columna (Enlaces rápidos)
+    enlacesRapidos: {
+        titulo: "Enlaces rápidos",
+        items: [
+            { texto: "Noticias", enlace: "#" },
+            { texto: "Biblioteca", enlace: "#" },
+            { texto: "Calendarios", enlace: "#" },
+            { texto: "Plataformas", enlace: "/moduls/Plataformas/plataformas.html" }
+        ]
+    },
+    // Contenido de la cuarta columna (Admisiones)
+    admisiones: {
+        titulo: "Admisiones",
+        formulario: {
+            placeholderNombre: "Your Name",
+            placeholderEmail: "Your Email",
+            textoBoton: "Submit Now"
+        }
+    },
+    // Texto del pie de página
+    copyright: {
+        texto: "&copy; <a class='text-primary font-weight-bold' href='#'>Superarse.edu.ec</a>. All Rights Reserved. Designed by <a class='text-primary font-weight-bold' href='https://superarse.edu.ec/'>Instituto Superarse</a>"
+    }
+};

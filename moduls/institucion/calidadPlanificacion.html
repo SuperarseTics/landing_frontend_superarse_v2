@@ -8,7 +8,7 @@
     <title>Aseguramiento de la Calidad y Planificación</title>
 
     <!-- Favicon -->
-    <link href="/assets/logos/superarse_gris.png" rel="icon" />
+    <link href="/assets/img/content/logo/superarse_gris.png" rel="icon" />
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -38,7 +38,7 @@
     <link rel="stylesheet" href="/js/main.js" />
   </head>
   <body>
-    <div data-include="/moduls/content/menus/header.html"></div>
+    <div class="container-fluid bg-light position-relative shadow"></div>
 
     <div class="container-fluid py-5 container-top">
       <div class="container">
@@ -157,133 +157,135 @@
     ---
 
     <div class="container-fluid py-5 bg-light">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-10 text-center">
-        <p class="section-title pr-5">
-          <span class="pr-2">Documentación Oficial</span>
-        </p>
-        <h1 class="mb-4">Descarga Nuestro Aval Institucional</h1>
-        <p class="lead mb-4">
-          Aquí puedes ver y descargar el documento oficial que respalda la
-          trayectoria y la calidad de nuestro Instituto Superior Tecnológico
-          Superarse. Este es un testimonio clave de nuestro compromiso con
-          la excelencia y la acreditación.
-        </p>
-        <div class="d-flex flex-column align-items-center justify-content-center mt-4 p-4 border rounded shadow">
-          <h3 class="mb-4 text-center">Ver Documento de Aval</h3>
-          
-          <!-- Contenedor para el PDF -->
-          <div id="pdf-container" style="width: 100%; height: 800px; max-width: 900px; overflow: auto;"></div>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10 text-center">
+            <p class="section-title pr-5">
+              <span class="pr-2">Documentación Oficial</span>
+            </p>
+            <h1 class="mb-4">Descarga Nuestro Aval Institucional</h1>
+            <p class="lead mb-4">
+              Aquí puedes ver y descargar el documento oficial que respalda la
+              trayectoria y la calidad de nuestro Instituto Superior Tecnológico
+              Superarse. Este es un testimonio clave de nuestro compromiso con
+              la excelencia y la acreditación.
+            </p>
+            <div
+              class="d-flex flex-column align-items-center justify-content-center mt-4 p-4 border rounded shadow"
+            >
+              <h3 class="mb-4 text-center">Ver Documento de Aval</h3>
 
-          <!-- Controles de navegación -->
-          <div class="mt-2">
-            <button id="prev-page" class="btn btn-primary">Página Anterior</button>
-            <button id="next-page" class="btn btn-primary">Página Siguiente</button>
-            <span id="page-num">Página: 1</span>
+              <!-- Contenedor para el PDF -->
+              <div
+                id="pdf-container"
+                style="
+                  width: 100%;
+                  height: 800px;
+                  max-width: 900px;
+                  overflow: auto;
+                "
+              ></div>
+
+              <!-- Controles de navegación -->
+              <div class="mt-2">
+                <button id="prev-page" class="btn btn-primary">
+                  Página Anterior
+                </button>
+                <button id="next-page" class="btn btn-primary">
+                  Página Siguiente
+                </button>
+                <span id="page-num">Página: 1</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
 
-    <div data-include="/moduls/content/menus/footer.html"></div>
+    <div class="footer-container"></div>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/isotope/isotope.pkgd.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="/lib/easing/easing.min.js"></script>
+    <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="/lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="/lib/lightbox/js/lightbox.min.js"></script>
 
     <!-- Template Javascript -->
+    <script src="/js/moduls/header.js"></script>
+    <script src="/js/moduls/footer.js"></script>
+    <script src="/js/global.js"></script>
     <script src="/js/main.js"></script>
 
     <script>
-      function includeHTML() {
-        const elements = document.querySelectorAll("[data-include]");
-        elements.forEach((el) => {
-          const file = el.getAttribute("data-include");
-          fetch(file)
-            .then((response) => {
-              if (response.ok) return response.text();
-              else throw new Error("Archivo no encontrado");
-            })
-            .then((data) => {
-              el.innerHTML = data;
-            })
-            .catch((error) => {
-              el.innerHTML = "<p>Error al cargar " + file + "</p>";
-            });
+      const url =
+        "/assets/docs/institucion/calidadPlanificacion/AVAL20250221_09441421.pdf";
+
+      let pdfDoc = null;
+      let currentPage = 1;
+      let totalPages = 0;
+
+      // Función para renderizar una página del PDF
+      function renderPage(pageNum) {
+        pdfDoc.getPage(pageNum).then(function (page) {
+          const scale = 1; // Escala del PDF, ajusta si es necesario
+          const viewport = page.getViewport({ scale: scale });
+
+          // Crear un canvas para renderizar la página
+          const canvas = document.createElement("canvas");
+          document.getElementById("pdf-container").innerHTML = ""; // Limpiar el contenedor
+          document.getElementById("pdf-container").appendChild(canvas);
+
+          const context = canvas.getContext("2d");
+          canvas.width = viewport.width;
+          canvas.height = viewport.height;
+
+          // Renderizar la página en el canvas
+          page.render({
+            canvasContext: context,
+            viewport: viewport,
+          });
+
+          // Actualizar el número de página
+          document.getElementById(
+            "page-num"
+          ).textContent = `Página: ${pageNum} de ${totalPages}`;
         });
       }
 
-      document.addEventListener("DOMContentLoaded", includeHTML);
+      // Función para cargar el documento PDF
+      function loadPDF() {
+        pdfjsLib.getDocument(url).promise.then(function (pdf) {
+          pdfDoc = pdf;
+          totalPages = pdfDoc.numPages;
+          renderPage(currentPage); // Renderizar la primera página
+        });
+      }
+
+      // Navegar a la página anterior
+      document
+        .getElementById("prev-page")
+        .addEventListener("click", function () {
+          if (currentPage > 1) {
+            currentPage--;
+            renderPage(currentPage);
+          }
+        });
+
+      // Navegar a la página siguiente
+      document
+        .getElementById("next-page")
+        .addEventListener("click", function () {
+          if (currentPage < totalPages) {
+            currentPage++;
+            renderPage(currentPage);
+          }
+        });
+
+      // Cargar el PDF al cargar la página
+      loadPDF();
     </script>
-
-    <script>
-  const url = '/assets/docs/institucion/calidadPlanificacion/AVAL20250221_09441421.pdf';
-
-  let pdfDoc = null;
-  let currentPage = 1;
-  let totalPages = 0;
-
-  // Función para renderizar una página del PDF
-  function renderPage(pageNum) {
-    pdfDoc.getPage(pageNum).then(function(page) {
-      const scale = 1;  // Escala del PDF, ajusta si es necesario
-      const viewport = page.getViewport({ scale: scale });
-
-      // Crear un canvas para renderizar la página
-      const canvas = document.createElement('canvas');
-      document.getElementById('pdf-container').innerHTML = '';  // Limpiar el contenedor
-      document.getElementById('pdf-container').appendChild(canvas);
-
-      const context = canvas.getContext('2d');
-      canvas.width = viewport.width;
-      canvas.height = viewport.height;
-
-      // Renderizar la página en el canvas
-      page.render({
-        canvasContext: context,
-        viewport: viewport
-      });
-
-      // Actualizar el número de página
-      document.getElementById('page-num').textContent = `Página: ${pageNum} de ${totalPages}`;
-    });
-  }
-
-  // Función para cargar el documento PDF
-  function loadPDF() {
-    pdfjsLib.getDocument(url).promise.then(function(pdf) {
-      pdfDoc = pdf;
-      totalPages = pdfDoc.numPages;
-      renderPage(currentPage);  // Renderizar la primera página
-    });
-  }
-
-  // Navegar a la página anterior
-  document.getElementById('prev-page').addEventListener('click', function() {
-    if (currentPage > 1) {
-      currentPage--;
-      renderPage(currentPage);
-    }
-  });
-
-  // Navegar a la página siguiente
-  document.getElementById('next-page').addEventListener('click', function() {
-    if (currentPage < totalPages) {
-      currentPage++;
-      renderPage(currentPage);
-    }
-  });
-
-  // Cargar el PDF al cargar la página
-  loadPDF();
-</script>
   </body>
 </html>

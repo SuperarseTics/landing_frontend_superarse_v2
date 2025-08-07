@@ -8,7 +8,7 @@
     <title>Autoridades</title>
 
     <!-- Favicon -->
-    <link href="/assets/logos/superarse_gris.png" rel="icon" />
+    <link href="/assets/img/content/logo/superarse_gris.png" rel="icon" />
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -35,25 +35,11 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="/css/style.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/js/main.js" />
   </head>
   <body>
-    <div data-include="/moduls/content/menus/header.html"></div>
+    <div class="container-fluid bg-light position-relative shadow"></div>
 
     <div class="container-fluid py-5 container-top position-relative">
-      <div
-        class="position-absolute w-100 h-100"
-        style="
-          background: url('/assets/img/institucion/equipo-liderazgo.jpg') center
-            center no-repeat;
-          background-size: cover;
-          opacity: 0.2; /* Ajusta la opacidad para que el texto sea legible */
-          top: 0;
-          left: 0;
-          z-index: 0;
-        "
-      ></div>
-
       <div class="container position-relative" style="z-index: 1">
         <div class="row align-items-center">
           <div class="col-lg-12 text-center text-dark">
@@ -66,17 +52,16 @@
 
             <div class="col-lg-8 mx-auto">
               <p class="lead mb-4">
-                El equipo directivo del Instituto Superior Tecnológico
-                Superarse está conformado por profesionales altamente
-                comprometidos y con vasta experiencia. Su liderazgo es clave
-                para guiar nuestra institución hacia la excelencia académica y
-                el desarrollo integral de nuestra comunidad.
+                El equipo directivo del Instituto Superior Tecnológico Superarse
+                está conformado por profesionales altamente comprometidos y con
+                vasta experiencia. Su liderazgo es clave para guiar nuestra
+                institución hacia la excelencia académica y el desarrollo
+                integral de nuestra comunidad.
               </p>
               <p class="mb-5">
-                Ellos trabajan para mantener un ambiente de innovación,
-                calidad y responsabilidad, siempre enfocados en las
-                necesidades de nuestros estudiantes y en el progreso de la
-                sociedad.
+                Ellos trabajan para mantener un ambiente de innovación, calidad
+                y responsabilidad, siempre enfocados en las necesidades de
+                nuestros estudiantes y en el progreso de la sociedad.
               </p>
             </div>
           </div>
@@ -84,121 +69,31 @@
 
         <div class="row justify-content-center mt-5 pt-4 border-top">
           <h2 class="col-12 text-center mb-4">Nuestro Equipo Directivo</h2>
-          <div class="col-md-4 col-lg-3 mb-4 text-center">
-            <img
-              class="img-fluid-autoridades rounded-circle mb-3"
-              src="/assets/img/institucion/autoridades/VERONICA TAMAYO.png"
-              alt="Foto de Msc. Verónica Tamayo, Rectora"
-            />
-            <h5 class="mb-1">Msc. Verónica Tamayo</h5>
-            <p class="text-primary mb-1 font-weight-bold">RECTORA</p>
-            <p class="text-muted small">
-              <a href="mailto:rectora@superarse.edu.ec"
-                >rectora@superarse.edu.ec</a
-              >
-            </p>
-          </div>
 
-          <div class="col-md-4 col-lg-3 mb-4 text-center">
-            <img
-              class="img-fluid-autoridades rounded-circle mb-3"
-              src="/assets/img/institucion/autoridades/Tatiana_Quishpe25.png"
-              alt="Foto de Msc. Tatiana Quishpe, Vicerrectora Académica"
-            />
-            <h5 class="mb-1">Msc. Tatiana Quishpe</h5>
-            <p class="text-primary mb-1 font-weight-bold">
-              VICERRECTORA ACADÉMICA
-            </p>
-            <p class="text-muted small">
-              <a href="mailto:vicerrectora@superarse.edu.ec"
-                >vicerrectora@superarse.edu.ec</a
-              >
-            </p>
-          </div>
-
-          <div class="col-md-4 col-lg-3 mb-4 text-center">
-            <img
-              class="img-fluid-autoridades rounded-circle mb-3"
-              src="/assets/img/institucion/autoridades/RAMIRO OBANDO.png"
-              alt="Foto de Msc. Ramiro Obando, Director Administrativo Financiero"
-            />
-            <h5 class="mb-1">Msc. Ramiro Obando</h5>
-            <p class="text-primary mb-1 font-weight-bold">
-              DIRECTOR ADMINISTRATIVO FINANCIERO
-            </p>
-            <p class="text-muted small">
-              <a href="mailto:ramiro.obando@superarse.edu.ec"
-                >ramiro.obando@superarse.edu.ec</a
-              >
-            </p>
-          </div>
-
-          <div class="col-md-4 col-lg-3 mb-4 text-center">
-            <img
-              class="img-fluid-autoridades rounded-circle mb-3"
-              src="/assets/img/institucion/autoridades/VANESSA SALAZAR.png"
-              alt="Foto de Téc. Vanessa Salazar, Secretaria General"
-            />
-            <h5 class="mb-1">Téc. Vanessa Salazar</h5>
-            <p class="text-primary mb-1 font-weight-bold">SECRETARIA GENERAL</p>
-            <p class="text-muted small">
-              <a href="mailto:secretaria@superarse.edu.ec"
-                >melany.salazar@superarse.edu.ec</a
-              >
-            </p>
-          </div>
-
-          <div class="col-md-4 col-lg-3 mb-4 text-center">
-            <img
-              class="img-fluid-autoridades rounded-circle mb-3"
-              src="/assets/img/institucion/autoridades/IVAN TAMAYO.png"
-              alt="Foto de Iván Tamayo, Promotor"
-            />
-            <h5 class="mb-1">Iván Tamayo</h5>
-            <p class="text-primary mb-1 font-weight-bold">PROMOTOR</p>
-            <p class="text-muted small">
-              <a href="mailto:ivan.tamayo@superarse.edu.ec"
-                >ivant@tuguella.dog</a
-              >
-            </p>
-          </div>
+          <div
+            class="row justify-content-center"
+            id="equipo-directivo-container"
+          ></div>
         </div>
       </div>
     </div>
 
-    <div data-include="/moduls/content/menus/footer.html"></div>
+    <div class="footer-container"></div>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/isotope/isotope.pkgd.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="/lib/easing/easing.min.js"></script>
+    <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="/lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="/lib/lightbox/js/lightbox.min.js"></script>
 
     <!-- Template Javascript -->
+
+    <script src="/js/moduls/header.js"></script>
+    <script src="/js/moduls/authoritiesData.js"></script>
+    <script src="/js/moduls/footer.js"></script>
+    <script src="/js/global.js"></script>
     <script src="/js/main.js"></script>
-
-    <script>
-      function includeHTML() {
-        const elements = document.querySelectorAll("[data-include]");
-        elements.forEach((el) => {
-          const file = el.getAttribute("data-include");
-          fetch(file)
-            .then((response) => {
-              if (response.ok) return response.text();
-              else throw new Error("Archivo no encontrado");
-            })
-            .then((data) => {
-              el.innerHTML = data;
-            })
-            .catch((error) => {
-              el.innerHTML = "<p>Error al cargar " + file + "</p>";
-            });
-        });
-      }
-
-      document.addEventListener("DOMContentLoaded", includeHTML);
-    </script>
   </body>
 </html>
