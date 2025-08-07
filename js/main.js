@@ -740,14 +740,17 @@ function generarValores() {
   const tabContentContainer = document.querySelector("#nav-tabContent");
 
   if (!listGroupContainer || !tabContentContainer) {
-    console.error("No se encontraron los contenedores para los Valores. Revisa los IDs.");
+    console.error(
+      "No se encontraron los contenedores para los Valores. Revisa los IDs."
+    );
     return;
   }
 
   // Mapea y crea el HTML para los botones de la lista
-  const listGroupHTML = valoresData.map((valor, index) => {
-    const isActive = index === 0 ? "active" : "";
-    return `
+  const listGroupHTML = valoresData
+    .map((valor, index) => {
+      const isActive = index === 0 ? "active" : "";
+      return `
       <a class="list-group-item list-group-item-action ${isActive}"
          id="${valor.id}-list"
          data-bs-toggle="list"
@@ -757,12 +760,14 @@ function generarValores() {
         ${valor.nombre}
       </a>
     `;
-  }).join("");
+    })
+    .join("");
 
   // Mapea y crea el HTML para el contenido de las pestañas
-  const tabContentHTML = valoresData.map((valor, index) => {
-    const isActive = index === 0 ? "show active" : "";
-    return `
+  const tabContentHTML = valoresData
+    .map((valor, index) => {
+      const isActive = index === 0 ? "show active" : "";
+      return `
       <div class="tab-pane fade ${isActive}"
            id="${valor.id}"
            role="tabpanel"
@@ -770,7 +775,8 @@ function generarValores() {
         <p>${valor.texto}</p>
       </div>
     `;
-  }).join("");
+    })
+    .join("");
 
   // Inserta el HTML generado en los contenedores respectivos
   listGroupContainer.innerHTML = listGroupHTML;
@@ -788,7 +794,9 @@ function generarPlanesAcademicos() {
   }
 
   // Genera el HTML de las tarjetas usando el array de datos
-  const cardsHTML = academicPlansData.map(item => `
+  const cardsHTML = academicPlansData
+    .map(
+      (item) => `
     <div class="col-md-6 mb-3">
       <div class="card p-3">
         <i class="${item.icon} mb-2 text-primary"></i>
@@ -798,7 +806,9 @@ function generarPlanesAcademicos() {
         </p>
       </div>
     </div>
-  `).join('');
+  `
+    )
+    .join("");
 
   // Inserta el HTML completo en el contenedor
   container.innerHTML = cardsHTML;
@@ -810,12 +820,16 @@ function generarEquipoDirectivo() {
   const container = document.querySelector("#equipo-directivo-container");
 
   if (!container) {
-    console.error("No se encontró el contenedor para el equipo directivo. Revisa el ID.");
+    console.error(
+      "No se encontró el contenedor para el equipo directivo. Revisa el ID."
+    );
     return;
   }
-  
+
   // Genera el HTML de las tarjetas usando el array de datos
-  const teamHTML = authoritiesData.map(member => `
+  const teamHTML = authoritiesData
+    .map(
+      (member) => `
     <div class="col-md-4 col-lg-3 mb-4 text-center">
       <img
         class="img-fluid-autoridades rounded-circle mb-3"
@@ -830,7 +844,9 @@ function generarEquipoDirectivo() {
         </a>
       </p>
     </div>
-  `).join('');
+  `
+    )
+    .join("");
 
   // Inserta el HTML completo en el contenedor
   container.innerHTML = teamHTML;
@@ -847,12 +863,13 @@ function generarModelosAcordeon() {
   }
 
   // Genera el HTML completo del acordeón usando el array de datos
-  const accordionHTML = modelsData.map((model, index) => {
-    // Determina si es el primer elemento para aplicar la clase 'active'
-    const isActive = index === 0 ? "show" : "";
-    const isCollapsed = index === 0 ? "" : "collapsed";
+  const accordionHTML = modelsData
+    .map((model, index) => {
+      // Determina si es el primer elemento para aplicar la clase 'active'
+      const isActive = index === 0 ? "show" : "";
+      const isCollapsed = index === 0 ? "" : "collapsed";
 
-    return `
+      return `
       <div class="card">
         <div class="card-header" id="heading${model.id}">
           <h2 class="mb-0">
@@ -861,7 +878,7 @@ function generarModelosAcordeon() {
               type="button"
               data-toggle="collapse"
               data-target="#collapse${model.id}"
-              aria-expanded="${index === 0 ? 'true' : 'false'}"
+              aria-expanded="${index === 0 ? "true" : "false"}"
               aria-controls="collapse${model.id}"
             >
               <span>${model.title}</span>
@@ -892,7 +909,8 @@ function generarModelosAcordeon() {
         </div>
       </div>
     `;
-  }).join('');
+    })
+    .join("");
 
   // Inserta el HTML completo en el contenedor del acordeón
   accordionContainer.innerHTML = accordionHTML;
@@ -907,13 +925,14 @@ function generarReglamentosAcordeon() {
     return;
   }
 
-  const accordionHTML = regulationsData.map((regulation, index) => {
-    // Determina si es el primer elemento para que esté abierto por defecto
-    const isFirst = index === 0;
-    const isActive = isFirst ? "show" : "";
-    const isCollapsed = isFirst ? "" : "collapsed";
+  const accordionHTML = regulationsData
+    .map((regulation, index) => {
+      // Determina si es el primer elemento para que esté abierto por defecto
+      const isFirst = index === 0;
+      const isActive = isFirst ? "show" : "";
+      const isCollapsed = isFirst ? "" : "collapsed";
 
-    return `
+      return `
       <div class="card">
         <div class="card-header" id="heading${regulation.id}">
           <h2 class="mb-0">
@@ -922,7 +941,7 @@ function generarReglamentosAcordeon() {
               type="button"
               data-toggle="collapse"
               data-target="#collapse${regulation.id}"
-              aria-expanded="${isFirst ? 'true' : 'false'}"
+              aria-expanded="${isFirst ? "true" : "false"}"
               aria-controls="collapse${regulation.id}"
             >
               <span>${regulation.title}</span>
@@ -950,14 +969,681 @@ function generarReglamentosAcordeon() {
         </div>
       </div>
     `;
-  }).join('');
+    })
+    .join("");
 
   accordionContainer.innerHTML = accordionHTML;
+}
+
+// menu de gestion academica
+// Esta función puede ir en tu main.js o en un archivo aparte
+function generarEscuelaDeSalud() {
+  const cardsContainer = document.querySelector("#schoolOfHealthCards");
+  const modalsContainer = document.querySelector("#schoolOfHealthModals");
+
+  if (!cardsContainer || !modalsContainer) {
+    console.error(
+      "No se encontraron los contenedores para las tarjetas o modales de la Escuela de Salud. Revisa los IDs."
+    );
+    return;
+  }
+
+  let cardsHTML = "";
+  let modalsHTML = "";
+
+  schoolOfHealthData.forEach((career) => {
+    // Generar la tarjeta de la carrera
+    cardsHTML += `
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="career-card text-center p-4 border rounded shadow-sm h-100 d-flex flex-column justify-content-between">
+          <h3 class="mb-3">${career.title}</h3>
+          <a
+            href="#"
+            class="d-block mb-3"
+            data-toggle="modal"
+            data-target="#${career.id}Modal"
+          >
+            <img
+              src="${career.imagePath}"
+              alt="Imagen de ${career.title}"
+              class="img-fluid rounded"
+            />
+          </a>
+          <p class="text-muted">
+            Haz clic en la imagen para ver más detalles de la carrera.
+          </p>
+        </div>
+      </div>
+    `;
+
+    // Generar el modal de la carrera
+    const profileList = career.profile
+      .map((item) => `<li>${item}</li>`)
+      .join("");
+    const careerPathList = career.careerPath
+      .map((item) => `<li>${item}</li>`)
+      .join("");
+
+    modalsHTML += `
+      <div
+        class="modal fade"
+        id="${career.id}Modal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="${career.id}ModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="${career.id}ModalLabel">
+                ${career.title}
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <h4>Descripción de la Carrera</h4>
+              <p>${career.description}</p>
+
+              <h4>Perfil Profesional</h4>
+              <ul>${profileList}</ul>
+
+              <h4>Campo Laboral</h4>
+              <p>Los tecnólogos en ${career.title} pueden desempeñarse en:</p>
+              <ul>${careerPathList}</ul>
+
+              <h4>Duración de la Carrera</h4>
+              <p>
+                La carrera tiene una duración de <strong>${career.duration}</strong>.
+              </p>
+
+              <h4>Modalidad</h4>
+              <p>
+                <strong>${career.modality}</strong>
+              </p>
+
+              <hr />
+              <h4>Malla Curricular</h4>
+              <p>
+                Consulta el plan de estudios detallado para esta carrera. Aquí podrás ver la distribución de asignaturas por semestre, créditos y requisitos.
+              </p>
+              <div class="text-center">
+                <a
+                  href="${career.curriculumLink}"
+                  target="_blank"
+                  class="btn btn-info py-2 px-4"
+                >
+                  <i class="fa fa-file-pdf mr-2"></i> Ver Malla Curricular PDF
+                </a>
+              </div>
+
+              <hr />
+              <p class="text-muted text-center">
+                Para más detalles sobre requisitos de admisión o si tienes alguna pregunta adicional, por favor contacta a la secretaría académica.
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Cerrar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+
+  cardsContainer.innerHTML = cardsHTML;
+  modalsContainer.innerHTML = modalsHTML;
+}
+
+// Esta función puede ir en tu main.js o en un archivo aparte
+function generarEducacionYHumanidades() {
+  const cardsContainer = document.querySelector("#educationAndHumanitiesCards");
+  const modalsContainer = document.querySelector(
+    "#educationAndHumanitiesModals"
+  );
+
+  if (!cardsContainer || !modalsContainer) {
+    console.error(
+      "No se encontraron los contenedores para las tarjetas o modales de la Escuela de Educación y Humanidades. Revisa los IDs."
+    );
+    return;
+  }
+
+  let cardsHTML = "";
+  let modalsHTML = "";
+
+  educationAndHumanitiesData.forEach((career) => {
+    // Generar la tarjeta de la carrera
+    cardsHTML += `
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="career-card text-center p-4 border rounded shadow-sm h-100 d-flex flex-column justify-content-between">
+          <h3 class="mb-3">${career.title}</h3>
+          <a
+            href="#"
+            class="d-block mb-3"
+            data-toggle="modal"
+            data-target="#${career.id}Modal"
+          >
+            <img
+              src="${career.imagePath}"
+              alt="Imagen de ${career.title}"
+              class="img-fluid rounded"
+            />
+          </a>
+          <p class="text-muted">
+            Haz clic en la imagen para ver más detalles de la carrera.
+          </p>
+        </div>
+      </div>
+    `;
+
+    // Generar el modal de la carrera
+    const profileList = career.profile
+      .map((item) => `<li>${item}</li>`)
+      .join("");
+    const careerPathList = career.careerPath
+      .map((item) => `<li>${item}</li>`)
+      .join("");
+
+    modalsHTML += `
+      <div
+        class="modal fade"
+        id="${career.id}Modal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="${career.id}ModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="${career.id}ModalLabel">
+                ${career.title}
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <h4>Descripción de la Carrera</h4>
+              <p>${career.description}</p>
+
+              <h4>Perfil Profesional</h4>
+              <ul>${profileList}</ul>
+
+              <h4>Campo Laboral</h4>
+              <p>Los tecnólogos en ${career.title} pueden desempeñarse en:</p>
+              <ul>${careerPathList}</ul>
+
+              <h4>Duración de la Carrera</h4>
+              <p>
+                La carrera tiene una duración de <strong>${career.duration}</strong>, incluyendo prácticas preprofesionales supervisadas.
+              </p>
+
+              <h4>Modalidad</h4>
+              <p>
+                <strong>${career.modality}</strong>
+              </p>
+
+              <hr />
+              <h4>Malla Curricular</h4>
+              <p>
+                Consulta el plan de estudios detallado para esta carrera. Aquí podrás ver la distribución de asignaturas por semestre, créditos y requisitos.
+              </p>
+              <div class="text-center">
+                <a
+                  href="${career.curriculumLink}"
+                  target="_blank"
+                  class="btn btn-info py-2 px-4"
+                >
+                  <i class="fa fa-file-pdf mr-2"></i> Ver Malla Curricular PDF
+                </a>
+              </div>
+
+              <hr />
+              <p class="text-muted text-center">
+                Para más detalles sobre requisitos de admisión o si tienes alguna pregunta adicional, por favor contacta a la secretaría académica.
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Cerrar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+
+  cardsContainer.innerHTML = cardsHTML;
+  modalsContainer.innerHTML = modalsHTML;
+}
+
+// Esta función puede ir en tu main.js o en un archivo aparte
+function generarEscuelaDeVeterinaria() {
+  const cardsContainer = document.querySelector("#veterinarySchoolCards");
+  const modalsContainer = document.querySelector("#veterinarySchoolModals");
+
+  if (!cardsContainer || !modalsContainer) {
+    console.error(
+      "No se encontraron los contenedores para las tarjetas o modales de la Escuela de Veterinaria. Revisa los IDs."
+    );
+    return;
+  }
+
+  let cardsHTML = "";
+  let modalsHTML = "";
+
+  veterinarySchoolData.forEach((career) => {
+    // Generar la tarjeta de la carrera
+    cardsHTML += `
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="career-card text-center p-4 border rounded shadow-sm h-100 d-flex flex-column justify-content-between">
+          <h3 class="mb-3">${career.title}</h3>
+          <a
+            href="#"
+            class="d-block mb-3"
+            data-toggle="modal"
+            data-target="#${career.id}Modal"
+          >
+            <img
+              src="${career.imagePath}"
+              alt="Imagen de ${career.title}"
+              class="img-fluid rounded"
+            />
+          </a>
+          <p class="text-muted">
+            Haz clic en la imagen para ver más detalles de la carrera.
+          </p>
+        </div>
+      </div>
+    `;
+
+    // Generar el modal de la carrera
+    const profileList = career.profile
+      .map((item) => `<li>${item}</li>`)
+      .join("");
+    const careerPathList = career.careerPath
+      .map((item) => `<li>${item}</li>`)
+      .join("");
+
+    modalsHTML += `
+      <div
+        class="modal fade"
+        id="${career.id}Modal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="${career.id}ModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="${career.id}ModalLabel">
+                ${career.title}
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <h4>Descripción de la Carrera</h4>
+              <p>${career.description}</p>
+
+              <h4>Perfil Profesional</h4>
+              <ul>${profileList}</ul>
+
+              <h4>Campo Laboral</h4>
+              <p>Los tecnólogos en ${career.title} pueden desempeñarse en:</p>
+              <ul>${careerPathList}</ul>
+
+              <h4>Duración de la Carrera</h4>
+              <p>
+                La carrera tiene una duración de <strong>${career.duration}</strong>, incluyendo prácticas preprofesionales supervisadas.
+              </p>
+
+              <h4>Modalidad</h4>
+              <p>
+                <strong>${career.modality}</strong>
+              </p>
+
+              <hr />
+              <h4>Malla Curricular</h4>
+              <p>
+                Consulta el plan de estudios detallado para esta carrera. Aquí podrás ver la distribución de asignaturas por semestre, créditos y requisitos.
+              </p>
+              <div class="text-center">
+                <a
+                  href="${career.curriculumLink}"
+                  target="_blank"
+                  class="btn btn-info py-2 px-4"
+                >
+                  <i class="fa fa-file-pdf mr-2"></i> Ver Malla Curricular PDF
+                </a>
+              </div>
+
+              <hr />
+              <p class="text-muted text-center">
+                Para más detalles sobre requisitos de admisión o si tienes alguna pregunta adicional, por favor contacta a la secretaría académica.
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Cerrar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+
+  cardsContainer.innerHTML = cardsHTML;
+  modalsContainer.innerHTML = modalsHTML;
+}
+
+// Esta función puede ir en tu main.js o en un archivo aparte
+function generarAdministracionEIndustria() {
+  const cardsContainer = document.querySelector(
+    "#administrationAndIndustryCards"
+  );
+  const modalsContainer = document.querySelector(
+    "#administrationAndIndustryModals"
+  );
+
+  if (!cardsContainer || !modalsContainer) {
+    console.error(
+      "No se encontraron los contenedores para las tarjetas o modales de la Escuela de Administración e Industria. Revisa los IDs."
+    );
+    return;
+  }
+
+  let cardsHTML = "";
+  let modalsHTML = "";
+
+  administrationAndIndustryData.forEach((career) => {
+    // Generar la tarjeta de la carrera
+    cardsHTML += `
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="career-card text-center p-4 border rounded shadow-sm h-100 d-flex flex-column justify-content-between">
+          <h3 class="mb-3">${career.title}</h3>
+          <a
+            href="#"
+            class="d-block mb-3"
+            data-toggle="modal"
+            data-target="#${career.id}Modal"
+          >
+            <img
+              src="${career.imagePath}"
+              alt="Imagen de ${career.title}"
+              class="img-fluid rounded"
+            />
+          </a>
+          <p class="text-muted">
+            Haz clic en la imagen para ver más detalles de la carrera.
+          </p>
+        </div>
+      </div>
+    `;
+
+    // Generar el modal de la carrera
+    const profileList = career.profile
+      .map((item) => `<li>${item}</li>`)
+      .join("");
+    const careerPathList = career.careerPath
+      .map((item) => `<li>${item}</li>`)
+      .join("");
+
+    modalsHTML += `
+      <div
+        class="modal fade"
+        id="${career.id}Modal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="${career.id}ModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="${career.id}ModalLabel">
+                ${career.title}
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <h4>Descripción de la Carrera</h4>
+              <p>${career.description}</p>
+
+              <h4>Perfil Profesional</h4>
+              <ul>${profileList}</ul>
+
+              <h4>Campo Laboral</h4>
+              <p>Los tecnólogos en ${career.title} pueden desempeñarse en:</p>
+              <ul>${careerPathList}</ul>
+
+              <h4>Duración de la Carrera</h4>
+              <p>
+                La carrera tiene una duración de <strong>${career.duration}</strong>, incluyendo prácticas preprofesionales supervisadas.
+              </p>
+
+              <h4>Modalidad</h4>
+              <p>
+                <strong>${career.modality}</strong>
+              </p>
+
+              <hr />
+              <h4>Malla Curricular</h4>
+              <p>
+                Consulta el plan de estudios detallado para esta carrera. Aquí podrás ver la distribución de asignaturas por semestre, créditos y requisitos.
+              </p>
+              <div class="text-center">
+                <a
+                  href="${career.curriculumLink}"
+                  target="_blank"
+                  class="btn btn-info py-2 px-4"
+                >
+                  <i class="fa fa-file-pdf mr-2"></i> Ver Malla Curricular PDF
+                </a>
+              </div>
+
+              <hr />
+              <p class="text-muted text-center">
+                Para más detalles sobre requisitos de admisión o si tienes alguna pregunta adicional, por favor contacta a la secretaría académica.
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Cerrar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+
+  cardsContainer.innerHTML = cardsHTML;
+  modalsContainer.innerHTML = modalsHTML;
+}
+
+// Esta función puede ir en tu main.js o en un archivo aparte
+function generarConstruccionYExtraccion() {
+  const cardsContainer = document.querySelector("#constructionAndExtractionCards");
+  const modalsContainer = document.querySelector("#constructionAndExtractionModals");
+
+  if (!cardsContainer || !modalsContainer) {
+    console.error("No se encontraron los contenedores para las tarjetas o modales de la Escuela de Construcción y Extracción Sostenible. Revisa los IDs.");
+    return;
+  }
+
+  let cardsHTML = "";
+  let modalsHTML = "";
+
+  constructionAndExtractionData.forEach((career) => {
+    // Generar la tarjeta de la carrera
+    cardsHTML += `
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="career-card text-center p-4 border rounded shadow-sm h-100 d-flex flex-column justify-content-between">
+          <h3 class="mb-3">${career.title}</h3>
+          <a
+            href="#"
+            class="d-block mb-3"
+            data-toggle="modal"
+            data-target="#${career.id}Modal"
+          >
+            <img
+              src="${career.imagePath}"
+              alt="Imagen de ${career.title}"
+              class="img-fluid rounded"
+            />
+          </a>
+          <p class="text-muted">
+            Haz clic en la imagen para ver más detalles de la carrera.
+          </p>
+        </div>
+      </div>
+    `;
+
+    // Generar el modal de la carrera
+    const profileList = career.profile.map(item => `<li>${item}</li>`).join("");
+    const careerPathList = career.careerPath.map(item => `<li>${item}</li>`).join("");
+
+    modalsHTML += `
+      <div
+        class="modal fade"
+        id="${career.id}Modal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="${career.id}ModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="${career.id}ModalLabel">
+                ${career.title}
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <h4>Descripción de la Carrera</h4>
+              <p>${career.description}</p>
+
+              <h4>Perfil Profesional</h4>
+              <ul>${profileList}</ul>
+
+              <h4>Campo Laboral</h4>
+              <p>Los tecnólogos en ${career.title} pueden desempeñarse en:</p>
+              <ul>${careerPathList}</ul>
+
+              <h4>Duración de la Carrera</h4>
+              <p>
+                La carrera tiene una duración de <strong>${career.duration}</strong>, incluyendo prácticas preprofesionales supervisadas.
+              </p>
+
+              <h4>Modalidad</h4>
+              <p>
+                <strong>${career.modality}</strong>
+              </p>
+
+              <hr />
+              <h4>Malla Curricular</h4>
+              <p>
+                Consulta el plan de estudios detallado para esta carrera. Aquí podrás ver la distribución de asignaturas por semestre, créditos y requisitos.
+              </p>
+              <div class="text-center">
+                <a
+                  href="${career.curriculumLink}"
+                  target="_blank"
+                  class="btn btn-info py-2 px-4"
+                >
+                  <i class="fa fa-file-pdf mr-2"></i> Ver Malla Curricular PDF
+                </a>
+              </div>
+
+              <hr />
+              <p class="text-muted text-center">
+                Para más detalles sobre requisitos de admisión o si tienes alguna pregunta adicional, por favor contacta a la secretaría académica.
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Cerrar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+
+  cardsContainer.innerHTML = cardsHTML;
+  modalsContainer.innerHTML = modalsHTML;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   generarHeader();
   generarFooter();
+  generarEscuelaDeSalud();
+  generarEducacionYHumanidades();
+  generarEscuelaDeVeterinaria();
+  generarAdministracionEIndustria();
+  generarConstruccionYExtraccion();
   generarValores();
   generarReglamentosAcordeon();
   generarModelosAcordeon();
@@ -967,6 +1653,6 @@ document.addEventListener("DOMContentLoaded", () => {
   generarOfertaAcademica();
   generarModalesOfertaAcademica();
   generarSelloUnico();
-  generarTestimonios();  
+  generarTestimonios();
   generarAranceles();
 });
