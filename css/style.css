@@ -11275,3 +11275,27 @@ a.text-dark:focus {
   background-color: #1DA851;
   /* Color un poco más oscuro al pasar el ratón */
 }
+.card {
+  /* Oculta cualquier parte de la imagen que se salga del contenedor */
+  overflow: hidden;
+}
+
+.card:hover .card-img-top {
+  /* Escala la imagen al 150% de su tamaño original */
+  transform: scale(1.2);
+  /* Propiedad para una transición suave del efecto */
+  transition: transform 0.3s ease-in-out;
+}
+.card img {
+  /* Establece un ancho fijo para todas las imágenes del carrusel */
+  width: 100%;
+  
+  /* Establece un alto fijo para todas las imágenes */
+  height: 210px; /* Puedes ajustar este valor según tus necesidades */
+  
+  /* Esto asegura que la imagen cubra el área sin distorsionarse */
+  object-fit: cover;
+  
+  /* Esto centra la imagen dentro de su contenedor */
+  object-position: center;
+}

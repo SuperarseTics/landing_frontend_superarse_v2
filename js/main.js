@@ -814,6 +814,8 @@ function generarPlanesAcademicos() {
   container.innerHTML = cardsHTML;
 }
 
+
+
 // Esta función puede ir en tu main.js o en un archivo aparte.
 function generarEquipoDirectivo() {
   // Encuentra el contenedor principal donde se insertarán las tarjetas
@@ -1508,7 +1510,270 @@ function generarAdministracionEIndustria() {
 
   cardsContainer.innerHTML = cardsHTML;
   modalsContainer.innerHTML = modalsHTML;
+
 }
+//*************************************************************************************************************** */
+ // BALANCE GENERALL balancegeneral.js
+ /* /js/main.js */
+document.addEventListener("DOMContentLoaded", function () {
+  const balancesList = document.getElementById("balances-list");
+
+  // Aseguramos que el contenedor existe y que el array de datos está disponible
+  if (balancesList && typeof balancesData !== 'undefined') {
+    // Sort data by year in descending order
+    balancesData.sort((a, b) => b.year - a.year);
+
+    balancesData.forEach((balance) => {
+      const listItem = document.createElement("li");
+      listItem.className = "list-group-item d-flex justify-content-between align-items-center";
+
+      const yearSpan = document.createElement("span");
+      yearSpan.textContent = `BALANCE GENERAL ${balance.year}`;
+
+      const link = document.createElement("a");
+      link.href = balance.file;
+      link.target = "_blank";
+      link.className = "btn btn-sm btn-primary";
+
+      const icon = document.createElement("i");
+      icon.className = "fa fa-file-pdf mr-2";
+
+      link.appendChild(icon);
+      link.appendChild(document.createTextNode(" Ver PDF"));
+      listItem.appendChild(yearSpan);
+      listItem.appendChild(link);
+      balancesList.appendChild(listItem);
+    });
+  }
+});
+// ARANCELES . aranceles.js
+/* arancelesLogic.js */
+
+document.addEventListener('DOMContentLoaded', () => {
+  // 1. Selecciona el div donde se mostrará la información
+  const contenedorAranceles = document.querySelector('.row.justify-content-center');
+
+  // Asegúrate de que el contenedor y los datos existen
+  if (contenedorAranceles && typeof arancelesData !== 'undefined') {
+    // 2. Itera sobre el arreglo de arancelesData
+    arancelesData.forEach(arancel => {
+      // 3. Crea el HTML para cada elemento
+      const htmlArancel = `
+        <div class="col-lg-6 mb-4">
+          <div class="d-flex align-items-center bg-light p-4 rounded">
+            <div class="bg-primary text-white text-center rounded-circle p-3" style="width: 65px; height: 65px;">
+              <i class="fa fa-file-pdf fa-2x"></i>
+            </div>
+            <div class="ml-4">
+              <h4>${arancel.titulo}</h4>
+              <p class="m-0">${arancel.descripcion}</p>
+              <a href="${arancel.url}" class="btn btn-sm btn-outline-primary mt-2" download>
+                Descargar
+              </a>
+            </div>
+          </div>
+        </div>
+      `;
+      // 4. Inserta el HTML en el contenedor
+      contenedorAranceles.innerHTML += htmlArancel;
+    });
+  }
+});
+// BALANCE DE AUDITORIA balanceAuditoria.js
+/* balancesAuditadosLogic.js */
+document.addEventListener("DOMContentLoaded", function () {
+  const balancesList = document.getElementById("balances-auditados-list");
+
+  // Verificar si el contenedor y los datos existen antes de continuar
+  if (balancesList && typeof balancesAuditadosData !== 'undefined') {
+    // Ordenar los datos por año de forma descendente
+    balancesAuditadosData.sort((a, b) => b.year - a.year);
+
+    balancesAuditadosData.forEach((balance) => {
+      const listItem = document.createElement("li");
+      listItem.className = "list-group-item d-flex justify-content-between align-items-center";
+
+      const yearSpan = document.createElement("span");
+      yearSpan.textContent = `BALANCE AUDITADO ${balance.year}`;
+
+      const link = document.createElement("a");
+      link.href = balance.file;
+      link.target = "_blank";
+      link.className = "btn btn-sm btn-primary";
+
+      const icon = document.createElement("i");
+      icon.className = "fa fa-file-pdf mr-2";
+
+      link.appendChild(icon);
+      link.appendChild(document.createTextNode(" Ver PDF"));
+      listItem.appendChild(yearSpan);
+      listItem.appendChild(link);
+      balancesList.appendChild(listItem);
+    });
+  }
+});
+
+//BIENESTAR ESTUDIANTIL bienestarEstudiantil.js
+/* bienestarCarruselLogic.js */
+
+// Función para generar un carrusel
+function generarCarrusel(idContenedor, idCarrusel, fotos) {
+  const contenedor = document.getElementById(idContenedor);
+  if (!contenedor) return;
+
+  const slides = [];
+  const fotosPorSlide = 4;
+  
+  for (let i = 0; i < fotos.length; i += fotosPorSlide) {
+    const fotosDelSlide = fotos.slice(i, i + fotosPorSlide);
+    const fotosHtml = fotosDelSlide.map(fotoUrl => `
+      <div class="col-md-3">
+        <div class="card">
+          <img src="${fotoUrl}" class="card-img-top" alt="...">
+        </div>
+      </div>
+    `).join('');
+    
+    slides.push(`
+      <div class="carousel-item ${i === 0 ? 'active' : ''}">
+        <div class="row">
+          ${fotosHtml}
+        </div>
+      </div>
+    `);
+  }
+
+  const carruselHtml = `
+    <div id="${idCarrusel}" class="carousel slide mb-5" data-ride="carousel">
+      <div class="carousel-inner">
+        ${slides.join('')}
+      </div>
+      <a class="carousel-control-prev" href="#${idCarrusel}" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Anterior</span>
+      </a>
+      <a class="carousel-control-next" href="#${idCarrusel}" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Siguiente</span>
+      </a>
+    </div>
+  `;
+  
+  contenedor.innerHTML = carruselHtml;
+}
+
+// Llamar a la función para cada carrusel
+document.addEventListener('DOMContentLoaded', () => {
+  if (typeof carruselData !== 'undefined') {
+    generarCarrusel('carrusel-lengua-senas-container', 'carruselLenguaSenas', carruselData.lenguaSenas);
+    generarCarrusel('carrusel-protocolo-container', 'carruselProtocolo', carruselData.protocolo);
+    generarCarrusel('carrusel-sensibilizacion-container', 'carruselSensibilizacion', carruselData.sensibilizacion);
+    generarCarrusel('carrusel-espacios-container', 'carruselEspacios', carruselData.espacios);
+    generarCarrusel('carrusel-senaletica-container', 'carruselSenaletica', carruselData.senaletica);
+  }
+});
+
+
+//BIENESTAR ESTUDIANTIL PARTE DE SERVICIOS 
+// Esta función puede ir en tu main.js o en un archivo aparte.
+function generarPlanesAcademicos() {
+  // Encuentra el contenedor principal donde se insertarán las tarjetas
+  const container = document.querySelector("#academic-plans-container");
+
+  if (!container) {
+    console.error("No se encontró el contenedor para los planes académicos.");
+    return;
+  }
+
+ // Genera el HTML de las tarjetas usando el array de datos
+const cardsHTML = academicBienestarData
+  .map(
+    (item) => `
+    <div class="col-md-6 mb-3">
+      <div class="card p-3">
+        <a href="${item.url}" class="card-link text-decoration-none text-dark">
+          <h5 class="card-title">${item.title}</h5>
+        </a>
+      </div>
+    </div>
+  `
+  )
+  .join("");
+
+  // Inserta el HTML completo en el contenedor
+ container.innerHTML = cardsHTML;
+}
+
+// CUMPLIMIENTO TRIBUTARIO cumplimientoTributario.js 
+/* documentosLogic.js */
+document.addEventListener("DOMContentLoaded", function () {
+  const documentosList = document.getElementById("documentos-list");
+
+  // Verificar si el contenedor y los datos existen antes de continuar
+  if (documentosList && typeof documentosData !== 'undefined') {
+    documentosData.forEach((documento) => {
+      const listItem = document.createElement("li");
+      listItem.className = "list-group-item d-flex justify-content-between align-items-center";
+
+      const titleSpan = document.createElement("span");
+      titleSpan.textContent = documento.title;
+
+      const link = document.createElement("a");
+      link.href = documento.file;
+      link.target = "_blank";
+      link.className = "btn btn-sm btn-primary";
+
+      const icon = document.createElement("i");
+      icon.className = "fa fa-file-pdf mr-2";
+
+      link.appendChild(icon);
+      link.appendChild(document.createTextNode(" Ver PDF"));
+      listItem.appendChild(titleSpan);
+      listItem.appendChild(link);
+      documentosList.appendChild(listItem);
+    });
+  }
+});
+//POR QUE ELEGIRNOS porQueElegirnos.js 
+/* ventajasLogic.js */
+document.addEventListener("DOMContentLoaded", function () {
+  const lista = document.getElementById("ventajas-lista");
+
+  if (lista && typeof ventajasData !== 'undefined') {
+    ventajasData.forEach((ventaja) => {
+      const li = document.createElement("li");
+      li.className = "py-2 border-bottom tooltip-container";
+
+      const icono = document.createElement("i");
+      icono.className = "fa fa-check text-primary mr-3";
+
+      const texto = document.createTextNode(ventaja.titulo);
+
+      const span = document.createElement("span");
+      span.className = "tooltiptext";
+      span.textContent = ventaja.descripcion;
+
+      li.appendChild(icono);
+      li.appendChild(texto);
+      li.appendChild(span);
+
+      lista.appendChild(li);
+    });
+  }
+});
+//PROCESO DE ADMISIONES procesoDeAdmisiones.js
+/* requisitosLogic.js */
+document.addEventListener("DOMContentLoaded", function () {
+  const listaRequisitos = document.getElementById("lista-requisitos");
+
+  if (listaRequisitos && typeof requisitosData !== 'undefined') {
+    requisitosData.forEach((requisito) => {
+      const li = document.createElement("li");
+      li.className = "list-group-item";
+      li.textContent = requisito;
+      listaRequisitos.appendChild(li);
+    });
+  }
+});
+//
 
 // Esta función puede ir en tu main.js o en un archivo aparte
 function generarConstruccionYExtraccion() {

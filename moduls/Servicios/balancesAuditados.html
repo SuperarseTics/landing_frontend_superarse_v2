@@ -6,8 +6,8 @@
     <meta content="Free HTML Templates" name="keywords" />
     <meta content="Free HTML Templates" name="description" />
     <title>Balances Auditados</title>
-
-    <link href="/assets/logos/superarse_gris.png" rel="icon" />
+  <!-- Favicon -->
+    <link href="/assets/img/content/logo/superarse_gris.png" rel="icon" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
@@ -32,9 +32,10 @@
     <link rel="stylesheet" href="/js/main.js" />
   </head>
   <body>
-    <div data-include="/modules/content/header.html"></div>
+     
+   <div class="container-fluid bg-light position-relative shadow"></div>
 
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-5 container-top">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-5">
@@ -94,17 +95,24 @@
       </div>
     </div>
 
-    <div data-include="/modules/content/footer.html"></div>
+      <div class="footer-container"></div>
 
+    <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/isotope/isotope.pkgd.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="/lib/easing/easing.min.js"></script>
+    <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="/lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="/lib/lightbox/js/lightbox.min.js"></script>
 
-    <script src="/js/main.js"></script>
+    <!-- Template Javascript -->
+    <script src="/js/moduls/header.js"></script>
+    <script src="/js/moduls/footer.js"></script>
+    <script src="/js/moduls/administrationAndIndustryData.js"></script>
+    <script src="/js/global.js"></script>
     <script src="/js/moduls/balancesAuditados.js"></script>
+    
+    <script src="/js/main.js"></script>
 
     <script>
       function includeHTML() {
