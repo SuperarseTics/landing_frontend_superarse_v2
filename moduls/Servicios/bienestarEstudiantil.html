@@ -8,7 +8,7 @@
     <title>Bienestar Estudiantil</title>
 
     <!-- Favicon -->
-    <link href="/assets/logos/superarse_gris.png" rel="icon" />
+    <link href="/assets/img/content/logo/superarse_gris.png" rel="icon" />
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -38,20 +38,79 @@
     <link rel="stylesheet" href="/js/main.js" />
 </head>
 <body>
-    <div data-include="/modules/content/header.html"></div>
+   
+   <div class="container-fluid bg-light position-relative shadow"></div>
 
-    <div data-include="/modules/content/footer.html"></div>
+ <div class="container-fluid py-5 container-top">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-5">
+            <img
+              class="img-fluid rounded mb-5 mb-lg-0"
+              src="/assets/img/bienestarEstudiantil/bienestar1.jpeg"
+              alt="Foto de bienestra institucional del Instituto Superarse"
+            />
+          </div>
+          <div class="col-lg-7">
+            <p class="section-title pr-5">
+              <span class="pr-2">Bienestar Institucional</span>
+            </p>
+            <h1 class="mb-4">Quienes somos ?</h1>
+
+            <div>
+              <p>
+                La Coordinación de Bienestar Institucional tiene como misión promover y mejorar la calidad de vida,
+                 así como el bienestar integral de todos los miembros de la comunidad educativa del Tecnológico Superarse.
+              </p>
+              <p>
+                ¡En el Tecnológico Superarse nos preocupamos por ti! Como parte de nuestra comunidad educativa, tienes acceso 
+                a una amplia variedad de beneficios tanto colectivos como individuales. Nuestro equipo de profesionales en 
+                Bienestar Institucional está siempre disponible para brindarte el apoyo que necesites en todo momento.
+              </p> 
+            </div>
+          </div>
+        </div>
+         <h1 class="mb-5 text-center container-top">¡Tu bienestar es parte de superarse!</h1>
+         <p  class=" text-center text-primary">SERVICIOS </p>
+         <div class="row" id="academic-plans-container"></div>
+               <h1 class="mb-5 text-center ">¡SOMOS UN ESPACIO INCLUSIVO!</h1>
+               <p>
+                La Coordinación de Bienestar Institucional siempre se preocupa por lograr un ambiente inclusivo
+                 y equitativo, logrando la igualdad de oportunidades.
+              </p> 
+            <h2 class="mb-5 text-center container-top">Taller de Lengua de Señas</h2>
+                  <div id="carrusel-lengua-senas-container"></div>
+                             <h2 class="mb-5 text-center container-top">Socialización del Protocolo Psicopedagógico</h2>
+                              <div id="carrusel-protocolo-container"></div>
+                              <h2 class="mb-5 text-center container-top">Sensibilización: Comunicación asertiva con personas con discapacidad.</h2>
+                              <div id="carrusel-sensibilizacion-container"></div>
+                              <h2 class="mb-5 text-center container-top">Espacios accesibles</h2>
+                              <div id="carrusel-espacios-container"></div>
+                              <h2 class="mb-5 text-center container-top">Adecuaciones en la señalética (braille)</h2>
+                              <div id="carrusel-senaletica-container"></div>
+                              <h1 class="mb-5 text-center ">¡SOMOS UN ESPACIO INCLUSIVO!</h1>
+      </div>
+    </div>
+     <div class="footer-container"></div>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/isotope/isotope.pkgd.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="/lib/easing/easing.min.js"></script>
+    <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="/lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="/lib/lightbox/js/lightbox.min.js"></script>
 
     <!-- Template Javascript -->
+    <script src="/js/moduls/header.js"></script>
+    <script src="/js/moduls/footer.js"></script>
+    <script src="/js/moduls/administrationAndIndustryData.js"></script>
+    <script src="/js/global.js"></script>
+    <script src="/js/moduls/bienestarEstudiantil.js"></script>
+    <script src="/js/moduls/academicBienestarData.js"></script>
+    
     <script src="/js/main.js"></script>
+
 
     <script>
       function includeHTML() {
@@ -71,7 +130,6 @@
             });
         });
       }
-
       document.addEventListener("DOMContentLoaded", includeHTML);
     </script>
 </body>

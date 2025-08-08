@@ -1,5 +1,5 @@
-/*Aranceles*/
-const aranceles = [
+/* arancelesData.js */
+const arancelesData = [
   {
     titulo: 'Aranceles: Administración',
     descripcion: 'Consulta los aranceles correspondientes a la carrera de Administración.',
