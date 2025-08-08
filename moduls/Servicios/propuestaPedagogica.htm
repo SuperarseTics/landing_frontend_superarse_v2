@@ -52,7 +52,7 @@
 
                 <div class="pdf-container">
                     <iframe 
-                        src="/assets/docs/gestionAcademica/01. MALLA 25 - ENFERMERIA VETERINARIA.pdf" 
+                        src="/assets/docs/Servicios/propuestaPedagogica/PROPUESTA_PEDAGÓGICA.pdf" 
                         style="width:100%; height:800px;" 
                         frameborder="0"
                     >
@@ -81,27 +81,5 @@
    >
     
     <script src="/js/main.js"></script>
-
-
-    <script>
-      function includeHTML() {
-        const elements = document.querySelectorAll("[data-include]");
-        elements.forEach((el) => {
-          const file = el.getAttribute("data-include");
-          fetch(file)
-            .then((response) => {
-              if (response.ok) return response.text();
-              else throw new Error("Archivo no encontrado");
-            })
-            .then((data) => {
-              el.innerHTML = data;
-            })
-            .catch((error) => {
-              el.innerHTML = "<p>Error al cargar " + file + "</p>";
-            });
-        });
-      }
-      document.addEventListener("DOMContentLoaded", includeHTML);
-    </script>
 </body>
 </html>

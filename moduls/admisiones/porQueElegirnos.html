@@ -110,27 +110,5 @@
 
     <script src="/js/moduls/porQueElegirnos.js"></script>
 
-    <script>
-      // Este script es para el include de HTML, no lo necesitas modificar
-      function includeHTML() {
-        const elements = document.querySelectorAll("[data-include]");
-        elements.forEach((el) => {
-          const file = el.getAttribute("data-include");
-          fetch(file)
-            .then((response) => {
-              if (response.ok) return response.text();
-              else throw new Error("Archivo no encontrado");
-            })
-            .then((data) => {
-              el.innerHTML = data;
-            })
-            .catch((error) => {
-              el.innerHTML = "<p>Error al cargar " + file + "</p>";
-            });
-        });
-      }
-
-      document.addEventListener("DOMContentLoaded", includeHTML);
-    </script>
   </body>
 </html>
