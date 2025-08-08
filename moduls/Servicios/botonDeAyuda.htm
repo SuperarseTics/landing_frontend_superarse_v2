@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Free HTML Templates" name="keywords" />
+    <meta content="Free HTML Templates" name="description" />
+    <title>Boton de ayuda </title>
+
+    <!-- Favicon -->
+    <link href="/assets/img/content/logo/superarse_gris.png" rel="icon" />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Flaticon Font -->
+    <link href="/lib/flaticon/font/flaticon.css" rel="stylesheet" />
+
+    <!-- Libraries Stylesheet -->
+    <link
+      href="/lib/owlcarousel/assets/owl.carousel.min.css"
+      rel="stylesheet"
+    />
+    <link href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/js/main.js" />
+</head>
+<body>
+   
+   <div class="container-fluid bg-light position-relative shadow"></div>
+
+    <div class="container-fluid py-5 bg-light container-top">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10 text-center">
+            <p class="section-title pr-5">
+              <span class="pr-2">Nuestro Compromiso es ConTigo </span>
+            </p>
+            <h1 class="mb-4">En Caso de Violencia Basada en Genero</h1>
+            <p class="lead mb-4">
+              El presente formulario tiene como objetivo recopilar denuncias de los miembros de la 
+              comunidad educativa del Instituto Superior Tecnológico Superarse sobre cualquier tipo 
+              de violencia contemplada en el Protocolo de Prevención y Actuación ante casos de acoso,
+              discriminación y violencia basada en género u orientación sexual, incluyendo manifestaciones 
+              físicas, psicológicas, sexuales, verbales, cibernéticas, simbólicas u otras formas establecidas
+              en dicho protocolo. Desarrollado por la Coordinación de Bienestar Institucional, este instrumento
+              busca identificar posibles situaciones de vulneración de derechos asociadas a prejuicios de género
+              ,identidad sexual, origen étnico-cultural, condición socioeconómica u otros factores discriminatorios,
+              permitiendo activar los mecanismos de acompañamiento, investigación y sanción correspondientes para 
+              garantizar un entorno educativo libre de violencia. La información obtenida será tratada con 
+              confidencialidad y utilizada para implementar medidas preventivas y correctivas que fortalezcan 
+              la convivencia institucional.
+            </p>
+             <a href="/ruta/a/tu/formulario.html" class="btn btn-danger btn-lg mt-4">
+                        BOTÓN DE AYUDA
+                    </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+ 
+     <div class="footer-container"></div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="/lib/easing/easing.min.js"></script>
+    <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="/lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="/lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="/js/moduls/header.js"></script>
+    <script src="/js/moduls/footer.js"></script>
+    <script src="/js/moduls/administrationAndIndustryData.js"></script>
+    <script src="/js/global.js"></script>
+   >
+    
+    <script src="/js/main.js"></script>
+
+
+    <script>
+      function includeHTML() {
+        const elements = document.querySelectorAll("[data-include]");
+        elements.forEach((el) => {
+          const file = el.getAttribute("data-include");
+          fetch(file)
+            .then((response) => {
+              if (response.ok) return response.text();
+              else throw new Error("Archivo no encontrado");
+            })
+            .then((data) => {
+              el.innerHTML = data;
+            })
+            .catch((error) => {
+              el.innerHTML = "<p>Error al cargar " + file + "</p>";
+            });
+        });
+      }
+      document.addEventListener("DOMContentLoaded", includeHTML);
+    </script>
+</body>
+</html>
