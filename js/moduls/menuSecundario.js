@@ -4,36 +4,36 @@ const facilitiesData = [
   {
     icono: "flaticon-050-fence",
     titulo: "Procesos Académicos",
-    enlace: "#", // Reemplaza '#' con la URL real
+    enlace: "../../moduls/subMenu/procesosAcademicos/procesosAcedemicos.html", // Reemplaza '#' con la URL real
   },
   {
     icono: "flaticon-022-drum",
     titulo: "Vinculación con la Sociedad",
-    enlace: "#", // Reemplaza '#' con la URL real
+    enlace: "../../moduls/subMenu/vinculacionSociedad/vinculacionSociedad.html", // Reemplaza '#' con la URL real
   },
   {
     icono: "flaticon-030-crayons",
     titulo: "Investigación",
-    enlace: "#", // Reemplaza '#' con la URL real
+    enlace: "../../moduls/subMenu/investigacion/investigacion.html", // Reemplaza '#' con la URL real
   },
   {
     icono: "flaticon-017-toy-car",
     titulo: "Practicas Preprofesionales",
-    enlace: "#", // Reemplaza '#' con la URL real
+    enlace: "../../moduls/subMenu/practicasPreprofesionales/practicasPreprofesionales.html", // Reemplaza '#' con la URL real
   },
   {
     icono: "flaticon-025-sandwich",
     titulo: "Titulación",
-    enlace: "#", // Reemplaza '#' con la URL real
+    enlace: "../../moduls/subMenu/titulacion/titulacion.html", // Reemplaza '#' con la URL real
   },
   {
     icono: "flaticon-047-backpack",
     titulo: "Talento Humano",
-    enlace: "#", // Reemplaza '#' con la URL real
+    enlace: "../../moduls/subMenu/talentoHumano/talentoHumano.html", // Reemplaza '#' con la URL real
   },
   {
     icono: "flaticon-047-backpack",
     titulo: "Bienestar Institucional",
-    enlace: "#", // Reemplaza '#' con la URL real
+    enlace: "../../moduls/subMenu/bienestarInstitucional/bienestarInstitucional.html", // Reemplaza '#' con la URL real
   },
 ];

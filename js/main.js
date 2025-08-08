@@ -1636,6 +1636,263 @@ function generarConstruccionYExtraccion() {
   modalsContainer.innerHTML = modalsHTML;
 }
 
+// Modulo de Vinculacion
+
+function generarAreasDeVinculacion() {
+  const listContainer = document.querySelector("#vinculacionList");
+  const modalsContainer = document.querySelector("#vinculacionModals");
+
+  if (!listContainer || !modalsContainer) {
+    console.error("No se encontraron los contenedores para la lista o modales de Vinculación. Revisa los IDs.");
+    return;
+  }
+
+  let listHTML = "";
+  let modalsHTML = "";
+
+  areasDeVinculacionData.forEach((area) => {
+    // Generar el ítem de la lista
+    listHTML += `
+      <a
+        href="#"
+        class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+        data-toggle="modal"
+        data-target="#${area.id}Modal"
+      >
+        <span>${area.title}</span>
+        <i class="fa fa-arrow-right"></i>
+      </a>
+    `;
+
+    // Generar el modal de la carrera
+    modalsHTML += `
+      <div
+        class="modal fade"
+        id="${area.id}Modal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="${area.id}ModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="${area.id}ModalLabel">
+                ${area.title}
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              ${area.content}
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Cerrar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+
+  listContainer.innerHTML = listHTML;
+  modalsContainer.innerHTML = modalsHTML;
+}
+
+// Esta función puede ir en tu main.js o en un archivo aparte
+function generarInvestigacionIDi() {
+  const listContainer = document.querySelector("#investigacionList");
+  const modalsContainer = document.querySelector("#investigacionModals");
+
+  if (!listContainer || !modalsContainer) {
+    console.error("No se encontraron los contenedores para la lista o modales de I+D+i. Revisa los IDs.");
+    return;
+  }
+
+  let listHTML = "";
+  let modalsHTML = "";
+
+  investigacionData.forEach((item) => {
+    if (item.isSection) {
+      // Generar el encabezado de sección
+      listHTML += `
+        <h5 class="mt-4 mb-2 ml-3">${item.title}</h5>
+      `;
+    } else {
+      // Generar el ítem de la lista (enlace)
+      listHTML += `
+        <a
+          href="#"
+          class="list-group-item list-group-item-action d-flex justify-content-between align-items-center ${item.isSection ? 'ml-3' : ''}"
+          data-toggle="modal"
+          data-target="#${item.id}Modal"
+        >
+          <span>${item.title}</span>
+          <i class="fa fa-arrow-right"></i>
+        </a>
+      `;
+
+      // Generar el modal del ítem
+      modalsHTML += `
+        <div
+          class="modal fade"
+          id="${item.id}Modal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="${item.id}ModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="${item.id}ModalLabel">
+                  ${item.title}
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                ${item.content}
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Cerrar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+  });
+
+  listContainer.innerHTML = listHTML;
+  modalsContainer.innerHTML = modalsHTML;
+}
+
+// En tu archivo main.js o practicas.js
+function generarPracticasData() {
+  const container = document.getElementById("practicasContainer");
+
+  if (!container) {
+    console.error("El contenedor con ID 'practicasContainer' no fue encontrado.");
+    return;
+  }
+
+  let htmlContent = "";
+
+  practicasData.forEach((item) => {
+    if (item.type === "section") {
+      htmlContent += `
+        <div class="mb-5">
+          <h4 class="mb-3">${item.title}</h4>
+          <p class="text-muted">${item.description.trim()}</p>
+          <div class="text-center">
+            <a
+              href="${item.link}"
+              target="_blank"
+              class="btn btn-primary py-2 px-4"
+            >
+              <i class="fa fa-file-pdf mr-2"></i> ${item.buttonText}
+            </a>
+          </div>
+        </div>
+      `;
+    } else if (item.type === "list") {
+      let listItems = "";
+      item.items.forEach((listItem) => {
+        listItems += `
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span>${listItem.text}</span>
+            <a
+              href="${listItem.link}"
+              target="_blank"
+              class="btn btn-sm btn-primary"
+            >
+              <i class="fa fa-file-pdf mr-2"></i> Descargar PDF
+            </a>
+          </li>
+        `;
+      });
+
+      htmlContent += `
+        <div class="mb-5">
+          <h4 class="mb-3">${item.title}</h4>
+          <p class="text-muted">${item.description.trim()}</p>
+          <ul class="list-group list-group-flush">
+            ${listItems}
+          </ul>
+        </div>
+      `;
+    }
+  });
+
+  // Eliminar el padding-bottom del último elemento
+  htmlContent = htmlContent.replace(/<div class="mb-5"/g, '<div class="mb-5"');
+  if (htmlContent.includes('<div class="mb-5"')) {
+    htmlContent = htmlContent.replace(/<div class="mb-5"(?![\s\S]*<div class="mb-5")/, '<div class="mb-0"');
+  }
+  
+  container.innerHTML = htmlContent;
+}
+
+// Esta función puede ir en tu main.js o en un archivo separado
+function generarTitulacionData() {
+  const container = document.getElementById("titulacionContainer");
+
+  if (!container) {
+    console.error("El contenedor con ID 'titulacionContainer' no fue encontrado.");
+    return;
+  }
+
+  let htmlContent = "";
+
+  titulacionData.forEach((item, index) => {
+    // Determinar la clase para el margin-bottom
+    const marginBottomClass = index === titulacionData.length - 1 ? "mb-0" : "mb-5";
+
+    htmlContent += `
+      <div class="${marginBottomClass}">
+        <h4 class="mb-3">${item.title}</h4>
+        <p class="text-muted">${item.description.trim()}</p>
+        <div class="text-center mt-4">
+          <a
+            href="${item.link}"
+            target="_blank"
+            class="btn btn-primary py-2 px-4"
+          >
+            <i class="${item.buttonIcon}"></i> ${item.buttonText}
+          </a>
+        </div>
+      </div>
+    `;
+  });
+
+  container.innerHTML = htmlContent;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   generarHeader();
   generarFooter();
@@ -1644,6 +1901,10 @@ document.addEventListener("DOMContentLoaded", () => {
   generarEscuelaDeVeterinaria();
   generarAdministracionEIndustria();
   generarConstruccionYExtraccion();
+  generarAreasDeVinculacion();
+  generarInvestigacionIDi();
+  generarPracticasData();
+  generarTitulacionData();
   generarValores();
   generarReglamentosAcordeon();
   generarModelosAcordeon();

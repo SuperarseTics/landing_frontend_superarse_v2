@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta content="Free HTML Templates" name="keywords" />
     <meta content="Free HTML Templates" name="description" />
-    <title>Por que Elegirnos</title>
+    <title>Talento Humano</title>
 
     <!-- Favicon -->
-    <link href="/assets/logos/superarse_gris.png" rel="icon" />
+    <link href="/assets/img/content/logo/superarse_gris.png" rel="icon" />
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -35,44 +35,25 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="/css/style.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/js/main.js" />
-</head>
-<body>
-    <div data-include="/modules/content/header.html"></div>
+  </head>
+  <body>
+    <div class="container-fluid bg-light position-relative shadow"></div>
 
-    <div data-include="/modules/content/footer.html"></div>
+    <div class="footer-container"></div>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/isotope/isotope.pkgd.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="/lib/easing/easing.min.js"></script>
+    <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="/lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="/lib/lightbox/js/lightbox.min.js"></script>
 
     <!-- Template Javascript -->
+    <script src="/js/moduls/header.js"></script>
+    <script src="/js/moduls/valores.js"></script>
+    <script src="/js/moduls/footer.js"></script>
+    <script src="/js/global.js"></script>
     <script src="/js/main.js"></script>
-
-    <script>
-      function includeHTML() {
-        const elements = document.querySelectorAll("[data-include]");
-        elements.forEach((el) => {
-          const file = el.getAttribute("data-include");
-          fetch(file)
-            .then((response) => {
-              if (response.ok) return response.text();
-              else throw new Error("Archivo no encontrado");
-            })
-            .then((data) => {
-              el.innerHTML = data;
-            })
-            .catch((error) => {
-              el.innerHTML = "<p>Error al cargar " + file + "</p>";
-            });
-        });
-      }
-
-      document.addEventListener("DOMContentLoaded", includeHTML);
-    </script>
-</body>
+  </body>
 </html>
