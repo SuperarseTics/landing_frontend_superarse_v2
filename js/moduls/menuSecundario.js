@@ -36,4 +36,9 @@ const facilitiesData = [
     titulo: "Bienestar Institucional",
     enlace: "../../moduls/subMenu/bienestarInstitucional/bienestarInstitucional.html", // Reemplaza '#' con la URL real
   },
+  {
+    icono: "flaticon-043-teddy-bear",
+    titulo: "Evalución Docente",
+    enlace: "../../moduls/subMenu/bienestarInstitucional/bienestarInstitucional.html", // Reemplaza '#' con la URL real
+  },
 ];

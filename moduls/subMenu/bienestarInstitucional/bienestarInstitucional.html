@@ -10,102 +10,133 @@
     <link href="/assets/img/content/logo/superarse_gris.png" rel="icon" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap"
-      rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap"
+        rel="stylesheet"
     />
     <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
-      rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+        rel="stylesheet"
     />
     <link href="/lib/flaticon/font/flaticon.css" rel="stylesheet" />
     <link
-      href="/lib/owlcarousel/assets/owl.carousel.min.css"
-      rel="stylesheet"
+        href="/lib/owlcarousel/assets/owl.carousel.min.css"
+        rel="stylesheet"
     />
     <link href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
     <link href="/css/style.css" rel="stylesheet" />
 
-    <style>
-      .submenu-content {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease-out;
-      }
-      .submenu-content.show {
-        max-height: 500px;
-        transition: max-height 0.4s ease-in;
-      }
-      .list-group-heading {
-          cursor: pointer;
-          user-select: none;
-      }
-    </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    
 </head>
 <body>
-    
-   <div class="container-fluid bg-light position-relative shadow"></div>
+
+    <div class="container-fluid bg-light position-relative shadow"></div>
 
     <div class="container-fluid py-5 container-top">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-5">
-            <img
-              class="img-fluid rounded mb-5 mb-lg-0"
-              src="/assets/img/bienestarEstudiantil/bienestar1.jpeg"
-              alt="Foto de bienestar institucional del Instituto Superarse"
-            />
-          </div>
-          <div class="col-lg-7">
-            <p class="section-title pr-5">
-              <span class="pr-2">Bienestar Institucional</span>
-            </p>
-            <h1 class="mb-4">Quienes somos ?</h1>
-            <div>
-              <p>
-                La Coordinación de Bienestar Institucional tiene como misión promover y mejorar la calidad de vida,
-                  así como el bienestar integral de todos los miembros de la comunidad educativa del Tecnológico Superarse.
-              </p>
-              <p>
-                ¡En el Tecnológico Superarse nos preocupamos por ti! Como parte de nuestra comunidad educativa, tienes acceso 
-                a una amplia variedad de beneficios tanto colectivos como individuales. Nuestro equipo de profesionales en 
-                Bienestar Institucional está siempre disponible para brindarte el apoyo que necesites en todo momento.
-              </p> 
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5">
+                    <img
+                        class="img-fluid rounded mb-5 mb-lg-0"
+                        src="/assets/img/bienestarEstudiantil/bienestar1.jpeg"
+                        alt="Foto de bienestar institucional del Instituto Superarse"
+                    />
+                </div>
+                <div class="col-lg-7">
+                    <p class="section-title pr-5">
+                        <span class="pr-2">Bienestar Institucional</span>
+                    </p>
+                    <h1 class="mb-4">Quienes somos?</h1>
+                    <div>
+                        <p style="text-align: justify;">
+                            La Coordinación de Bienestar Institucional tiene como misión promover y mejorar la calidad de vida,
+                            así como el bienestar integral de todos los miembros de la comunidad educativa del Tecnológico Superarse.
+                        </p>
+                        <p style="text-align: justify;">
+                            ¡En el Tecnológico Superarse nos preocupamos por ti! Como parte de nuestra comunidad educativa, tienes acceso 
+                            a una amplia variedad de beneficios tanto colectivos como individuales. Nuestro equipo de profesionales en 
+                            Bienestar Institucional está siempre disponible para brindarte el apoyo que necesites en todo momento.
+                        </p> 
+                    </div>
+                </div>
             </div>
-          </div>
+            <h1 class="mb-5 text-center container-top">¡Tu bienestar es parte de superarse!</h1>
+            <h6 class="mb-5 text-center container-top">SERVICIOS</h6>
+            <div class="d-flex justify-content-center mb-4">
+               <button class="btn btn-primary mx-2" onclick="showContent('salud')">BOTÓN DE AYUDA</button>
+               <button class="btn btn-primary mx-2" onclick="showContent('apoyo')">RESPUESTA PEDAGÓGICA</button>
+               </div>
+               <script>
+    function showContent(service) {
+        const dynamicContent = document.getElementById('dynamic-content');
+        let content = '';
+
+        if (service === 'salud') {
+            content = `
+                <h2 class="text-uppercase text-primary mb-3" style="text-align: center;">En Caso de Violencia Basada en Genero</h2>
+                <p style="text-align: justify;">El presente formulario tiene como objetivo recopilar denuncias de los miembros de la comunidad educativa
+                   del Instituto Superior Tecnológico Superarse sobre cualquier tipo de violencia contemplada en el Protocolo 
+                   de Prevención y Actuación ante casos de acoso, discriminación y violencia basada en género u orientación
+                    sexual, incluyendo manifestaciones físicas, psicológicas, sexuales, verbales, cibernéticas, simbólicas u otras 
+                    formas establecidas en dicho protocolo. Desarrollado por la Coordinación de Bienestar Institucional, este instrumento
+                     busca identificar posibles situaciones de vulneración de derechos asociadas a prejuicios de género, identidad sexual,
+                      origen étnico-cultural, condición socioeconómica u otros factores discriminatorios, permitiendo activar los
+                       mecanismos de acompañamiento, investigación y sanción correspondientes para garantizar un entorno educativo 
+                       libre de violencia. La información obtenida será tratada con confidencialidad y utilizada para implementar
+                        medidas preventivas y correctivas que fortalezcan la convivencia institucional.</p>
+               <div class="d-flex justify-content-center" >
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScKuypiP-LoLt4-QtKw4ycF37TJSXwY4YZZk_XN9rP519yYfw/viewform" class="btn btn-danger btn-lg mt-4" target="_blank">
+    BOTÓN DE AYUDA </a>
+</div>
+            `;
+        } else if (service === 'apoyo') {
+    content = `
+        <h2 class="text-uppercase text-primary mb-3">Propuesta Pedagógica</h2>
+        <p>Aquí puedes visualizar nuestra propuesta pedagógica directamente.</p>
+        <div style="height: 500px; width: 100%;">
+            <iframe src="/assets/docs/servicios/propuestaPedagogica/PROPUESTA_PEDAGOGICA.pdf" style="width: 100%; height: 100%; border: none;"></iframe>
         </div>
-        <h1 class="mb-5 text-center container-top">¡Tu bienestar es parte de superarse!</h1>
-        
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="list-group list-group-flush rounded border p-3" id="academic-plans-container">
+            `;
+        }
+
+        // Esta línea actualiza el contenido del panel
+        dynamicContent.innerHTML = content;
+    }
+</script>
+            
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="list-group list-group-flush rounded border p-3" id="academic-plans-container">
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="border rounded p-4" style="height: 600px; overflow-y: auto;">
+                        <div id="dynamic-content" style="text-align: justify;">
+                            <h2 class="text-uppercase text-primary mb-3">Bienestar Institucional</h2>
+                            <p>Selecciona un servicio del panel lateral para ver la información detallada.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="col-lg-8">
-            <div class="border rounded p-4" style="height: 600px; overflow-y: auto;">
-              <div id="dynamic-content">
-                <h2 class="text-uppercase text-primary mb-3">Bienestar Institucional</h2>
-                <p>Selecciona un servicio del panel lateral para ver la información detallada.</p>
-              </div>
-            </div>
-          </div>
+            <br>
+            <h1 class="mb-5 text-center ">¡SOMOS UN ESPACIO INCLUSIVO!</h1>
+            <p>
+                La Coordinación de Bienestar Institucional siempre se preocupa por lograr un ambiente inclusivo
+                y equitativo, logrando la igualdad de oportunidades.
+            </p> 
+            <h2 class="mb-5 text-center container-top">Taller de Lengua de Señas</h2>
+            <div id="carrusel-lengua-senas-container"></div>
+            <h2 class="mb-5 text-center container-top">Socialización del Protocolo Psicopedagógico</h2>
+            <div id="carrusel-protocolo-container"></div>
+            <h2 class="mb-5 text-center container-top">Sensibilización: Comunicación asertiva con personas con discapacidad.</h2>
+            <div id="carrusel-sensibilizacion-container"></div>
+            <h2 class="mb-5 text-center container-top">Espacios accesibles</h2>
+            <div id="carrusel-espacios-container"></div>
+            <h2 class="mb-5 text-center container-top">Adecuaciones en la señalética (braille)</h2>
+            <div id="carrusel-senaletica-container"></div>
+            <h1 class="mb-5 text-center ">¡SOMOS UN ESPACIO INCLUSIVO!</h1>
         </div>
-        <h1 class="mb-5 text-center ">¡SOMOS UN ESPACIO INCLUSIVO!</h1>
-        <p>
-          La Coordinación de Bienestar Institucional siempre se preocupa por lograr un ambiente inclusivo
-            y equitativo, logrando la igualdad de oportunidades.
-        </p> 
-        <h2 class="mb-5 text-center container-top">Taller de Lengua de Señas</h2>
-        <div id="carrusel-lengua-senas-container"></div>
-        <h2 class="mb-5 text-center container-top">Socialización del Protocolo Psicopedagógico</h2>
-        <div id="carrusel-protocolo-container"></div>
-        <h2 class="mb-5 text-center container-top">Sensibilización: Comunicación asertiva con personas con discapacidad.</h2>
-        <div id="carrusel-sensibilizacion-container"></div>
-        <h2 class="mb-5 text-center container-top">Espacios accesibles</h2>
-        <div id="carrusel-espacios-container"></div>
-        <h2 class="mb-5 text-center container-top">Adecuaciones en la señalética (braille)</h2>
-        <div id="carrusel-senaletica-container"></div>
-        <h1 class="mb-5 text-center ">¡SOMOS UN ESPACIO INCLUSIVO!</h1>
-      </div>
     </div>
     <div class="footer-container"></div>
 
@@ -120,153 +151,10 @@
     <script src="/js/moduls/footer.js"></script>
     <script src="/js/moduls/administrationAndIndustryData.js"></script>
     <script src="/js/global.js"></script>
-    <script src="/js/moduls/bienestarEstudiantil.js"></script>
-  
     <script src="/js/main.js"></script>
-    
-   <div id="academic-plans-container" class="list-group"></div>
-<div id="dynamic-content" class="mt-3"></div>
 
-<script>
-// Lista de submenús y su contenido directamente en un solo lugar
-const submenuItems = [
-    {
-       title: "Acompañamiento Psicoemocional",
-        content: `
-          <h3>Acompañamiento Psicoemocional</h3>
-          <p>En el Tecnológico Superarse nos preocupamos por tu bienestar emocional. A través de este servicio, recibirás atención, apoyo y acompañamiento para fortalecer tu salud mental. Puedes solicitar consultas de manera presencial o virtual, según tu necesidad.</p>
-          <p>Accede a un espacio seguro y confidencial donde podrás mejorar tu bienestar personal, desarrollar habilidades de comunicación, fortalecer tu capacidad de resolución de problemas y adquirir herramientas clave para enfrentar los desafíos de la vida diaria.</p>
-<img class="img-fluid rounded mb-4" src="https://superarse.edu.ec/assets/modules/bienestar-institucional/acompa%C3%B1amiento.png" alt="Imagen apoyo Acompañamiento Psicoemocional" />
-          </div>
-          <h4>Horarios de atención:</h4>
-          <p>Lunes a Viernes<br>08h00 - 17h00</p> 
-           <p>becas@superarse.edu.ec</p> 
-<div class="text-center my-4">
-                <p><b>¡No dudes en contactarnos!</b></p>
-            <p>
-              <b>Correos electrónicos:</b> asistencia.bienestar@superarse.edu.ec; becas@superarse.edu.ec; coordinacion.bienestar@superarse.edu.ec.<br>
-              <b>Teléfono:</b> 02-3 930 980 ext. 111<br>
-              <b>WhatsApp:</b> 099 840 9293
-            </p>         
-         
-            
-        `
-    },
-    // Los demás ítems los puedes dejar igual o actualizar después...
-    {
-        title: "Acompañamiento Psicopedagógico",
-        content: `
-          <h3>Acompañamiento Psicopedagógico</h3>
-          <p>Para lograr la inclusión en la educación se necesita de un proceso de acompañamiento psicopedagógico para estudiantes con Necesidades Especiales Educativa (NEE) realizado por la Coordinación de Bienestar Institucional. Para ello se sigue el siguiente proceso:</p>
-          <ul>
-            <li>Entrevista inicial</li>
-            <li>Segunda entrevista</li>
-            <li>Recomendaciones de ajustes razonables o adaptaciones curriculares</li>
-            <li>Acompañamiento durante el periodo académico</li>
-            <li>Entrevista final para evaluar el impacto del seguimiento</li>
-          </ul>
-          <p>Este servicio de Bienestar Institucional, se encuentra pensado para:</p>
-          <ul>
-            <li>Personas con discapacidad.</li>
-            <li>Estudiantes con dificultades psicológicas o motrices.</li>
-            <li>Estudiantes con dificultades de aprendizaje.</li>
-            <li>Estudiantes que en su educación secundaria hayan recibido adaptaciones curriculares o terapias psicopedagógicas.</li>
-          </ul>
-          <p>La modalidad de las sesiones de acompañamiento pueden ser virtuales o presenciales, dependiendo la realidad socioeconómica del estudiante.</p>
-<img class="img-fluid rounded mb-4" src="https://superarse.edu.ec/assets/modules/bienestar-institucional/acompa%C3%B1amiento.png" alt="Imagen apoyo Acompañamiento Psicopedagógico" />
-          
-          <div class="text-center my-4">
-            <p><b>¡No dudes en contactarnos!</b></p>
-            <p>
-              <b>Correos electrónicos:</b> asistencia.bienestar@superarse.edu.ec; becas@superarse.edu.ec; coordinacion.bienestar@superarse.edu.ec.<br>
-              <b>Teléfono:</b> 02-3 930 980 ext. 111<br>
-              <b>WhatsApp:</b> 099 840 9293
-            </p>
-            </div>        
-        `
-    },
-    {
-    title: "Trabajo Social",
-    content: `
-      <h3>Trabajo Social</h3>
-      <p>Nuestro apartado de trabajo social está encargado de asegurar una convivencia adecuada de todos los miembros de la comunidad educativa, con la intención de lograr un desarrollo académico de los estudiantes que conecte con sus proyectos de vida, de esta forma, las actividades especiales son:</p>
-
-      <ul>
-        <li><b>Aplicación de Primera Atención Psicológica o Primeros Auxilios Psicológicos (PAP):</b> Responder a situaciones de emergencia, violencia o abuso, proporcionando las herramientas adecuadas para las personas afectadas.</li>
-        <li><b>Desarrollo de programas para el bienestar general:</b> Crear e implementar programas para promover la salud mental, la convivencia sana, la equidad, inclusión y respeto por valores étnico-culturales.</li>
-        <li><b>Acompañamiento y orientación:</b> Proporcionar apoyo emocional a estudiantes que enfrentan dificultades personales, académicas, culturales, políticas o financieras.</li>
-      </ul>
- <img class="img-fluid rounded mb-4" src="https://superarse.edu.ec/assets/modules/bienestar-institucional/acompa%C3%B1amiento.png" alt="Imagen apoyo Trabajo Social" />
-      
-      <div class="text-center my-4">
-        <p><b>¡No dudes en contactarnos!</b></p>
-        <p>
-          <b>Correos electrónicos:</b> asistencia.bienestar@superarse.edu.ec; becas@superarse.edu.ec; coordinacion.bienestar@superarse.edu.ec.<br>
-          <b>Teléfono:</b> 02-3 930 980 ext. 111<br>
-          <b>WhatsApp:</b> 099 840 9293
-        </p>
-        </div>
-       
-    `
-},
-{
-  title: "Graduados",
-  content: `
-    <h3>Graduados</h3>
-    <p>
-      El selecto grupo de graduados posee una conexión esencial con la institución en la que desarrollaron su vida profesional. Un profesional formado en el Instituto Superior Tecnológico Superarse es alguien preparado para incorporarse al mercado laboral de manera eficiente y adecuada. La Coordinación de Bienestar Institucional está encargada de acompañar a nuestros graduados con el fin de conocer su actividad después de haber cursado satisfactoriamente una carrera en la educación superior.
-    </p>
-    <p>Para el acompañamiento a graduados, tenemos:</p>
-     <img class="img-fluid rounded mb-4" src="https://superarse.edu.ec/assets/modules/bienestar-institucional/SERVICIOS/facebook_1740537346470_7300342754448855695.jpg" alt="Imagen apoyo Graduados" />
-<div class="d-flex flex-wrap justify-content-center" style="gap: 0.5rem;">
-  <a href="#" class="btn btn-primary px-3 py-2 text-center" style="white-space: nowrap;">Bolsa de Empleo - Comunidad de Whatsapp</a>
-  <a href="#" class="btn btn-primary px-3 py-2 text-center" style="white-space: nowrap;">Bolsa de Empleo - Grupo de Facebook</a>
-  <a href="#" class="btn btn-primary px-3 py-2 text-center" style="white-space: nowrap;">Formulario Alumni para recién graduados</a>
-  <a href="#" class="btn btn-primary px-3 py-2 text-center" style="white-space: nowrap;">Registro para empresas</a>
-</div>
-    <div class="text-center my-4">
-      <p><b>¡No dudes en contactarnos!</b></p>
-      <p>
-        <b>Correos electrónicos:</b> asistencia.bienestar@superarse.edu.ec; becas@superarse.edu.ec; coordinacion.bienestar@superarse.edu.ec.<br>
-        <b>Teléfono:</b> 02-3 930 980 ext. 111<br>
-        <b>WhatsApp:</b> 099 840 9293
-      </p>
-    </div>
-  `
-},
-
-    { title: "Clubes", content: "<h3>Clubes</h3><p>Contenido aquí...</p>" },
-    { title: "Orientación vocacional", content: "<h3>Orientación vocacional</h3><p>Contenido aquí...</p>" },
-    { title: "Becas", content: "<h3>Becas</h3><p>Contenido aquí...</p>" }
-];
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    const academicPlansContainer = document.getElementById("academic-plans-container");
-    const dynamicContent = document.getElementById("dynamic-content");
-
-    // Pintar botones de submenús
-    submenuItems.forEach(item => {
-        const button = document.createElement("a");
-        button.href = "#";
-        button.classList.add("list-group-item", "list-group-item-action");
-        button.textContent = item.title;
-
-        button.addEventListener("click", function (e) {
-            e.preventDefault();
-            document.querySelectorAll(".list-group-item-action").forEach(btn => btn.classList.remove("active"));
-            this.classList.add("active");
-            dynamicContent.innerHTML = item.content; // Contenido directo, sin keys
-        });
-
-        academicPlansContainer.appendChild(button);
-    });
-
-    // Activar el primero por defecto
-    const firstButton = academicPlansContainer.querySelector(".list-group-item-action");
-    if (firstButton) firstButton.click();
-});
-</script>
+    <script src="/js/moduls/BienestarEstudiantil/serviciosBienestar.js"></script>
+     <script src="/js/moduls/BienestarEstudiantil/bienestarEstudiantil.js"></script>
 
 </body>
 </html>

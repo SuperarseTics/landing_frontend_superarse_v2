@@ -11299,3 +11299,36 @@ a.text-dark:focus {
   /* Esto centra la imagen dentro de su contenedor */
   object-position: center;
 }
+.small-convenio {
+    /* Define el tamaño máximo de las imágenes */
+    max-width: 250px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin: 0 auto;
+}
+
+.hover-zoom {
+    transition: transform 0.3s ease;
+}
+
+.hover-zoom:hover {
+    transform: scale(1.1);
+}
+.texto-justificado {
+  text-align: justify;
+}
+ .submenu-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .submenu-content.show {
+            max-height: 500px;
+            transition: max-height 0.4s ease-in;
+        }
+        .list-group-heading {
+            cursor: pointer;
+            user-select: none;
+        }

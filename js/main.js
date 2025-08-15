@@ -712,7 +712,7 @@ function generarFacilities() {
   facilitiesData.forEach((facility, index) => {
     // Definimos el tamaño de las columnas.
     // Los primeros 4 elementos tienen 'col-lg-3', el resto 'col-lg-4'
-    const colClass = index < 4 ? "col-lg-3" : "col-lg-4";
+    const colClass = index < 4 ? "col-lg-3" : "col-lg-3";
 
     htmlContent += `
         <div class="${colClass} col-md-4 col-sm-6 pb-1">
@@ -813,110 +813,112 @@ function generarPlanesAcademicos() {
   // Inserta el HTML completo en el contenedor
   container.innerHTML = cardsHTML;
 }
-
-
-
 // Esta función puede ir en tu main.js o en un archivo aparte.
+
 function generarEquipoDirectivo() {
-  // Encuentra el contenedor principal donde se insertarán las tarjetas
+
+ // Encuentra el contenedor principal donde se insertarán las tarjetas
+
   const container = document.querySelector("#equipo-directivo-container");
+if (!container) {
 
-  if (!container) {
     console.error(
-      "No se encontró el contenedor para el equipo directivo. Revisa el ID."
-    );
-    return;
+
+   "No se encontró el contenedor para el equipo directivo. Revisa el ID."
+
+           );
+
+     return;
+
   }
+ // Genera el HTML de las tarjetas usando el array de datos
+          const teamHTML = authoritiesData
+       .map(
 
-  // Genera el HTML de las tarjetas usando el array de datos
-  const teamHTML = authoritiesData
-    .map(
-      (member) => `
+     (member) => `
     <div class="col-md-4 col-lg-3 mb-4 text-center">
-      <img
-        class="img-fluid-autoridades rounded-circle mb-3"
-        src="${member.image}"
-        alt="${member.altText}"
-      />
-      <h5 class="mb-1">${member.name}</h5>
-      <p class="text-primary mb-1 font-weight-bold">${member.position}</p>
-      <p class="text-muted small">
-        <a href="mailto:${member.email}">
-          ${member.email}
-        </a>
-      </p>
-    </div>
-  `
-    )
-    .join("");
-
-  // Inserta el HTML completo en el contenedor
-  container.innerHTML = teamHTML;
+   <img
+   class="img-fluid-autoridades rounded-circle mb-3"
+  src="${member.image}"
+ alt="${member.altText}"
+ />
+ <h5 class="mb-1">${member.name}</h5>
+ <p class="text-primary mb-1 font-weight-bold">${member.position}</p>
+ <p class="text-muted small">
+ <a href="mailto:${member.email}">
+ ${member.email}
+</a>
+ </p>
+ </div>
+ ` ) .join("");
+ // Inserta el HTML completo en el contenedor
+ container.innerHTML = teamHTML;
 }
 
 // Esta función puede ir en tu main.js o en un archivo aparte.
+
 function generarModelosAcordeon() {
-  // Encuentra el contenedor principal del acordeón por su ID
-  const accordionContainer = document.querySelector("#modelsAccordion");
 
-  if (!accordionContainer) {
-    console.error("No se encontró el contenedor del acordeón. Revisa el ID.");
-    return;
-  }
-
-  // Genera el HTML completo del acordeón usando el array de datos
-  const accordionHTML = modelsData
-    .map((model, index) => {
-      // Determina si es el primer elemento para aplicar la clase 'active'
-      const isActive = index === 0 ? "show" : "";
-      const isCollapsed = index === 0 ? "" : "collapsed";
-
-      return `
-      <div class="card">
-        <div class="card-header" id="heading${model.id}">
-          <h2 class="mb-0">
-            <button
-              class="btn btn-block text-left d-flex justify-content-between align-items-center ${isCollapsed}"
-              type="button"
-              data-toggle="collapse"
-              data-target="#collapse${model.id}"
-              aria-expanded="${index === 0 ? "true" : "false"}"
-              aria-controls="collapse${model.id}"
-            >
-              <span>${model.title}</span>
-              <i class="fa fa-chevron-down"></i>
-            </button>
-          </h2>
-        </div>
-        <div
-          id="collapse${model.id}"
-          class="collapse ${isActive}"
-          aria-labelledby="heading${model.id}"
-          data-parent="#modelsAccordion"
-        >
-          <div class="card-body text-center">
-            <div
-              class="embed-responsive embed-responsive-4by3 w-100 mb-3"
-              style="height: 500px"
-            >
-              <iframe
-                class="embed-responsive-item"
-                src="${model.filePath}"
-                style="width: 100%; height: 100%; border: 0"
-                frameborder="0"
-                allowfullscreen
-              ></iframe>
-            </div>
-          </div>
-        </div>
-      </div>
-    `;
-    })
-    .join("");
-
-  // Inserta el HTML completo en el contenedor del acordeón
-  accordionContainer.innerHTML = accordionHTML;
+// Encuentra el contenedor principal del acordeón por su ID
+ const accordionContainer = document.querySelector("#modelsAccordion");
+if (!accordionContainer) {
+ console.error("No se encontró el contenedor del acordeón. Revisa el ID.");
+ return;
 }
+// Genera el HTML completo del acordeón usando el array de datos
+
+const accordionHTML = modelsData
+.map((model, index) => {
+// Determina si es el primer elemento para aplicar la clase 'active'
+ const isActive = index === 0 ? "show" : "";
+ const isCollapsed = index === 0 ? "" : "collapsed";
+ return `
+<div class="card">
+<div class="card-header" id="heading${model.id}">
+<h2 class="mb-0">
+<button
+ class="btn btn-block text-left d-flex justify-content-between align-items-center ${isCollapsed}"
+type="button"
+data-toggle="collapse"
+data-target="#collapse${model.id}"
+aria-expanded="${index === 0 ? "true" : "false"}"
+aria-controls="collapse${model.id}">
+<span>${model.title}</span>
+<i class="fa fa-chevron-down"></i>
+</button>
+</h2>
+</div>
+<div
+id="collapse${model.id}"
+class="collapse ${isActive}"
+aria-labelledby="heading${model.id}"
+data-parent="#modelsAccordion"
+>
+<div class="card-body text-center">
+<div
+class="embed-responsive embed-responsive-4by3 w-100 mb-3"
+style="height: 500px"
+>
+<iframe
+class="embed-responsive-item"
+src="${model.filePath}"
+style="width: 100%; height: 100%; border: 0"
+frameborder="0"
+allowfullscreen
+ ></iframe>
+</div>
+</div>
+</div>
+</div>
+ `;
+ })
+
+// Inserta el HTML completo en el contenedor del acordeón
+
+ accordionContainer.innerHTML = accordionHTML;
+
+}
+
 
 // Esta función puede ir en tu main.js o en un archivo aparte.
 function generarReglamentosAcordeon() {
@@ -2172,7 +2174,6 @@ document.addEventListener("DOMContentLoaded", () => {
   generarTitulacionData();
   generarValores();
   generarReglamentosAcordeon();
-  generarModelosAcordeon();
   generarEquipoDirectivo();
   generarPlanesAcademicos();
   generarFacilities();

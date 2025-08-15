@@ -16,6 +16,18 @@ const headerData = {
             clases: 'd-none d-lg-block mr-3 text-white'
         },
         {
+           
+            enlace: '',
+            texto: 'Superarse Conectados',
+             clases :"navbar-brand",
+        },
+        {
+        
+            enlace: 'https://becasuperarse.ec/',
+            texto: 'Because he´s Nice ',
+            clases :"navbar-brand",
+        },
+        {
             enlace: 'https://superarse.q10.com',
             texto: 'Q10',
             clases: 'nav-item nav-link text-white',
@@ -39,6 +51,7 @@ const headerData = {
             ]
         }
     ],
+    
     // Barra de navegación principal con los menús institucionales
     mainNav: [
         {

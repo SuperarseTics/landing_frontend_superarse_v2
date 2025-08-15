@@ -7,33 +7,27 @@
     <meta content="Free HTML Templates" name="description" />
     <title>Aseguramiento de la Calidad y Planificación</title>
 
-    <!-- Favicon -->
     <link href="/assets/img/content/logo/superarse_gris.png" rel="icon" />
 
-    <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Font Awesome -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
       rel="stylesheet"
     />
 
-    <!-- Flaticon Font -->
     <link href="/lib/flaticon/font/flaticon.css" rel="stylesheet" />
 
-    <!-- Libraries Stylesheet -->
     <link
       href="/lib/owlcarousel/assets/owl.carousel.min.css"
       rel="stylesheet"
     />
     <link href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
 
-    <!-- Customized Bootstrap Stylesheet -->
     <link href="/css/style.css" rel="stylesheet" />
     <link rel="stylesheet" href="/js/main.js" />
   </head>
@@ -54,7 +48,7 @@
         <div class="row align-items-center mb-5">
           <div class="col-lg-6">
             <h4 class="mb-3">Modelo de Calidad y Planificación Estratégica</h4>
-            <p>
+            <p style="text-align: justify;">
               El Modelo de Aseguramiento de la Calidad y Planificación
               Estratégica del Intituto Superarse se basa en la gestión por
               procesos, garantizando la mejora continua en todas las áreas. El
@@ -91,14 +85,14 @@
           </div>
           <div class="col-lg-6 order-lg-1">
             <h4 class="mb-3">Gestión por Procesos Institucionales</h4>
-            <p>
-              En el ISTS, utilizamos la **gestión por procesos** a través de un
-              sistema integral interrelacionado que incluye tres tipos de
-              procesos:
+            <p style="text-align: justify;">
+              En el ISTS, utilizamos la <strong>gestión por procesos</strong> a
+              través de un sistema integral interrelacionado que incluye tres
+              tipos de procesos:
             </p>
-            <ul>
+            <ul style="text-align: justify;">
               <li>
-                <strong>Procesos Gobernantes:</strong> Gestión Estratégica y de
+                <strong >Procesos Gobernantes:</strong> Gestión Estratégica y de
                 Calidad. Dirigen y supervisan el funcionamiento institucional,
                 asegurando alineación con objetivos.
               </li>
@@ -120,15 +114,16 @@
         <div class="row align-items-center mb-5">
           <div class="col-lg-6">
             <h4 class="mb-3">Proceso de Autoevaluación Continua</h4>
-            <p>
-              En cumplimiento del Artículo 94 de la **LOES**, el ISTS desarrolla
-              procesos de **autoevaluación continua** con la participación
-              activa de toda la comunidad educativa.
+            <p style="text-align: justify;">
+              En cumplimiento del Artículo 94 de la <strong>LOES</strong>, el
+              ISTS desarrolla procesos de <strong>autoevaluación continua</strong>
+              con la participación activa de toda la comunidad educativa.
             </p>
-            <p>
-              Todos nuestros procesos internos cumplen con el **ciclo PHVA
-              (Planificar, Hacer, Verificar, Actuar)**, reflejando nuestro
-              compromiso constante con la búsqueda de la excelencia.
+            <p style="text-align: justify;">
+              Todos nuestros procesos internos cumplen con el
+              <strong>ciclo PHVA (Planificar, Hacer, Verificar, Actuar)</strong>,
+              reflejando nuestro compromiso constante con la búsqueda de la
+              excelencia.
             </p>
           </div>
           <div class="col-lg-6">
@@ -175,7 +170,6 @@
             >
               <h3 class="mb-4 text-center">Ver Documento de Aval</h3>
 
-              <!-- Contenedor para el PDF -->
               <div
                 id="pdf-container"
                 style="
@@ -186,7 +180,6 @@
                 "
               ></div>
 
-              <!-- Controles de navegación -->
               <div class="mt-2">
                 <button id="prev-page" class="btn btn-primary">
                   Página Anterior
@@ -204,7 +197,6 @@
 
     <div class="footer-container"></div>
 
-    <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
@@ -213,79 +205,10 @@
     <script src="/lib/isotope/isotope.pkgd.min.js"></script>
     <script src="/lib/lightbox/js/lightbox.min.js"></script>
 
-    <!-- Template Javascript -->
     <script src="/js/moduls/header.js"></script>
     <script src="/js/moduls/footer.js"></script>
     <script src="/js/global.js"></script>
     <script src="/js/main.js"></script>
-
-    <script>
-      const url =
-        "/assets/docs/institucion/calidadPlanificacion/AVAL20250221_09441421.pdf";
-
-      let pdfDoc = null;
-      let currentPage = 1;
-      let totalPages = 0;
-
-      // Función para renderizar una página del PDF
-      function renderPage(pageNum) {
-        pdfDoc.getPage(pageNum).then(function (page) {
-          const scale = 1; // Escala del PDF, ajusta si es necesario
-          const viewport = page.getViewport({ scale: scale });
-
-          // Crear un canvas para renderizar la página
-          const canvas = document.createElement("canvas");
-          document.getElementById("pdf-container").innerHTML = ""; // Limpiar el contenedor
-          document.getElementById("pdf-container").appendChild(canvas);
-
-          const context = canvas.getContext("2d");
-          canvas.width = viewport.width;
-          canvas.height = viewport.height;
-
-          // Renderizar la página en el canvas
-          page.render({
-            canvasContext: context,
-            viewport: viewport,
-          });
-
-          // Actualizar el número de página
-          document.getElementById(
-            "page-num"
-          ).textContent = `Página: ${pageNum} de ${totalPages}`;
-        });
-      }
-
-      // Función para cargar el documento PDF
-      function loadPDF() {
-        pdfjsLib.getDocument(url).promise.then(function (pdf) {
-          pdfDoc = pdf;
-          totalPages = pdfDoc.numPages;
-          renderPage(currentPage); // Renderizar la primera página
-        });
-      }
-
-      // Navegar a la página anterior
-      document
-        .getElementById("prev-page")
-        .addEventListener("click", function () {
-          if (currentPage > 1) {
-            currentPage--;
-            renderPage(currentPage);
-          }
-        });
-
-      // Navegar a la página siguiente
-      document
-        .getElementById("next-page")
-        .addEventListener("click", function () {
-          if (currentPage < totalPages) {
-            currentPage++;
-            renderPage(currentPage);
-          }
-        });
-
-      // Cargar el PDF al cargar la página
-      loadPDF();
-    </script>
+    <script src="/js/moduls/Institucion/calidadPlanificacion.js"></script>
   </body>
 </html>

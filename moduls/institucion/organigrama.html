@@ -7,33 +7,27 @@
     <meta content="Free HTML Templates" name="description" />
     <title>Organigrama Institucional</title>
 
-    <!-- Favicon -->
     <link href="/assets/img/content/logo/superarse_gris.png" rel="icon" />
 
-    <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Font Awesome -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
       rel="stylesheet"
     />
 
-    <!-- Flaticon Font -->
     <link href="/lib/flaticon/font/flaticon.css" rel="stylesheet" />
 
-    <!-- Libraries Stylesheet -->
     <link
       href="/lib/owlcarousel/assets/owl.carousel.min.css"
       rel="stylesheet"
     />
     <link href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
 
-    <!-- Customized Bootstrap Stylesheet -->
     <link href="/css/style.css" rel="stylesheet" />
   </head>
   <body>
@@ -42,21 +36,21 @@
     <div class="container-fluid py-5 container-top">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-lg-5">
+          <div class="col-lg-10">
             <p class="section-title pr-5">
               <span class="pr-2">Estructura Interna</span>
             </p>
             <h1 class="mb-4">Nuestro Organigrama Institucional</h1>
 
             <div>
-              <p>
+              <p style="text-align: justify;">
                 El organigrama del Instituto Superior Tecnológico Superarse
                 ilustra nuestra estructura organizativa, delineando jerarquías,
                 roles y responsabilidades. Este diagrama visual facilita la
                 comprensión de cómo interactúan nuestros departamentos para
                 asegurar una operación eficiente y coordinada.
               </p>
-              <p>
+              <p style="text-align: justify;">
                 Diseñado para fomentar la transparencia y la comunicación,
                 nuestro organigrama refleja la visión del Instituto Superarse de
                 una gestión ágil y colaborativa. Cada componente está
@@ -64,7 +58,7 @@
                 potenciar la innovación y alinear esfuerzos con nuestros
                 objetivos académicos y estratégicos.
               </p>
-              <p>
+              <p style="text-align: justify;">
                 Te invitamos a explorar nuestro organigrama a continuación para
                 conocer la distribución de nuestras funciones y cómo trabajamos
                 juntos para ofrecer una educación de excelencia y contribuir al
@@ -72,20 +66,19 @@
               </p>
             </div>
           </div>
-          <div class="col-lg-7">
+          
+          <div class="col-lg-12">
             <div
               class="d-flex flex-column align-items-center justify-content-center h-100 p-4 border rounded"
             >
               <h3 class="mb-4 text-center">
                 Organigrama Institucional Detallado
               </h3>
-              <!-- Contenedor para las páginas del PDF -->
               <div
                 id="pdf-container"
-                style="width: 100%; height: 100%; overflow: auto"
+                style="min-width: 100%; height: 100%; overflow: auto"
               ></div>
 
-              <!-- Controles de navegación -->
               <div class="mt-2">
                 <button id="prev-page" class="btn btn-primary">
                   Página Anterior
@@ -103,88 +96,20 @@
 
     <div class="footer-container"></div>
 
-    <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.worker.min.js"></script>
     <script src="/lib/easing/easing.min.js"></script>
     <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="/lib/isotope/isotope.pkgd.min.js"></script>
     <script src="/lib/lightbox/js/lightbox.min.js"></script>
 
-    <!-- Template Javascript -->
     <script src="/js/moduls/header.js"></script>
     <script src="/js/moduls/footer.js"></script>
     <script src="/js/global.js"></script>
     <script src="/js/main.js"></script>
 
-    <script>
-      const url =
-        "/assets/docs/institucion/organigrama/Organigrama Superarse.pdf";
-
-      let pdfDoc = null;
-      let currentPage = 1;
-      let totalPages = 0;
-
-      // Función para renderizar una página del PDF
-      function renderPage(pageNum) {
-        pdfDoc.getPage(pageNum).then(function (page) {
-          const scale = 1; // Escala del PDF, ajusta si es necesario
-          const viewport = page.getViewport({ scale: scale });
-
-          // Crear un canvas para renderizar la página
-          const canvas = document.createElement("canvas");
-          document.getElementById("pdf-container").innerHTML = ""; // Limpiar el contenedor
-          document.getElementById("pdf-container").appendChild(canvas);
-
-          const context = canvas.getContext("2d");
-          canvas.width = viewport.width;
-          canvas.height = viewport.height;
-
-          // Renderizar la página en el canvas
-          page.render({
-            canvasContext: context,
-            viewport: viewport,
-          });
-
-          // Actualizar el número de página
-          document.getElementById(
-            "page-num"
-          ).textContent = `Página: ${pageNum} de ${totalPages}`;
-        });
-      }
-
-      // Función para cargar el documento PDF
-      function loadPDF() {
-        pdfjsLib.getDocument(url).promise.then(function (pdf) {
-          pdfDoc = pdf;
-          totalPages = pdfDoc.numPages;
-          renderPage(currentPage); // Renderizar la primera página
-        });
-      }
-
-      // Navegar a la página anterior
-      document
-        .getElementById("prev-page")
-        .addEventListener("click", function () {
-          if (currentPage > 1) {
-            currentPage--;
-            renderPage(currentPage);
-          }
-        });
-
-      // Navegar a la página siguiente
-      document
-        .getElementById("next-page")
-        .addEventListener("click", function () {
-          if (currentPage < totalPages) {
-            currentPage++;
-            renderPage(currentPage);
-          }
-        });
-
-      // Cargar el PDF al cargar la página
-      loadPDF();
-    </script>
+    <script src="/js/moduls/Institucion/organigrama.js"></script>
   </body>
 </html>
