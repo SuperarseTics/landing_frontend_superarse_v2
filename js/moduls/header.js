@@ -17,15 +17,17 @@ const headerData = {
         },
         {
            
-            enlace: '',
-            texto: 'Superarse Conectados',
-             clases :"navbar-brand",
+            enlace: '#',
+            texto: 'Superarse Conectados |',
+            clases :"navbar-brand",
+            target: '_blank'
         },
         {
         
             enlace: 'https://becasuperarse.ec/',
-            texto: 'Because he´s Nice ',
+            texto: 'Because he´s Nice |',
             clases :"navbar-brand",
+            target: '_blank'
         },
         {
             enlace: 'https://superarse.q10.com',
@@ -51,7 +53,6 @@ const headerData = {
             ]
         }
     ],
-    
     // Barra de navegación principal con los menús institucionales
     mainNav: [
         {

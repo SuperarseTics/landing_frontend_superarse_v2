@@ -665,10 +665,24 @@ pre code {
 .container-lg,
 .container-xl {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+}
+.container-fluid-navbarsup {
+  
+  height: 100%;
+  background: #000;
+  flex: auto;
+   width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+   flex-wrap: nowrap;
+   padding-right: 0;
+  padding-left: 0;
 }
 
 .container-fluid-video {
@@ -11332,3 +11346,34 @@ a.text-dark:focus {
             cursor: pointer;
             user-select: none;
         }
+        
+ /* CSS adicional para el canvas, ajustándolo al contenedor */
+        .pdf-canvas {
+width: 100%; height: auto; display: block;
+        }
+        /* Esto asegura que el contenedor tenga la altura deseada y el canvas se ajuste */
+        .pdf-viewer-container {
+            height: 600px;
+            overflow: auto; /* Permite scroll si el PDF es más grande */
+        }
+        /* Estilos para el paginador */
+        .pdf-paginator {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+            gap: 10px;
+        }
+        .pdf-paginator button {
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            background-color: #f8f9fa;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .navbar-brand {
+    font-size: 0.97rem ; /* Ajusta este valor al tamaño que desees */
+     display: flex;
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center;   
+}

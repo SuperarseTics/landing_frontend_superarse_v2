@@ -1,573 +1,368 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Free HTML Templates" name="keywords" />
-    <meta content="Free HTML Templates" name="description" />
-    <title>Talento Humano</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta content="Free HTML Templates" name="keywords" />
+  <meta content="Free HTML Templates" name="description" />
+  <title>Talento Humano</title>
 
-    <link href="/assets/img/content/logo/superarse_gris.png" rel="icon" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
-    <link href="/lib/flaticon/font/flaticon.css" rel="stylesheet" />
-    <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
-    <link href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="/css/style.css" rel="stylesheet" />
+  <link href="/assets/img/content/logo/superarse_gris.png" rel="icon" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+  <link href="/lib/flaticon/font/flaticon.css" rel="stylesheet" />
+  <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+  <link href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="/css/style.css" rel="stylesheet" />
 
-    <style>
-        /* CSS adicional para el canvas, ajustándolo al contenedor */
-        .pdf-canvas {
-            width: 100%;
-            height: 100%;
-            border: 1px solid #ccc;
-            box-sizing: border-box; 
-        }
-        /* Esto asegura que el contenedor tenga la altura deseada y el canvas se ajuste */
-        .pdf-viewer-container {
-            height: 600px;
-            overflow: auto; /* Permite scroll si el PDF es más grande */
-        }
-        /* Estilos para el paginador */
-        .pdf-paginator {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 10px;
-            gap: 10px;
-        }
-        .pdf-paginator button {
-            padding: 5px 10px;
-            border: 1px solid #ccc;
-            background-color: #f8f9fa;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-    </style>
 </head>
 <body>
-    <div class="container-fluid bg-light position-relative shadow">
-        <div data-include="/moduls/content/menus/header.html"></div>
-    </div>
-    <div class="container-fluid py-5 bg-light container-top">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="list-group list-group-horizontal" id="list-tab" role="tablist">
-                        <a class="list-group-item list-group-item-action active" id="list-igualdad-list" data-bs-toggle="list" href="#list-igualdad" role="tab" aria-controls="list-igualdad">Plan de igualdad</a>
-                        <a class="list-group-item list-group-item-action" id="list-seguridad-list" data-bs-toggle="list" href="#list-seguridad" role="tab" aria-controls="list-seguridad">Seguridad y plan ocupacional</a>
-                        <a class="list-group-item list-group-item-action" id="list-trabaja-list" data-bs-toggle="list" href="#list-trabaja" role="tab" aria-controls="list-trabaja">Trabaja con nosotros</a>
-                        <a class="list-group-item list-group-item-action" id="list-concurso-list" data-bs-toggle="list" href="#list-concurso" role="tab" aria-controls="list-concurso">Concurso de Méritos y Oposición</a>
-                        <a class="list-group-item list-group-item-action" id="list-proceso-list" data-bs-toggle="list" href="#list-proceso" role="tab" aria-controls="list-proceso">Proceso de Selección</a>
-                        <a class="list-group-item list-group-item-action" id="list-evaluacion-list" data-bs-toggle="list" href="#list-evaluacion" role="tab" aria-controls="list-evaluacion">Evaluación Docente</a>
-                        <a class="list-group-item list-group-item-action" id="list-mejores-list" data-bs-toggle="list" href="#list-mejores" role="tab" aria-controls="list-mejores">Mejores Evaluados</a>
-                    </div>
-                </div>
-            </div>
+  <div class="container-fluid bg-light position-relative shadow">
+    <div data-include="/moduls/content/menus/header.html"></div>
+  </div>
 
-            <div class="row mt-4">
-                <div class="col-12">
-                    <div class="p-4 border rounded shadow-sm bg-white">
-                        <div class="tab-content" id="nav-tabContent">
+  <div class="container-fluid py-5 bg-light container-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
 
-                            <div class="tab-pane fade show active" id="list-igualdad" role="tabpanel" aria-labelledby="list-igualdad-list">
-                                <div class="row">
-                                    <div class="col-lg-4">
-                                        <h6 class="mb-3">2023</h6>
-                                        <div class="list-group pdf-submenu" role="tablist">
-                                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/planDeigualdad/2023/PLAN-2023.PDF" data-canvas-id="pdf-viewer-igualdad">Plan de Igualdad 2023 </a>
-                                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/planDeigualdad/2023/DIAGNOSTICO-2023.PDF" data-canvas-id="pdf-viewer-igualdad">Diagnóstico del Plan de Igualdad </a>
-                                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/planDeigualdad/2023/RESULTADOS-2023.PDF" data-canvas-id="pdf-viewer-igualdad">Resultados del plan de igualdad </a>
-                                            <br>
-                                        </div>
-                                        
-                                        <h6 class="mb-3">2024</h6>
-                                        <div class="list-group pdf-submenu" role="tablist">
-                                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/planDeigualdad/2024/PLAN-2024.PDF" data-canvas-id="pdf-viewer-igualdad">Plan de Igualdad 2024 </a>
-                                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/planDeigualdad/2024/DIAGNOSTICO-2024.PDF" data-canvas-id="pdf-viewer-igualdad">Diagnóstico del Plan de Igualdad </a>
-                                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/planDeigualdad/2024/RESULTADOS-2024.PDF" data-canvas-id="pdf-viewer-igualdad">Resultados del plan de igualdad</a>
-                                            <br>
-                                        </div>
-                                        <h6 class="mb-3">2025</h6>
-                                        <div class="list-group pdf-submenu" role="tablist">
-                                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/planDeigualdad/2025/PLAN-2025.PDF" data-canvas-id="pdf-viewer-igualdad">Plan de Igualdad 2025</a>
-                                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/planDeigualdad/2025/DIAGNOSTICO-2025.PDF" data-canvas-id="pdf-viewer-igualdad">Diagnóstico del Plan de Igualdad </a>
-                                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/pdfs/Reglamento de Personal.pdf" data-canvas-id="pdf-viewer-igualdad">Resultados del plan de igualdad</a>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="col-lg-8">
-                                        <div class="pdf-viewer-container border rounded shadow-sm bg-white">
-                                            <canvas id="pdf-viewer-igualdad" class="pdf-canvas"></canvas>
-                                        </div>
-                                        <div class="pdf-paginator" data-canvas-id="pdf-viewer-igualdad">
-                                            <button class="btn btn-outline-primary" data-action="prev">Anterior</button>
-                                            <span class="page-info">Página: <span class="page-num">0</span> / <span class="page-count">0</span></span>
-                                            <button class="btn btn-outline-primary" data-action="next">Siguiente</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+          <!-- Tabs principales -->
+          <div class="list-group list-group-horizontal" id="list-tab" role="tablist">
+            <a class="list-group-item list-group-item-action active" id="list-igualdad-list" data-bs-toggle="list" href="#list-igualdad" role="tab" aria-controls="list-igualdad">Plan de igualdad</a>
+            <a class="list-group-item list-group-item-action" id="list-seguridad-list" data-bs-toggle="list" href="#list-seguridad" role="tab" aria-controls="list-seguridad">Seguridad y plan ocupacional</a>
+            <a class="list-group-item list-group-item-action" id="list-trabaja-list" data-bs-toggle="list" href="#list-trabaja" role="tab" aria-controls="list-trabaja">Trabaja con nosotros</a>
+            <a class="list-group-item list-group-item-action" id="list-concurso-list" data-bs-toggle="list" href="#list-concurso" role="tab" aria-controls="list-concurso">Concurso de Méritos y Oposición</a>
+            <a class="list-group-item list-group-item-action" id="list-proceso-list" data-bs-toggle="list" href="#list-proceso" role="tab" aria-controls="list-proceso">Proceso de Selección</a>
+            <a class="list-group-item list-group-item-action" id="list-evaluacion-list" data-bs-toggle="list" href="#list-evaluacion" role="tab" aria-controls="list-evaluacion">Evaluación Docente</a>
+            <a class="list-group-item list-group-item-action" id="list-mejores-list" data-bs-toggle="list" href="#list-mejores" role="tab" aria-controls="list-mejores">Mejores Evaluados</a>
+          </div>
 
-                            <div class="tab-pane fade" id="list-seguridad" role="tabpanel" aria-labelledby="list-seguridad-list">
-                                <div class="row">
-                                    <div class="col-lg-4">
-                                        <h6 class="mb-3">Seguridad y Salud Ocupacional</h6>
-                                        <div class="list-group pdf-submenu" role="tablist">
-                                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/SeguridadyPlanOcupacional/MatrizdeRiesgos.pdf" data-canvas-id="pdf-viewer-seguridad">Matriz de Riesgos</a>
-                                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/SeguridadyPlanOcupacional/plandeemergencia.pdf" data-canvas-id="pdf-viewer-seguridad">Plan de Emergencia</a>
-                                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/SeguridadyPlanOcupacional/Reglamento.pdf" data-canvas-id="pdf-viewer-seguridad">Reglamento</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-8">
-                                        <div class="pdf-viewer-container border rounded shadow-sm bg-white">
-                                            <canvas id="pdf-viewer-seguridad" class="pdf-canvas"></canvas>
-                                        </div>
-                                        <div class="pdf-paginator" data-canvas-id="pdf-viewer-seguridad">
-                                            <button class="btn btn-outline-primary" data-action="prev">Anterior</button>
-                                            <span class="page-info">Página: <span class="page-num">0</span> / <span class="page-count">0</span></span>
-                                            <button class="btn btn-outline-primary" data-action="next">Siguiente</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="tab-pane fade" id="list-trabaja" role="tabpanel" aria-labelledby="list-trabaja-list">
-                                <div class="row gx-5">
-                                    <div class="col-lg-5 mb-5 mb-lg-0">
-                                        <div class="position-relative h-100">
-                                            <img class="position-absolute w-100 h-100 rounded" src="/assets/img/bienestarEstudiantil/TrabajaConNosotros/trabaja.png" style="object-fit: cover;">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-7">
-                                        <h1 class="display-4 text-uppercase mb-4">
-                                            <span class="text-primary">TRABAJA EN EL ISTS</span>
-                                        </h1>
-                                        <h4 class="text-uppercase mb-3">Conócenos</h4>
-                                        <p style="text-align: justify;">En la Coordinación de Talento Humano del Instituto Superior Tecnológico Superarse, buscamos profesionales apasionados por la educación, comprometidos con la excelencia académica e innovadores en su enseñanza.</p>
-                                        <p class="mb-4" style="text-align: justify;">Si deseas formar parte de un equipo dinámico que transforma vidas a través del conocimiento, te invitamos a postularte y crecer profesionalmente con nosotros.</p>
-                                        <p class="mb-4" style="text-align: justify;">¡Súmate a nuestra comunidad educativa y contribuye al futuro de la educación!</p>
-                                        <h4 class="text-uppercase mb-3">¿Cómo Aplicar?</h4>
-                                        <p>Si estás interesado en formar parte de nuestro equipo, debes revisar los procesos de selección vacantes, cumplir con los requisitos y aplicar:</p>
-                                        <h5 class="text-primary text-uppercase mb-1">Para su postulación, tenga en cuenta los siguientes pasos:</h5>
-                                        <p class="mb-4">1. La postulación se realizará descargando y completando la información solicitada en el FORMATO DE HOJA DE VIDA.</p>
-                                        <a href="/assets/docs/MeritoyOposicion/PeriodoAcademico/Formatohojadevida.docx" download class="btn btn-primary py-3 px-5">Descargar Formato CV</a>
-                                        <br><br>
-                                        <p class="mb-4">2. Enviar la hoja de vida en el formato de la Institución y los documentos de respaldo a rrhh@superarse.edu.ec</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="tab-pane fade" id="list-concurso" role="tabpanel" aria-labelledby="list-concurso-list">
-                                <div class="row d-flex">
-                                    <div class="col-lg-4">
-                                        <h6 class="mb-3">Período Académico (mayo - octubre 2024)</h6>
-                                        <div class="list-group pdf-submenu" role="tablist">
-                                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/MeritoyOposicion/PeriodoAcademico/Convocatoria.pdf" data-canvas-id="pdf-viewer-concurso">Convocatoria</a>
-                                        </div>
-
-                                        <h6 class="mt-4 mb-3">Acta de Resultados Fase de Méritos</h6>
-                                        <div class="list-group pdf-submenu" role="tablist">
-                                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/pdfs/Convocatoria Titulares.pdf" data-canvas-id="pdf-viewer-concurso">Escuela de administración e Industria</a>
-                                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/pdfs/Convocatoria Titulares.pdf" data-canvas-id="pdf-viewer-concurso">Escuela de Educación</a>
-                                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/pdfs/Convocatoria Titulares.pdf" data-canvas-id="pdf-viewer-concurso">Escuela Veterinaria</a>
-                                        </div>
-                                        
-                                        <h6 class="mt-4 mb-3">Acta de Resultados Fase de Oposición</h6>
-                                        <div class="list-group pdf-submenu" role="tablist">
-                                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/pdfs/Convocatoria Titulares.pdf" data-canvas-id="pdf-viewer-concurso">Escuela de Educación y Humanidades </a>
-                                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/pdfs/Convocatoria Titulares.pdf" data-canvas-id="pdf-viewer-concurso">Escuela de Veterinaria</a>
-                                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/pdfs/Convocatoria Titulares.pdf" data-canvas-id="pdf-viewer-concurso">Escuela de Administración e Industria</a>
-                                        </div>
-                                        
-                                        <h6 class="mt-4 mb-3">Acta de Resultados Finales</h6>
-                                        <div class="list-group pdf-submenu" role="tablist">
-                                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/pdfs/Convocatoria Titulares.pdf" data-canvas-id="pdf-viewer-concurso">Escuela de Educación y Humanidades </a>
-                                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/pdfs/Convocatoria Titulares.pdf" data-canvas-id="pdf-viewer-concurso">Escuela de Veterinaria</a>
-                                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/pdfs/Convocatoria Titulares.pdf" data-canvas-id="pdf-viewer-concurso">Escuela de Administración e Industria</a>
-                                        </div>
-                                        
-                                        <h6 class="mt-4 mb-3">Acta de Declaratoria del Ganador</h6>
-                                        <div class="list-group pdf-submenu" role="tablist">
-                                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/pdfs/Convocatoria Titulares.pdf" data-canvas-id="pdf-viewer-concurso">Escuela de Educación y Humanidades </a>
-                                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/pdfs/Convocatoria Titulares.pdf" data-canvas-id="pdf-viewer-concurso">Escuela de Veterinaria</a>
-                                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/pdfs/Convocatoria Titulares.pdf" data-canvas-id="pdf-viewer-concurso">Escuela de Administración e Industria</a>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="col-lg-8 d-flex flex-column">
-                                        <div class="pdf-viewer-container border rounded shadow-sm bg-white">
-                                            <canvas id="pdf-viewer-concurso" class="pdf-canvas"></canvas>
-                                        </div>
-                                        <div class="pdf-paginator" data-canvas-id="pdf-viewer-concurso">
-                                            <button class="btn btn-outline-primary" data-action="prev">Anterior</button>
-                                            <span class="page-info">Página: <span class="page-num">0</span> / <span class="page-count">0</span></span>
-                                            <button class="btn btn-outline-primary" data-action="next">Siguiente</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="tab-pane fade" id="list-proceso" role="tabpanel" aria-labelledby="list-proceso-list">
-                                <div class="row d-flex">
-                                    <div class="col-lg-4">
-                                        <h6 class="mb-3">Período Académico (noviembre 2023 - abril 2024)</h6>
-                                        <h5 class="text-primary text-uppercase mb-1">Requisitos</h5>
-                                        <div class="list-group pdf-submenu" role="tablist">
-                                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/noTitular/Escuela_de_Educación.pdf" data-canvas-id="pdf-viewer-proceso">Escuela de Educación y Humanidades</a>
-                                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/noTitular/Escuela_de_Construcción.pdf" data-canvas-id="pdf-viewer-proceso">Escuela de Construcción y Extracción sostenible</a>
-                                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/noTitular/Escuela_Veterinaria.pdf" data-canvas-id="pdf-viewer-proceso">Escuela de Veterinaria</a>
-                                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/noTitular/Escuela _Administracion.pdf" data-canvas-id="pdf-viewer-proceso">Escuela de Administración e Industria</a>
-                                        </div>
-                                        <br> 
-                                        <h6 class="text-primary text-uppercase mb-1">Resultados</h6>
-                                        <div class="list-group pdf-submenu" role="tablist">
-                                        </div>
-                                        
-                                        <h6 class="mt-4 mb-3">Período Académico (mayo - octubre 2024)</h6>
-                                        <h5 class="text-primary text-uppercase mb-1">Requisitos</h5>
-                                        <div class="list-group pdf-submenu" role="tablist">
-                                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/noTitular/EscuelaEducacion2024.pdf" data-canvas-id="pdf-viewer-proceso">Escuela de Educación y Humanidades</a>
-                                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/noTitular/EscuelaConstruccion2024.pdf" data-canvas-id="pdf-viewer-proceso">Escuela de Construcción y Extracción sostenible</a>
-                                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/noTitular/EscuelaVeterinaria2024.pdf" data-canvas-id="pdf-viewer-proceso">Escuela de Veterinaria</a>
-                                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/noTitular/EscuelaAdministración2024.pdf" data-canvas-id="pdf-viewer-proceso">Escuela de Administración e Industria</a>
-                                        </div>
-                                        <br> 
-                                        <h6 class="text-primary text-uppercase mb-1">Resultados</h6>
-                                        <div class="list-group pdf-submenu" role="tablist">
-                                        </div>
-
-                                        <h6 class="mt-4 mb-3">Período Académico (noviembre 2024 - abril 2025)</h6>
-                                        <h5 class="text-primary text-uppercase mb-1">Requisitos</h5>
-                                        <div class="list-group pdf-submenu" role="tablist">
-                                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/noTitular/ReclutamientoPersonal2025.pdf" data-canvas-id="pdf-viewer-proceso">Escuela de Educación y Humanidades</a>
-                                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/noTitular/ReclutamientoPersonal02.pdf" data-canvas-id="pdf-viewer-proceso">Escuela de Construcción y Extracción sostenible</a>
-                                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/noTitular/ReclutamientoPersonal03.pdf" data-canvas-id="pdf-viewer-proceso">Escuela de Veterinaria</a>
-                                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/noTitular/Administracion04.pdf" data-canvas-id="pdf-viewer-proceso">Escuela de Administración e Industria</a>
-                                        </div>
-                                        <br> 
-                                        <h6 class="text-primary text-uppercase mb-1">Resultados</h6>
-                                        <div class="list-group pdf-submenu" role="tablist">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-8 d-flex flex-column">
-                                        <div class="pdf-viewer-container border rounded shadow-sm bg-white">
-                                            <canvas id="pdf-viewer-proceso" class="pdf-canvas"></canvas>
-                                        </div>
-                                        <div class="pdf-paginator" data-canvas-id="pdf-viewer-proceso">
-                                            <button class="btn btn-outline-primary" data-action="prev">Anterior</button>
-                                            <span class="page-info">Página: <span class="page-num">0</span> / <span class="page-count">0</span></span>
-                                            <button class="btn btn-outline-primary" data-action="next">Siguiente</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="tab-pane fade" id="list-evaluacion" role="tabpanel" aria-labelledby="list-evaluacion-list">
-                                <div class="row">
-                                    <div class="col-lg-4">
-                                        <h6 class="mb-3">Documentos de evaluación</h6>
-                                        <div class="list-group pdf-submenu" role="tablist">
-                                            <a class="list-group-item list-group-item-action active" href="#metodologia-content" id="metodologia-tab" data-bs-toggle="list" role="tab" aria-controls="metodologia-content">Evaluación Docente</a>
-                                            <a class="list-group-item list-group-item-action pdf-link" href="#resultados-pdf-content" id="resultados-tab" data-bs-toggle="list" role="tab" aria-controls="resultados-pdf-content" data-pdf-src="/assets/docs/EvaluacionDocente/EvaluacionDocente01.pdf" data-canvas-id="pdf-viewer-evaluacion-1">Conoce Nuestro Reglamento de Evaluación</a>
-                                            <a class="list-group-item list-group-item-action pdf-link" href="#informe-pdf-content" id="informe-tab" data-bs-toggle="list" role="tab" aria-controls="informe-pdf-content" data-pdf-src="/assets/docs/EvaluacionDocente/EvaluacionDocente02.pdf" data-canvas-id="pdf-viewer-evaluacion-2">Descubre el procedimiento de Evaluación de Actividades de Docencia</a>
-                                            <a class="list-group-item list-group-item-action pdf-link" href="#anexos-pdf-content" id="anexos-tab" data-bs-toggle="list" role="tab" aria-controls="anexos-pdf-content" data-pdf-src="/assets/docs/EvaluacionDocente/ModeloEducativo.pdf" data-canvas-id="pdf-viewer-evaluacion-3">Conoce el modelo Educativo del Tecnológico Superarse</a>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="col-lg-8">
-                                        <div class="pdf-viewer-container border rounded shadow-sm bg-white">
-                                            <div class="tab-content" style="height: 100%;">
-                                                <div class="tab-pane fade show active p-3" id="metodologia-content" role="tabpanel" aria-labelledby="metodologia-tab">
-                                                    <h2 class="text-uppercase text-primary mb-3">Evaluación al Docente</h2>
-                                                    <h5 class="text-uppercase mb-3" style="text-align: justify;">En el Instituto Superior Tecnológico Superarse, la búsqueda constante de la excelencia académica impulsa nuestra cultura de innovación y mejora continua.</h5>
-                                                    <p style="text-align: justify;">Comprometidos con la calidad de la educación, hemos implementado un sistema de evaluación docente, permitiendo a nuestros estudiantes evaluar a sus profesores y proporcionar datos valiosos para asegurar la calidad de la enseñanza y promover el desarrollo profesional de nuestros docentes.</p>
-                                                    <p style="text-align: justify;">La evaluación docente es un pilar fundamental para:</p>
-                                                    <h5 class="text-uppercase mb-3">Nuestro Objetivo</h5>
-                                                    <ul style="text-align: justify;">
-                                                        <li>Elevar la calidad académica:Identificar fortalezas y áreas de mejora en la práctica docente, asegurando una educación de vanguardia.</li>
-                                                        <li>Facilitar la toma de decisiones estratégicas: Detectar tendencias y necesidades emergentes para una gestión académica proactiva.</li>
-                                                        <li>Fomentar el crecimiento profesional del docente: Proporcionar herramientas y recursos para el desarrollo continuo de sus competencias pedagógicas y tecnológicas.</li>
-                                                        <li>Promover la participación activa de los estudiantes: Incluir a los estudiantes como parte activa del proceso de mejora continua.</li>
-                                                        <li>Asegurar la pertinencia de la formación:** Ajustar los contenidos y metodologías a las demandas del sector productivo.</li>
-                                                    </ul>
-                                                </div>
-                                                
-                                                <div class="tab-pane fade" id="resultados-pdf-content" role="tabpanel" aria-labelledby="resultados-tab" style="height: 100%;">
-                                                    <canvas id="pdf-viewer-evaluacion-1" class="pdf-canvas"></canvas>
-                                                </div>
-                                                <div class="tab-pane fade" id="informe-pdf-content" role="tabpanel" aria-labelledby="informe-tab" style="height: 100%;">
-                                                    <canvas id="pdf-viewer-evaluacion-2" class="pdf-canvas"></canvas>
-                                                </div>
-                                                <div class="tab-pane fade" id="anexos-pdf-content" role="tabpanel" aria-labelledby="anexos-tab" style="height: 100%;">
-                                                    <canvas id="pdf-viewer-evaluacion-3" class="pdf-canvas"></canvas>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="pdf-paginator" data-canvas-id="pdf-viewer-evaluacion-1,pdf-viewer-evaluacion-2,pdf-viewer-evaluacion-3">
-                                            <button class="btn btn-outline-primary" data-action="prev">Anterior</button>
-                                            <span class="page-info">Página: <span class="page-num">0</span> / <span class="page-count">0</span></span>
-                                            <button class="btn btn-outline-primary" data-action="next">Siguiente</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="tab-pane fade" id="list-mejores" role="tabpanel" aria-labelledby="list-mejores-list">
-                                <h1 class="text-center">Mejores Evaluados</h1>
-                                <p class="mb-4" style="text-align: justify;">El Tecnológico Superarse define cuidadosamente los perfiles profesionales de los profesores que forman parte de nuestra Institución. Con una sólida formación académica y una gran trayectoria, nuestros profesores son un referente en su campo. Estamos emocionados de contar con su experiencia y liderazgo en Nuestras Carreras.</p>
-                                
-                                <hr class="my-4">
-
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="perfil-profesor d-flex align-items-center mb-4 clickable-item" data-large-src="/assets/img/bienestarEstudiantil/mejoresEvaluados/ESTEBAN02.jpg" data-name="ESTEBAN TORRES">
-                                            <img src="/assets/img/bienestarEstudiantil/mejoresEvaluados/ESTEBAN_TORRES.jpg" alt="Foto de perfil 1" class="border rounded me-3" style="width: 200px; height: 200px; object-fit: cover; cursor: pointer;">
-                                            <div>
-                                                <h6>ESTEBAN TORRES</h6>
-                                            </div>
-                                        </div>
-
-                                        <div class="perfil-profesor d-flex align-items-center mb-4 clickable-item" data-large-src="/assets/img/bienestarEstudiantil/mejoresEvaluados/IVAN02.jpg" data-name="IVÁN YÁNEZ">
-                                            <img src="/assets/img/bienestarEstudiantil/mejoresEvaluados/IVANYANEZ.jpg" alt="Foto de perfil 2" class="border rounded me-3" style="width: 200px; height: 200px; object-fit: cover; cursor: pointer;">
-                                            <div>
-                                                <h6>IVÁN YÁNEZ</h6>
-                                            </div>
-                                        </div>
-
-                                        <div class="perfil-profesor d-flex align-items-center mb-4 clickable-item" data-large-src="/assets/img/bienestarEstudiantil/mejoresEvaluados/KARINA02.jpg" data-name="KARINA FABARA">
-                                            <img src="/assets/img/bienestarEstudiantil/mejoresEvaluados/KARINAFABARA.jpg" alt="Foto de perfil 2" class="border rounded me-3" style="width: 200px; height: 200px; object-fit: cover; cursor: pointer;">
-                                            <div>
-                                                <h6>KARINA FABARA</h6>
-                                            </div>
-                                        </div>
-
-                                        <div class="perfil-profesor d-flex align-items-center mb-4 clickable-item" data-large-src="/assets/img/bienestarEstudiantil/mejoresEvaluados/Eriquez02.jpg" data-name="DENNYS ENRIQUEZ">
-                                            <img src="/assets/img/bienestarEstudiantil/mejoresEvaluados/DENNYSENRIQUEZ.jpg" alt="Foto de perfil 4" class="border rounded me-3" style="width: 200px; height: 200px; object-fit: cover; cursor: pointer;">
-                                            <div>
-                                                <h6>DENNYS ENRIQUEZ</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-8 d-flex justify-content-center align-items-center">
-                                        <div id="contenedor-foto-grande" class="text-center d-none">
-                                            <h4 id="nombre-profesor" class="mb-3"></h4>
-                                            <img id="foto-principal" src="" alt="Foto informativa del profesor" class="img-fluid border rounded" style="max-width: 100%; max-height: 500px;">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-12">
+          <div class="p-4 border rounded shadow-sm bg-white">
+            <div class="tab-content" id="nav-tabContent">
+
+              <!-- Plan de igualdad -->
+              <div class="tab-pane fade show active" id="list-igualdad" role="tabpanel" aria-labelledby="list-igualdad-list">
+                <div class="row">
+                  <div class="col-lg-4">
+                    <h6 class="mb-3">2023</h6>
+                    <div class="list-group pdf-submenu" role="tablist">
+                      <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/planDeigualdad/2023/PLAN-2023.PDF" data-canvas-id="pdf-viewer-igualdad">Plan de Igualdad 2023</a>
+                      <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/planDeigualdad/2023/DIAGNOSTICO-2023.PDF" data-canvas-id="pdf-viewer-igualdad">Diagnóstico del Plan de Igualdad</a>
+                      <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/planDeigualdad/2023/RESULTADOS-2023.PDF" data-canvas-id="pdf-viewer-igualdad">Resultados del plan de igualdad</a>
+                      <br />
+                    </div>
+
+                    <h6 class="mb-3">2024</h6>
+                    <div class="list-group pdf-submenu" role="tablist">
+                      <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/planDeigualdad/2024/PLAN-2024.PDF" data-canvas-id="pdf-viewer-igualdad">Plan de Igualdad 2024</a>
+                      <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/planDeigualdad/2024/DIAGNOSTICO-2024.PDF" data-canvas-id="pdf-viewer-igualdad">Diagnóstico del Plan de Igualdad</a>
+                      <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/planDeigualdad/2024/RESULTADOS-2024.PDF" data-canvas-id="pdf-viewer-igualdad">Resultados del plan de igualdad</a>
+                      <br />
+                    </div>
+
+                    <h6 class="mb-3">2025</h6>
+                    <div class="list-group pdf-submenu" role="tablist">
+                      <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/planDeigualdad/2025/PLAN-2025.PDF" data-canvas-id="pdf-viewer-igualdad">Plan de Igualdad 2025</a>
+                      <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/planDeigualdad/2025/DIAGNOSTICO-2025.PDF" data-canvas-id="pdf-viewer-igualdad">Diagnóstico del Plan de Igualdad</a>
+                      <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/pdfs/Reglamento de Personal.pdf" data-canvas-id="pdf-viewer-igualdad">Resultados del plan de igualdad</a>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-8">
+                    <div class="pdf-viewer-container border rounded shadow-sm bg-white">
+                      <canvas id="pdf-viewer-igualdad" class="pdf-canvas"></canvas>
+                    </div>
+                    <div class="pdf-paginator" data-canvas-id="pdf-viewer-igualdad">
+                      <button class="btn btn-outline-primary" data-action="prev">Anterior</button>
+                      <span class="page-info">Página: <span class="page-num">0</span> / <span class="page-count">0</span></span>
+                      <button class="btn btn-outline-primary" data-action="next">Siguiente</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Seguridad y plan ocupacional -->
+              <div class="tab-pane fade" id="list-seguridad" role="tabpanel" aria-labelledby="list-seguridad-list">
+                <div class="row">
+                  <div class="col-lg-4">
+                    <h6 class="mb-3">Seguridad y Salud Ocupacional</h6>
+                    <div class="list-group pdf-submenu" role="tablist">
+                      <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/SeguridadyPlanOcupacional/MatrizdeRiesgos.pdf" data-canvas-id="pdf-viewer-seguridad">Matriz de Riesgos</a>
+                      <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/SeguridadyPlanOcupacional/plandeemergencia.pdf" data-canvas-id="pdf-viewer-seguridad">Plan de Emergencia</a>
+                      <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/SeguridadyPlanOcupacional/Reglamento.pdf" data-canvas-id="pdf-viewer-seguridad">Reglamento</a>
+                    </div>
+                  </div>
+                  <div class="col-lg-8">
+                    <div class="pdf-viewer-container border rounded shadow-sm bg-white">
+                      <canvas id="pdf-viewer-seguridad" class="pdf-canvas"></canvas>
+                    </div>
+                    <div class="pdf-paginator" data-canvas-id="pdf-viewer-seguridad">
+                      <button class="btn btn-outline-primary" data-action="prev">Anterior</button>
+                      <span class="page-info">Página: <span class="page-num">0</span> / <span class="page-count">0</span></span>
+                      <button class="btn btn-outline-primary" data-action="next">Siguiente</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Trabaja con nosotros -->
+              <div class="tab-pane fade" id="list-trabaja" role="tabpanel" aria-labelledby="list-trabaja-list">
+                <div class="row gx-5">
+                  <div class="col-lg-5 mb-5 mb-lg-0">
+                    <div class="position-relative h-100">
+                      <img class="position-absolute w-100 h-100 rounded" src="/assets/img/bienestarEstudiantil/TrabajaConNosotros/trabaja.png" style="object-fit: cover;">
+                    </div>
+                  </div>
+                  <div class="col-lg-7">
+                    <h1 class="display-4 text-uppercase mb-4">
+                      <span class="text-primary">TRABAJA EN EL ISTS</span>
+                    </h1>
+                    <h4 class="text-uppercase mb-3">Conócenos</h4>
+                    <p style="text-align: justify;">En la Coordinación de Talento Humano del Instituto Superior Tecnológico Superarse, buscamos profesionales apasionados por la educación, comprometidos con la excelencia académica e innovadores en su enseñanza.</p>
+                    <p class="mb-4" style="text-align: justify;">Si deseas formar parte de un equipo dinámico que transforma vidas a través del conocimiento, te invitamos a postularte y crecer profesionalmente con nosotros.</p>
+                    <p class="mb-4" style="text-align: justify;">¡Súmate a nuestra comunidad educativa y contribuye al futuro de la educación!</p>
+                    <h4 class="text-uppercase mb-3">¿Cómo Aplicar?</h4>
+                    <p>Si estás interesado en formar parte de nuestro equipo, debes revisar los procesos de selección vacantes, cumplir con los requisitos y aplicar:</p>
+                    <h5 class="text-primary text-uppercase mb-1">Para su postulación, tenga en cuenta los siguientes pasos:</h5>
+                    <p class="mb-4">1. La postulación se realizará descargando y completando la información solicitada en el FORMATO DE HOJA DE VIDA.</p>
+                    <a href="/assets/docs/MeritoyOposicion/PeriodoAcademico/Formatohojadevida.docx" download class="btn btn-primary py-3 px-5">Descargar Formato CV</a>
+                    <br><br>
+                    <p class="mb-4">2. Enviar la hoja de vida en el formato de la Institución y los documentos de respaldo a rrhh@superarse.edu.ec</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Concurso de Méritos y Oposición -->
+              <div class="tab-pane fade" id="list-concurso" role="tabpanel" aria-labelledby="list-concurso-list">
+                <div class="row d-flex">
+                  <div class="col-lg-4">
+                    <h6 class="mb-3">Período Académico (mayo - octubre 2024)</h6>
+                    <div class="list-group pdf-submenu" role="tablist">
+                      <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/MeritoyOposicion/PeriodoAcademico/Convocatoria.pdf" data-canvas-id="pdf-viewer-concurso">Convocatoria</a>
+                    </div>
+
+                    <h6 class="mt-4 mb-3">Acta de Resultados Fase de Méritos</h6>
+                    <div class="list-group pdf-submenu" role="tablist">
+                      <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/pdfs/Convocatoria Titulares.pdf" data-canvas-id="pdf-viewer-concurso">Escuela de administración e Industria</a>
+                      <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/pdfs/Convocatoria Titulares.pdf" data-canvas-id="pdf-viewer-concurso">Escuela de Educación</a>
+                      <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/pdfs/Convocatoria Titulares.pdf" data-canvas-id="pdf-viewer-concurso">Escuela Veterinaria</a>
+                    </div>
+
+                    <h6 class="mt-4 mb-3">Acta de Resultados Fase de Oposición</h6>
+                    <div class="list-group pdf-submenu" role="tablist">
+                      <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/pdfs/Convocatoria Titulares.pdf" data-canvas-id="pdf-viewer-concurso">Escuela de Educación y Humanidades</a>
+                      <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/pdfs/Convocatoria Titulares.pdf" data-canvas-id="pdf-viewer-concurso">Escuela de Veterinaria</a>
+                      <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/pdfs/Convocatoria Titulares.pdf" data-canvas-id="pdf-viewer-concurso">Escuela de Administración e Industria</a>
+                    </div>
+
+                    <h6 class="mt-4 mb-3">Acta de Resultados Finales</h6>
+                    <div class="list-group pdf-submenu" role="tablist">
+                      <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/pdfs/Convocatoria Titulares.pdf" data-canvas-id="pdf-viewer-concurso">Escuela de Educación y Humanidades</a>
+                      <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/pdfs/Convocatoria Titulares.pdf" data-canvas-id="pdf-viewer-concurso">Escuela de Veterinaria</a>
+                      <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/pdfs/Convocatoria Titulares.pdf" data-canvas-id="pdf-viewer-concurso">Escuela de Administración e Industria</a>
+                    </div>
+
+                    <h6 class="mt-4 mb-3">Acta de Declaratoria del Ganador</h6>
+                    <div class="list-group pdf-submenu" role="tablist">
+                      <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/pdfs/Convocatoria Titulares.pdf" data-canvas-id="pdf-viewer-concurso">Escuela de Educación y Humanidades</a>
+                      <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/pdfs/Convocatoria Titulares.pdf" data-canvas-id="pdf-viewer-concurso">Escuela de Veterinaria</a>
+                      <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/pdfs/Convocatoria Titulares.pdf" data-canvas-id="pdf-viewer-concurso">Escuela de Administración e Industria</a>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-8 d-flex flex-column">
+                    <div class="pdf-viewer-container border rounded shadow-sm bg-white">
+                      <canvas id="pdf-viewer-concurso" class="pdf-canvas"></canvas>
+                    </div>
+                    <div class="pdf-paginator" data-canvas-id="pdf-viewer-concurso">
+                      <button class="btn btn-outline-primary" data-action="prev">Anterior</button>
+                      <span class="page-info">Página: <span class="page-num">0</span> / <span class="page-count">0</span></span>
+                      <button class="btn btn-outline-primary" data-action="next">Siguiente</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Proceso de Selección -->
+              <div class="tab-pane fade" id="list-proceso" role="tabpanel" aria-labelledby="list-proceso-list">
+                <div class="row d-flex">
+                  <div class="col-lg-4">
+                    <h6 class="mb-3">Período Académico (noviembre 2023 - abril 2024)</h6>
+                    <h5 class="text-primary text-uppercase mb-1">Requisitos</h5>
+                    <div class="list-group pdf-submenu" role="tablist">
+                      <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/noTitular/Escuela_de_Educación.pdf" data-canvas-id="pdf-viewer-proceso">Escuela de Educación y Humanidades</a>
+                      <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/noTitular/Escuela_de_Construcción.pdf" data-canvas-id="pdf-viewer-proceso">Escuela de Construcción y Extracción sostenible</a>
+                      <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/noTitular/Escuela_Veterinaria.pdf" data-canvas-id="pdf-viewer-proceso">Escuela de Veterinaria</a>
+                      <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/noTitular/Escuela _Administracion.pdf" data-canvas-id="pdf-viewer-proceso">Escuela de Administración e Industria</a>
+                    </div>
+                    <br />
+                    <h6 class="text-primary text-uppercase mb-1">Resultados</h6>
+                    <div class="list-group pdf-submenu" role="tablist"></div>
+
+                    <h6 class="mt-4 mb-3">Período Académico (mayo - octubre 2024)</h6>
+                    <h5 class="text-primary text-uppercase mb-1">Requisitos</h5>
+                    <div class="list-group pdf-submenu" role="tablist">
+                      <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/noTitular/EscuelaEducacion2024.pdf" data-canvas-id="pdf-viewer-proceso">Escuela de Educación y Humanidades</a>
+                      <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/noTitular/EscuelaConstruccion2024.pdf" data-canvas-id="pdf-viewer-proceso">Escuela de Construcción y Extracción sostenible</a>
+                      <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/noTitular/EscuelaVeterinaria2024.pdf" data-canvas-id="pdf-viewer-proceso">Escuela de Veterinaria</a>
+                      <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/noTitular/EscuelaAdministración2024.pdf" data-canvas-id="pdf-viewer-proceso">Escuela de Administración e Industria</a>
+                    </div>
+                    <br />
+                    <h6 class="text-primary text-uppercase mb-1">Resultados</h6>
+                    <div class="list-group pdf-submenu" role="tablist"></div>
+
+                    <h6 class="mt-4 mb-3">Período Académico (noviembre 2024 - abril 2025)</h6>
+                    <h5 class="text-primary text-uppercase mb-1">Requisitos</h5>
+                    <div class="list-group pdf-submenu" role="tablist">
+                      <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/noTitular/ReclutamientoPersonal2025.pdf" data-canvas-id="pdf-viewer-proceso">Escuela de Educación y Humanidades</a>
+                      <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/noTitular/ReclutamientoPersonal02.pdf" data-canvas-id="pdf-viewer-proceso">Escuela de Construcción y Extracción sostenible</a>
+                      <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/noTitular/ReclutamientoPersonal03.pdf" data-canvas-id="pdf-viewer-proceso">Escuela de Veterinaria</a>
+                      <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/noTitular/Administracion04.pdf" data-canvas-id="pdf-viewer-proceso">Escuela de Administración e Industria</a>
+                    </div>
+                    <br />
+                    <h6 class="text-primary text-uppercase mb-1">Resultados</h6>
+                    <div class="list-group pdf-submenu" role="tablist"></div>
+                  </div>
+
+                  <div class="col-lg-8 d-flex flex-column">
+                    <div class="pdf-viewer-container border rounded shadow-sm bg-white">
+                      <canvas id="pdf-viewer-proceso" class="pdf-canvas"></canvas>
+                    </div>
+                    <div class="pdf-paginator" data-canvas-id="pdf-viewer-proceso">
+                      <button class="btn btn-outline-primary" data-action="prev">Anterior</button>
+                      <span class="page-info">Página: <span class="page-num">0</span> / <span class="page-count">0</span></span>
+                      <button class="btn btn-outline-primary" data-action="next">Siguiente</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Evaluación Docente -->
+              <div class="tab-pane fade" id="list-evaluacion" role="tabpanel" aria-labelledby="list-evaluacion-list">
+                <div class="row">
+                  <div class="col-lg-4">
+                    <h6 class="mb-3">Documentos de evaluación</h6>
+                    <div class="list-group pdf-submenu" role="tablist">
+                      <a class="list-group-item list-group-item-action active" href="#metodologia-content" id="metodologia-tab" data-bs-toggle="list" role="tab" aria-controls="metodologia-content">Evaluación Docente</a>
+                      <a class="list-group-item list-group-item-action pdf-link" href="#resultados-pdf-content" id="resultados-tab" data-bs-toggle="list" role="tab" aria-controls="resultados-pdf-content" data-pdf-src="/assets/docs/EvaluacionDocente/EvaluacionDocente01.pdf" data-canvas-id="pdf-viewer-evaluacion-1">Conoce Nuestro Reglamento de Evaluación</a>
+                      <a class="list-group-item list-group-item-action pdf-link" href="#informe-pdf-content" id="informe-tab" data-bs-toggle="list" role="tab" aria-controls="informe-pdf-content" data-pdf-src="/assets/docs/EvaluacionDocente/EvaluacionDocente02.pdf" data-canvas-id="pdf-viewer-evaluacion-2">Descubre el procedimiento de Evaluación de Actividades de Docencia</a>
+                      <a class="list-group-item list-group-item-action pdf-link" href="#anexos-pdf-content" id="anexos-tab" data-bs-toggle="list" role="tab" aria-controls="anexos-pdf-content" data-pdf-src="/assets/docs/EvaluacionDocente/ModeloEducativo.pdf" data-canvas-id="pdf-viewer-evaluacion-3">Conoce el modelo Educativo del Tecnológico Superarse</a>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-8">
+                    <div class="pdf-viewer-container border rounded shadow-sm bg-white">
+                      <div class="tab-content" style="height: 100%;">
+                        <div class="tab-pane fade show active p-3" id="metodologia-content" role="tabpanel" aria-labelledby="metodologia-tab">
+                          <h2 class="text-uppercase text-primary mb-3">Evaluación al Docente</h2>
+                          <h5 class="text-uppercase mb-3" style="text-align: justify;">En el Instituto Superior Tecnológico Superarse, la búsqueda constante de la excelencia académica impulsa nuestra cultura de innovación y mejora continua.</h5>
+                          <p style="text-align: justify;">Comprometidos con la calidad de la educación, hemos implementado un sistema de evaluación docente, permitiendo a nuestros estudiantes evaluar a sus profesores y proporcionar datos valiosos para asegurar la calidad de la enseñanza y promover el desarrollo profesional de nuestros docentes.</p>
+                          <p style="text-align: justify;">La evaluación docente es un pilar fundamental para:</p>
+                          <h5 class="text-uppercase mb-3">Nuestro Objetivo</h5>
+                          <ul style="text-align: justify;">
+                            <li>Elevar la calidad académica: Identificar fortalezas y áreas de mejora en la práctica docente, asegurando una educación de vanguardia.</li>
+                            <li>Facilitar la toma de decisiones estratégicas: Detectar tendencias y necesidades emergentes para una gestión académica proactiva.</li>
+                            <li>Fomentar el crecimiento profesional del docente: Proporcionar herramientas y recursos para el desarrollo continuo de sus competencias pedagógicas y tecnológicas.</li>
+                            <li>Promover la participación activa de los estudiantes: Incluir a los estudiantes como parte activa del proceso de mejora continua.</li>
+                            <li>Asegurar la pertinencia de la formación: Ajustar los contenidos y metodologías a las demandas del sector productivo.</li>
+                          </ul>
+                        </div>
+
+                        <div class="tab-pane fade" id="resultados-pdf-content" role="tabpanel" aria-labelledby="resultados-tab" style="height: 100%;">
+                          <canvas id="pdf-viewer-evaluacion-1" class="pdf-canvas"></canvas>
+                        </div>
+                        <div class="tab-pane fade" id="informe-pdf-content" role="tabpanel" aria-labelledby="informe-tab" style="height: 100%;">
+                          <canvas id="pdf-viewer-evaluacion-2" class="pdf-canvas"></canvas>
+                        </div>
+                        <div class="tab-pane fade" id="anexos-pdf-content" role="tabpanel" aria-labelledby="anexos-tab" style="height: 100%;">
+                          <canvas id="pdf-viewer-evaluacion-3" class="pdf-canvas"></canvas>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="pdf-paginator" data-canvas-id="pdf-viewer-evaluacion-1,pdf-viewer-evaluacion-2,pdf-viewer-evaluacion-3">
+                      <button class="btn btn-outline-primary" data-action="prev">Anterior</button>
+                      <span class="page-info">Página: <span class="page-num">0</span> / <span class="page-count">0</span></span>
+                      <button class="btn btn-outline-primary" data-action="next">Siguiente</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mejores Evaluados -->
+              <div class="tab-pane fade" id="list-mejores" role="tabpanel" aria-labelledby="list-mejores-list">
+                <h1 class="text-center">Mejores Evaluados</h1>
+                <p class="mb-4" style="text-align: justify;">El Tecnológico Superarse define cuidadosamente los perfiles profesionales de los profesores que forman parte de nuestra Institución. Con una sólida formación académica y una gran trayectoria, nuestros profesores son un referente en su campo. Estamos emocionados de contar con su experiencia y liderazgo en Nuestras Carreras.</p>
+
+                <hr class="my-4">
+
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="perfil-profesor d-flex align-items-center mb-4 clickable-item" data-large-src="/assets/img/bienestarEstudiantil/mejoresEvaluados/ESTEBAN02.jpg" data-name="ESTEBAN TORRES">
+                      <img src="/assets/img/bienestarEstudiantil/mejoresEvaluados/ESTEBAN_TORRES.jpg" alt="Foto de perfil 1" class="border rounded me-3" style="width: 200px; height: 200px; object-fit: cover;">
+                      <div><h6>ESTEBAN TORRES</h6></div>
+                    </div>
+
+                    <div class="perfil-profesor d-flex align-items-center mb-4 clickable-item" data-large-src="/assets/img/bienestarEstudiantil/mejoresEvaluados/IVAN02.jpg" data-name="IVÁN YÁNEZ">
+                      <img src="/assets/img/bienestarEstudiantil/mejoresEvaluados/IVANYANEZ.jpg" alt="Foto de perfil 2" class="border rounded me-3" style="width: 200px; height: 200px; object-fit: cover;">
+                      <div><h6>IVÁN YÁNEZ</h6></div>
+                    </div>
+
+                    <div class="perfil-profesor d-flex align-items-center mb-4 clickable-item" data-large-src="/assets/img/bienestarEstudiantil/mejoresEvaluados/KARINA02.jpg" data-name="KARINA FABARA">
+                      <img src="/assets/img/bienestarEstudiantil/mejoresEvaluados/KARINAFABARA.jpg" alt="Foto de perfil 2" class="border rounded me-3" style="width: 200px; height: 200px; object-fit: cover;">
+                      <div><h6>KARINA FABARA</h6></div>
+                    </div>
+
+                    <div class="perfil-profesor d-flex align-items-center mb-4 clickable-item" data-large-src="/assets/img/bienestarEstudiantil/mejoresEvaluados/Eriquez02.jpg" data-name="DENNYS ENRIQUEZ">
+                      <img src="/assets/img/bienestarEstudiantil/mejoresEvaluados/DENNYSENRIQUEZ.jpg" alt="Foto de perfil 4" class="border rounded me-3" style="width: 200px; height: 200px; object-fit: cover;">
+                      <div><h6>DENNYS ENRIQUEZ</h6></div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-8 d-flex justify-content-center align-items-center">
+                    <div id="contenedor-foto-grande" class="text-center d-none">
+                      <h4 id="nombre-profesor" class="mb-3"></h4>
+                      <img id="foto-principal" src="" alt="Foto informativa del profesor" class="img-fluid border rounded" style="max-width: 100%; max-height: 500px;">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div><!-- /.tab-content -->
+          </div>
+        </div>
+      </div>
     </div>
-     <div class="footer-container"></div>
+  </div>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="/lib/easing/easing.min.js"></script>
-    <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="/lib/isotope/isotope.pkgd.min.js"></script>
-    <script src="/lib/lightbox/js/lightbox.min.js"></script>
+  <div class="footer-container"></div>
 
-    <script src="/js/moduls/header.js"></script>
-    <script src="/js/moduls/footer.js"></script>
-    <script src="/js/moduls/administrationAndIndustryData.js"></script>
-    <script src="/js/global.js"></script>
-    <script src="/js/main.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="/lib/easing/easing.min.js"></script>
-    <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="/lib/isotope/isotope.pkgd.min.js"></script>
-    <script src="/lib/lightbox/js/lightbox.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <!-- Librerías (sin duplicados) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/lib/easing/easing.min.js"></script>
+  <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="/lib/isotope/isotope.pkgd.min.js"></script>
+  <script src="/lib/lightbox/js/lightbox.min.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js"></script>
+  <!-- Include header/footer u otros módulos del sitio -->
+  <script src="/js/moduls/header.js"></script>
+  <script src="/js/moduls/footer.js"></script>
+  <script src="/js/moduls/administrationAndIndustryData.js"></script>
+  <script src="/js/global.js"></script>
+  <script src="/js/main.js"></script>
 
-  
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Configura la ruta del worker de PDF.js
-            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+  <!-- PDF.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js"></script>
 
-            // Almacenamiento global para los documentos PDF y la página actual
-            const pdfStates = {};
-
-            // Función para renderizar el PDF en un canvas
-            async function renderPage(canvasId, pageNum) {
-                const state = pdfStates[canvasId];
-                if (!state || pageNum > state.pdfDoc.numPages || pageNum < 1) {
-                    return;
-                }
-
-                state.pageNum = pageNum;
-                const canvas = document.getElementById(canvasId);
-                const ctx = canvas.getContext('2d');
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-                try {
-                    const page = await state.pdfDoc.getPage(pageNum);
-
-                    // Calcula la escala para ajustar el PDF al tamaño del contenedor
-                    const container = canvas.parentElement;
-                    const containerWidth = container.clientWidth;
-                    const viewport = page.getViewport({ scale: 1 });
-                    
-                    const scale = containerWidth / viewport.width;
-                    
-                    const scaledViewport = page.getViewport({ scale: scale });
-
-                    canvas.height = scaledViewport.height;
-                    canvas.width = scaledViewport.width;
-
-                    const renderContext = {
-                        canvasContext: ctx,
-                        viewport: scaledViewport
-                    };
-
-                    await page.render(renderContext).promise;
-                    console.log(`Página ${pageNum} de PDF renderizada en el canvas con id "${canvasId}"`);
-                    updatePaginator(canvasId);
-
-                } catch (error) {
-                    console.error(`Error al renderizar la página ${pageNum}:`, error);
-                    ctx.font = '20px Arial';
-                    ctx.fillStyle = 'red';
-                    ctx.textAlign = 'center';
-                    ctx.fillText('Error al cargar la página', canvas.width / 2, canvas.height / 2);
-                }
-            }
-            
-            // Función para actualizar la información del paginador
-            function updatePaginator(canvasId) {
-                const state = pdfStates[canvasId];
-                const paginatorContainer = document.querySelector(`.pdf-paginator[data-canvas-id*="${canvasId}"]`);
-
-                if (state && paginatorContainer) {
-                    paginatorContainer.querySelector('.page-num').textContent = state.pageNum;
-                    paginatorContainer.querySelector('.page-count').textContent = state.pdfDoc.numPages;
-
-                    // Habilitar/Deshabilitar botones
-                    paginatorContainer.querySelector('[data-action="prev"]').disabled = state.pageNum <= 1;
-                    paginatorContainer.querySelector('[data-action="next"]').disabled = state.pageNum >= state.pdfDoc.numPages;
-                }
-            }
-
-            // Función principal para cargar y mostrar el PDF
-            async function loadPdfAndRender(pdfUrl, canvasId) {
-                const canvas = document.getElementById(canvasId);
-                if (!canvas) {
-                    console.error(`Canvas con id "${canvasId}" no encontrado.`);
-                    return;
-                }
-                const ctx = canvas.getContext('2d');
-                ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpia el canvas
-
-                // Muestra un mensaje de carga
-                ctx.font = '20px Arial';
-                ctx.fillStyle = 'blue';
-                ctx.textAlign = 'center';
-                ctx.fillText('Cargando PDF...', canvas.width / 2, canvas.height / 2);
-
-                try {
-                    const pdfDoc = await pdfjsLib.getDocument(pdfUrl).promise;
-                    pdfStates[canvasId] = {
-                        pdfDoc: pdfDoc,
-                        pageNum: 1
-                    };
-                    renderPage(canvasId, 1); // Renderiza la primera página
-
-                } catch (error) {
-                    console.error('Error al cargar el PDF:', error);
-                    ctx.font = '20px Arial';
-                    ctx.fillStyle = 'red';
-                    ctx.textAlign = 'center';
-                    ctx.fillText('Error al cargar el PDF', canvas.width / 2, canvas.height / 2);
-                }
-            }
-            
-            // Manejador de clics en los botones del paginador
-            document.querySelectorAll('.pdf-paginator').forEach(paginator => {
-                paginator.addEventListener('click', (e) => {
-                    const action = e.target.getAttribute('data-action');
-                    if (!action) return;
-
-                    // Encuentra el ID del canvas activo dentro del mismo tab
-                    const parentTab = paginator.closest('.tab-pane.fade.show.active');
-                    if (!parentTab) return;
-
-                    const canvas = parentTab.querySelector('canvas.pdf-canvas');
-                    if (!canvas) return;
-                    const canvasId = canvas.id;
-
-                    const state = pdfStates[canvasId];
-                    if (state) {
-                        if (action === 'prev' && state.pageNum > 1) {
-                            renderPage(canvasId, state.pageNum - 1);
-                        } else if (action === 'next' && state.pageNum < state.pdfDoc.numPages) {
-                            renderPage(canvasId, state.pageNum + 1);
-                        }
-                    }
-                });
-            });
-                        // Lógica para mostrar las fotos de perfil de los profesores
-            const perfiles = document.querySelectorAll('.clickable-item');
-            const fotoPrincipal = document.getElementById('foto-principal');
-            const nombreProfesor = document.getElementById('nombre-profesor');
-            const contenedorFotoGrande = document.getElementById('contenedor-foto-grande');
-
-            perfiles.forEach(perfil => {
-                perfil.addEventListener('click', () => {
-                    const imagenSrc = perfil.getAttribute('data-large-src');
-                    const nombre = perfil.getAttribute('data-name');
-                    
-                    fotoPrincipal.src = imagenSrc;
-                    nombreProfesor.textContent = nombre;
-                    contenedorFotoGrande.classList.remove('d-none');
-                });
-            });
-
-
-            // Escucha clics en los elementos del menú de PDF
-            document.querySelectorAll('.pdf-submenu .list-group-item').forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const pdfSrc = link.getAttribute('data-pdf-src');
-                    const canvasId = link.getAttribute('data-canvas-id');
-
-                    if (!pdfSrc || !canvasId) return;
-
-                    // Antes de renderizar el PDF, activa el panel de Bootstrap
-                    const targetContentId = link.getAttribute('aria-controls');
-                    if (targetContentId) {
-                        const targetContent = document.getElementById(targetContentId);
-                        if (targetContent) {
-                            const bsTab = new bootstrap.Tab(link);
-                            bsTab.show();
-                        }
-                    }
-                    
-                    // Llama a la función de carga y renderizado del PDF
-                    loadPdfAndRender(pdfSrc, canvasId);
-                });
-            });
-
-            // Carga el PDF por defecto en el primer tab si tiene un data-pdf-src
-            // Esto asegura que al cargar la página, se muestre algo en el visor
-            const firstPdfLink = document.querySelector('.list-group-item[data-pdf-src]');
-            if (firstPdfLink) {
-                firstPdfLink.click();
-            }
-        });
-    </script>
+  <!-- Lógica de esta página (separada) -->
+  <script src="/js/moduls/TalentoHumano/TalentoHumano.js"></script>
 </body>
 </html>

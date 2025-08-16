@@ -244,3 +244,58 @@ document.addEventListener("DOMContentLoaded", function () {
         firstButton.click();
     }
 });
+// Configurar worker de PDF.js
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+
+// Estado por visor/canvas
+const pdfStates = {}; // { [canvasId]: { pdfDoc, pageNum } }
+
+// Render de página
+async function renderPage(canvasId, pageNum) {
+    const state = pdfStates[canvasId];
+    if (!state || pageNum < 1 || pageNum > state.pdfDoc.numPages) return;
+
+    state.pageNum = pageNum;
+    const canvas = document.getElementById(canvasId);
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    const page = await state.pdfDoc.getPage(pageNum);
+    const containerWidth = canvas.parentElement.clientWidth || canvas.clientWidth;
+    const viewport = page.getViewport({ scale: 1 });
+    const scale = containerWidth / viewport.width;
+    const scaledViewport = page.getViewport({ scale });
+
+    canvas.width = scaledViewport.width;
+    canvas.height = scaledViewport.height;
+
+    await page.render({ canvasContext: ctx, viewport: scaledViewport }).promise;
+
+    // Actualizar paginador
+    const paginator = document.querySelector(`.pdf-paginator[data-canvas-id="${canvasId}"]`);
+    if (paginator) {
+        paginator.querySelector('.page-num').textContent = state.pageNum;
+        paginator.querySelector('.page-count').textContent = state.pdfDoc.numPages;
+        paginator.querySelector('[data-action="prev"]').disabled = state.pageNum <= 1;
+        paginator.querySelector('[data-action="next"]').disabled = state.pageNum >= state.pdfDoc.numPages;
+    }
+}
+
+// Cargar PDF
+async function loadPdfAndRender(pdfUrl, canvasId) {
+    const pdfDoc = await pdfjsLib.getDocument(pdfUrl).promise;
+    pdfStates[canvasId] = { pdfDoc, pageNum: 1 };
+    renderPage(canvasId, 1);
+}
+
+// Configurar botones de paginador
+document.addEventListener('click', function(e){
+    if(e.target.dataset.action){
+        const canvasId = e.target.closest('.pdf-paginator').dataset.canvasId;
+        const state = pdfStates[canvasId];
+        if(e.target.dataset.action === 'prev' && state.pageNum>1) renderPage(canvasId, state.pageNum-1);
+        if(e.target.dataset.action === 'next' && state.pageNum<state.pdfDoc.numPages) renderPage(canvasId, state.pageNum+1);
+    }
+});
