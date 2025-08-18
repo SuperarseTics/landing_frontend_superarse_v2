@@ -10,7 +10,7 @@ const footerData = {
     // Contenido de la primera columna
     info: {
         logo: "/assets/img/content/logo/superarse_gris.png",
-        descripcion : " Labore dolor amet ipsum ea, erat sit ipsum duo eos. Volup amet ea dolor et magna dolor, elitr rebum duo est sed diam elitr. Stet elitr stet diam duo eos rebum ipsum diam ipsum elitr.",
+        descripcion: "#",
         redes: [
             { enlace: "https://twitter.com/superarse1", icono: "fab fa-twitter" },
             { enlace: "https://www.facebook.com/superarse1/", icono: "fab fa-facebook-f" },
@@ -41,9 +41,10 @@ const footerData = {
     admisiones: {
         titulo: "Admisiones",
         formulario: {
-            placeholderNombre: "Your Name",
-            placeholderEmail: "Your Email",
-            textoBoton: "Submit Now"
+            placeholderNombre: "Nombres Completos",
+            placeholderEmail: "Correo Electronico",
+            placeholderDescription:"Describe tu Requerimiento",
+            textoBoton: "ENVIAR"
         }
     },
     // Texto del pie de página

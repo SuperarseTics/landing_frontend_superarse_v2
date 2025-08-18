@@ -128,9 +128,9 @@ function createAccordion() {
         <div id="${collapseId}" class="collapse" aria-labelledby="heading-${index}" data-parent="#modelsAccordion">
           <div class="card-body">
             <div class="d-flex justify-content-between align-items-center mb-3">
-              <button class="btn btn-primary btn-sm prev-page" data-url="${url}">Página anterior</button>
+              <button class="btn btn-primary prev-page" data-url="${url}">Página anterior</button>
               <span class="page-info" data-url="${url}">Página: 1</span>
-              <button class="btn btn-primary btn-sm next-page" data-url="${url}">Página siguiente</button>
+              <button class="btn btn-primary next-page" data-url="${url}">Página siguiente</button>
             </div>
             <div id="${viewerId}">
             </div>

@@ -30,9 +30,9 @@ function generateRegulationsAccordion() {
         <div id="${collapseId}" class="collapse" aria-labelledby="heading-${regulation.id}" data-parent="#regulationsAccordion">
           <div class="card-body">
             <div class="d-flex justify-content-between align-items-center mb-3">
-              <button class="btn btn-primary btn-sm prev-page" data-url="${regulation.filePath}" data-viewer-id="${viewerId}">Página anterior</button>
+              <button class="btn btn-primary prev-page" data-url="${regulation.filePath}" data-viewer-id="${viewerId}">Página anterior</button>
               <span class="page-info" data-url="${regulation.filePath}" data-viewer-id="${viewerId}">Página: 1</span>
-              <button class="btn btn-primary btn-sm next-page" data-url="${regulation.filePath}" data-viewer-id="${viewerId}">Página siguiente</button>
+              <button class="btn btn-primary  next-page" data-url="${regulation.filePath}" data-viewer-id="${viewerId}">Página siguiente</button>
             </div>
             <div id="${viewerId}" class="pdf-viewer">
               <div class="text-center p-3">Cargando documento...</div>

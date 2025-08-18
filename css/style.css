@@ -32,8 +32,8 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Nunito", sans-serif;
-  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-family-sans-serif: "Avenir Next",Avenir Next;
+  --font-family-monospace: Avenir Next, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 *,
@@ -43,7 +43,7 @@
 }
 
 html {
-  font-family: sans-serif;
+  font-family:Avenir Next;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -64,7 +64,7 @@ section {
 
 body {
   margin: 0;
-  font-family: "Nunito", sans-serif;
+  font-family: "Avenir Next",Avenir Next;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -92,6 +92,7 @@ h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
 }
+
 
 p {
   margin-top: 0;
@@ -194,7 +195,7 @@ pre,
 code,
 kbd,
 samp {
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: Avenir Next, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 1em;
 }
 
@@ -256,9 +257,9 @@ select,
 optgroup,
 textarea {
   margin: 0;
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
+  font-family: Avenir Next;
+  font-size: Avenir Next;
+  line-height: Avenir Next;
 }
 
 button,
@@ -390,7 +391,7 @@ h6,
 .h5,
 .h6 {
   margin-bottom: 0.5rem;
-  font-family: "Handlee", cursive;
+  font-family: "Avenir Next", Avenir Next;
   font-weight: bold;
   line-height: 1.2;
   color: #00394f;
@@ -6521,7 +6522,7 @@ a.close.disabled {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: "Nunito", sans-serif;
+  font-family: "Avenir Next",Avenir Next;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -6646,7 +6647,7 @@ a.close.disabled {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: "Nunito", sans-serif;
+  font-family: "Avenir Next",Avenir Next;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -10678,7 +10679,7 @@ button.bg-dark:focus {
 }
 
 .text-monospace {
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+  font-family: Avenir Next, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
 }
 
 .text-justify {
@@ -11376,4 +11377,65 @@ width: 100%; height: auto; display: block;
      display: flex;
     justify-content: center; /* Centra los elementos horizontalmente */
     align-items: center;   
+}
+.stats-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  font-family: "Avenir Next",Avenir Next;
+}
+
+.stat-item {
+  flex: 1;
+  margin: 0 10px;
+  /* Agregamos una transición para que el efecto sea suave */
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Esta es la pseudo-clase para el efecto de zoom al pasar el mouse */
+.stat-item:hover {
+  transform: scale(1.2); /* 1.2 significa un 15% de aumento de tamaño */
+}
+
+.number {
+  font-size: 4em;
+  font-weight: bold;
+}
+
+.label {
+  font-size: 1.2em;
+  color: #555;
+  margin-top: 5px;
+}
+
+.blue {
+  color: #3498db;
+}
+
+.green {
+  color: #2ecc71;
+}
+
+.orange-light {
+  color: #f39c12;
+}
+
+.orange-dark {
+  color: #e67e22;
+}
+/* Styles for the separate image section */
+.separate-image-section {
+    display: flex;
+    justify-content: center; /* Centra la imagen horizontalmente */
+    align-items: center;
+    margin-top: 50px; /* Agrega espacio entre las estadísticas y la imagen */
+}
+
+.separate-image-section img {
+    max-width: 450px; /* Tamaño de la imagen, ajusta según sea necesario */
+    height: auto;
+    border-radius: 8px; /* Opcional: para bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Opcional: para una sombra sutil */
 }

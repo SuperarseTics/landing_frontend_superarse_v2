@@ -513,7 +513,7 @@ function generarSelloUnico() {
                         ${redesHtml}
                     </div>
                     <h4>${club.titulo}</h4>
-                    <i>${club.subtitulo}</i>
+                    <ip>${club.subtitulo}</ip>
                 </div>
             `;
     });
@@ -562,7 +562,7 @@ function generarTestimonios() {
                         />
                         <div class="pl-3">
                             <h5>${testimonio.nombre}</h5>
-                            <i>${testimonio.carrera}</i>
+                            <ip>${testimonio.carrera}</ip>
                         </div>
                     </div>
                 </div>
@@ -611,8 +611,8 @@ function generarFooter() {
                     <a href="" class="navbar-brand font-weight-bold text-primary m-0 mb-4 p-0" style="font-size: 40px; line-height: 40px">
                         <img src="${footerData.info.logo}" height="90px" />
                     </a>
-                    <p>${footerData.info.descripcion}</p>
-                    <div class="d-flex justify-content-start mt-4">
+                    
+                    <div class="d-flex justify-content-center mt-4 ">
                         ${footerData.info.redes
                           .map(
                             (red) => `
@@ -662,27 +662,42 @@ function generarFooter() {
                 </div>
 
                 <div class="col-lg-3 col-md-6 mb-5">
-                    <h3 class="text-primary mb-4">${
-                      footerData.admisiones.titulo
-                    }</h3>
-                    <form action="">
-                        <div class="form-group">
-                            <input type="text" class="form-control border-0 py-4" placeholder="${
-                              footerData.admisiones.formulario.placeholderNombre
-                            }" required="required" />
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control border-0 py-4" placeholder="${
-                              footerData.admisiones.formulario.placeholderEmail
-                            }" required="required" />
-                        </div>
-                        <div>
-                            <button class="btn btn-primary btn-block border-0 py-3" type="submit">${
-                              footerData.admisiones.formulario.textoBoton
-                            }</button>
-                        </div>
-                    </form>
-                </div>
+    <h3 class="text-primary mb-4">${footerData.admisiones.titulo}</h3>
+    <form action="enviar-correo.php" method="POST">
+        <div class="form-group">
+            <input 
+                type="text" 
+                name="nombre" 
+                class="form-control border-0 py-4" 
+                placeholder="${footerData.admisiones.formulario.placeholderNombre}" 
+                required="required" 
+            />
+        </div>
+        <div class="form-group">
+            <input 
+                type="email" 
+                name="email" 
+                class="form-control border-0 py-4" 
+                placeholder="${footerData.admisiones.formulario.placeholderEmail}" 
+                required="required" 
+            />
+        </div>
+        <div class="form-group">
+            <textarea 
+                name="description" 
+                class="form-control border-0 py-4" 
+                placeholder="${footerData.admisiones.formulario.placeholderDescription}" 
+                rows="4" 
+                required>
+            </textarea>
+        </div>
+        <div>
+            <button class="btn btn-primary btn-block border-0 py-3" type="submit">
+                ${footerData.admisiones.formulario.textoBoton}
+            </button>
+        </div>
+    </form>
+</div>
             </div>
 
             <div class="container-fluid pt-5" style="border-top: 1px solid rgba(23, 162, 184, 0.2)">
