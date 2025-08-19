@@ -582,8 +582,8 @@ mark,
 }
 
 .img-fluid-selloU {
-  max-width: 25em;
-  height: 25em;
+  max-width: 16em;
+  height: 16em;
   object-fit: contain;
   margin: 0 auto;
 }
@@ -11425,17 +11425,21 @@ width: 100%; height: auto; display: block;
 .orange-dark {
   color: #e67e22;
 }
-/* Styles for the separate image section */
+
 .separate-image-section {
-    display: flex;
-    justify-content: center; /* Centra la imagen horizontalmente */
+    display: flex; /* para centrar fácilmente */
+    justify-content: center;
     align-items: center;
-    margin-top: 50px; /* Agrega espacio entre las estadísticas y la imagen */
+    margin: 0 auto;
+    padding: 0;
 }
 
 .separate-image-section img {
-    max-width: 450px; /* Tamaño de la imagen, ajusta según sea necesario */
-    height: auto;
-    border-radius: 8px; /* Opcional: para bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Opcional: para una sombra sutil */
+    max-width: 100%;   /* nunca será más ancha que su contenedor */
+    height: auto;      /* mantiene proporción */
+    max-height: 500px; /* límite de alto (ajusta según necesites) */
+    min-width: 200px;  /* evita que quede demasiado pequeña */
+    object-fit: contain; /* muestra la imagen completa sin recortar */
+    border-radius: 10px; /* opcional: bordes redondeados */
 }
+

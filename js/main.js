@@ -497,7 +497,7 @@ function generarSelloUnico() {
         redesHtml = `<div class="team-social d-flex align-items-center justify-content-center w-100 h-100 position-absolute">`;
         club.redes.forEach((red) => {
           redesHtml += `
-                        <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px" href="${red.enlace}" title="${red.titulo}">
+                        <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 8px; height: 8px" href="${red.enlace}" title="${red.titulo}">
                             <i class="${red.claseIcono}"></i>
                         </a>
                     `;
