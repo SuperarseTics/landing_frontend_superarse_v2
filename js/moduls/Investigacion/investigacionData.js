@@ -7,13 +7,13 @@ const investigacionData = [
     content: `
       <h4>La Dirección de Investigación, Desarrollo e Innovación (I+D+i)</h4>
       <p>
-        La Dirección de Investigación, Desarrollo e Innovación del ISTS está conformada por un equipo multidisciplinario de docentes e investigadores comprometidos con la generación de conocimiento relevante y la búsqueda de soluciones innovadoras para los desafíos actuales.
+        La Dirección de Investigación, Desarrollo e Innovación del Tecnológico Superarse está conformada por un equipo multidisciplinario de docentes e investigadores comprometidos con la generación de conocimiento relevante y la búsqueda de soluciones innovadoras para los desafíos actuales.
       </p>
       <p>
         Nuestra misión es fomentar la investigación aplicada, el desarrollo tecnológico y la innovación, promoviendo la participación activa de estudiantes y fortaleciendo las capacidades investigativas de la institución.
       </p>
       <p>
-        <em>(Aquí podrías añadir el equipo de investigación, coordinadores, etc. similar al modal de "Equipo de trabajo" de Vinculación)</em>
+        (Aquí podrías añadir el equipo de investigación, coordinadores, etc. similar al modal de "Equipo de trabajo" de Vinculación)
       </p>
     `,
   },
@@ -23,7 +23,7 @@ const investigacionData = [
     content: `
       <h4>Modelo de Investigación y Vinculación</h4>
       <p>
-        Este modelo describe la estrategia que integra la investigación con la vinculación con la sociedad. Explica cómo la investigación del ISTS se orienta a resolver problemas reales de la comunidad y cómo los resultados se transfieren para generar impacto social y productivo.
+        Este modelo describe la estrategia que integra la investigación con la vinculación con la sociedad. Explica cómo la investigación del Tecnológico Superarse se orienta a resolver problemas reales de la comunidad y cómo los resultados se transfieren para generar impacto social y productivo.
       </p>
       <p>
         Nuestro enfoque se basa en la co-creación de soluciones, la interdisciplinariedad y la sostenibilidad de los proyectos, asegurando que el conocimiento generado sea pertinente y aplicable.
@@ -43,7 +43,7 @@ const investigacionData = [
     content: `
       <h4>Normativa de Investigación</h4>
       <p>
-        Accede a los reglamentos, políticas y procedimientos que rigen las actividades de investigación, desarrollo e innovación en el ISTS. Estos documentos aseguran la calidad, la ética y la transparencia en todos nuestros procesos investigativos.
+        Accede a los reglamentos, políticas y procedimientos que rigen las actividades de investigación, desarrollo e innovación en el Tecnológico Superarse. Estos documentos aseguran la calidad, la ética y la transparencia en todos nuestros procesos investigativos.
       </p>
       <p>
         Es fundamental que toda la comunidad investigadora conozca y aplique esta normativa.
@@ -83,7 +83,7 @@ const investigacionData = [
     content: `
       <h4>Dominios Académicos y Líneas de Investigación Institucionales</h4>
       <p>
-        Conoce los dominios académicos estratégicos del ISTS y las líneas de investigación prioritarias que orientan la producción científica de la institución. Estas líneas reflejan nuestra experticia y las áreas de mayor impacto potencial.
+        Conoce los dominios académicos estratégicos del Tecnológico Superarse y las líneas de investigación prioritarias que orientan la producción científica de la institución. Estas líneas reflejan nuestra experticia y las áreas de mayor impacto potencial.
       </p>
       <p>
         Nuestras líneas de investigación son el marco sobre el cual construimos conocimiento relevante y aplicable, alineado con las necesidades del desarrollo nacional y regional.
@@ -103,7 +103,7 @@ const investigacionData = [
     content: `
       <h4>Proyectos de Investigación e Innovación</h4>
       <p>
-        Explora un listado de los proyectos de investigación e innovación que se están llevando a cabo o que han sido completados en el ISTS. Cada proyecto incluye una breve descripción, sus objetivos y los resultados esperados o alcanzados.
+        Explora un listado de los proyectos de investigación e innovación que se están llevando a cabo o que han sido completados en el Tecnológico Superarse. Cada proyecto incluye una breve descripción, sus objetivos y los resultados esperados o alcanzados.
       </p>
       <p>
         Estos proyectos son la materialización de nuestra labor investigativa y su potencial impacto.
@@ -123,7 +123,7 @@ const investigacionData = [
     content: `
       <h4>Redes Académicas y Científicas de I+D</h4>
       <p>
-        Conoce las redes académicas y científicas en las que el ISTS participa activamente. Estas alianzas estratégicas fortalecen la colaboración, el intercambio de conocimientos y la internacionalización de nuestra investigación.
+        Conoce las redes académicas y científicas en las que el Tecnológico Superarse participa activamente. Estas alianzas estratégicas fortalecen la colaboración, el intercambio de conocimientos y la internacionalización de nuestra investigación.
       </p>
       <p>
         Trabajamos con instituciones de prestigio para potenciar el impacto de nuestra investigación.
@@ -249,7 +249,7 @@ const investigacionData = [
     content: `
       <h4>Publicaciones Mayo - Octubre 2024</h4>
       <p>
-        Listado de artículos científicos, libros, capítulos de libro y otros productos de investigación publicados por la comunidad del ISTS durante el periodo de mayo a octubre de 2024.
+        Listado de artículos científicos, libros, capítulos de libro y otros productos de investigación publicados por la comunidad del Tecnológico Superarse durante el periodo de mayo a octubre de 2024.
       </p>
       <p>
         Accede a la producción académica más reciente de nuestros investigadores.
@@ -269,7 +269,7 @@ const investigacionData = [
     content: `
       <h4>Publicaciones Noviembre 2023 - Abril 2024</h4>
       <p>
-        Listado de artículos científicos, libros, capítulos de libro y otros productos de investigación publicados por la comunidad del ISTS durante el periodo de noviembre 2023 a abril de 2024.
+        Listado de artículos científicos, libros, capítulos de libro y otros productos de investigación publicados por la comunidad del Tecnológico Superarse durante el periodo de noviembre 2023 a abril de 2024.
       </p>
       <a
         href="/assets/modules/investigacion/publicaciones/publicaciones_nov_2023_abr_2024.pdf"
@@ -286,7 +286,7 @@ const investigacionData = [
     content: `
       <h4>Publicaciones Mayo - Octubre 2023</h4>
       <p>
-        Listado de artículos científicos, libros, capítulos de libro y otros productos de investigación publicados por la comunidad del ISTS durante el periodo de mayo a octubre de 2023.
+        Listado de artículos científicos, libros, capítulos de libro y otros productos de investigación publicados por la comunidad del Tecnológico Superarse durante el periodo de mayo a octubre de 2023.
       </p>
       <a
         href="/assets/modules/investigacion/publicaciones/publicaciones_may_oct_2023.pdf"
@@ -303,7 +303,7 @@ const investigacionData = [
     content: `
       <h4>Publicaciones Noviembre 2022 - Abril 2023</h4>
       <p>
-        Listado de artículos científicos, libros, capítulos de libro y otros productos de investigación publicados por la comunidad del ISTS durante el periodo de noviembre 2022 a abril de 2023.
+        Listado de artículos científicos, libros, capítulos de libro y otros productos de investigación publicados por la comunidad del Tecnológico Superarse durante el periodo de noviembre 2022 a abril de 2023.
       </p>
       <a
         href="/assets/modules/investigacion/publicaciones/publicaciones_nov_2022_abr_2023.pdf"

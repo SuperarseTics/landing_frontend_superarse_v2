@@ -684,12 +684,12 @@ function generarFooter() {
         </div>
         <div class="form-group">
             <textarea 
+                id="description"
                 name="description" 
-                class="form-control border-0 py-4" 
+                class="form-control textarea-as-input"
                 placeholder="${footerData.admisiones.formulario.placeholderDescription}" 
-                rows="4" 
-                required>
-            </textarea>
+                rows="3" 
+                required></textarea>
         </div>
         <div>
             <button class="btn btn-primary btn-block border-0 py-3" type="submit">

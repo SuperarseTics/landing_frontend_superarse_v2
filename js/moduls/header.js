@@ -112,10 +112,10 @@ const headerData = {
         {
             texto: 'Noticias y Contacto',
             items: [
-                { enlace: '/moduls/Noticias_Contactos/congresoTopografia.html', texto: 'Congreso Topografía' },
-                { enlace: '/moduls/Noticias_Contactos/seminarioEquino.html', texto: 'Seminario Equino' },
-                { enlace: '/moduls/Noticias_Contactos/simposioAdministracion.html', texto: 'Simposio Administración' },
-                { enlace: '/moduls/Noticias_Contactos/contactonos.html', texto: 'Contáctanos' }
+                { enlace: '#', texto: 'Congreso Topografía' },
+                { enlace: '#', texto: 'Seminario Equino' },
+                { enlace: '#', texto: 'Simposio Administración' },
+                { enlace: '/moduls/noticiasContactos/contactanos.html', texto: 'Contáctanos' }
             ]
         }
     ],

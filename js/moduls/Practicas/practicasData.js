@@ -5,7 +5,7 @@ const practicasData = [
     type: "section",
     title: "Reglamento de Prácticas Preprofesionales",
     description: `
-      Aquí encontrarás el reglamento completo que rige las prácticas preprofesionales en el ISTS. Es fundamental que todos los estudiantes y entidades formadoras lo revisen y comprendan para asegurar el correcto desarrollo del proceso.
+      Aquí encontrarás el reglamento completo que rige las prácticas preprofesionales en el Tecnológico Superarse. Es fundamental que todos los estudiantes y entidades formadoras lo revisen y comprendan para asegurar el correcto desarrollo del proceso.
       <br><br>
       Este documento detalla los derechos, deberes, procesos de evaluación, requisitos y la estructura general de las prácticas. Puedes visualizarlo directamente aquí o descargarlo.
     `,

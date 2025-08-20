@@ -24,7 +24,7 @@ const footerData = {
         elementos: [
             { icono: "fa fa-map-marker-alt", titulo: "Dirección", texto: "Av. General Rumiñahui e Isla Pinta 1111, Sangolqui" },
             { icono: "fa fa-envelope", titulo: "Email", texto: "matriculas@superarse.edu.ec" },
-            { icono: "fa fa-phone-alt", titulo: "Phone", texto: "(02) 393-0980" }
+            { icono: "fa fa-phone-alt", titulo: "Teléfono", texto: "(02) 393-0980" }
         ]
     },
     // Contenido de la tercera columna (Enlaces rápidos)
@@ -41,9 +41,9 @@ const footerData = {
     admisiones: {
         titulo: "Admisiones",
         formulario: {
-            placeholderNombre: "Nombres Completos",
-            placeholderEmail: "Correo Electronico",
-            placeholderDescription:"Describe tu Requerimiento",
+            placeholderNombre: "Nombres Completos.",
+            placeholderEmail: "Correo Electronico.",
+            placeholderDescription:"Describe tu Requerimiento y dejanos tu contacto .",
             textoBoton: "ENVIAR"
         }
     },

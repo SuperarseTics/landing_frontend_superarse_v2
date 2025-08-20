@@ -7,7 +7,7 @@ const modelsData = [
     filePath: "/assets/docs/institucion/modelos/MODELO_ASEGURAMIENTO_CALIDAD_Y_PLANIFICACION_2024.pdf",
   },
   {
-    title: "Módulo Educativo 2024 ISTS",
+    title: "Módulo Educativo 2024 Tecnológico Superarse",
     id: "modelTwo",
     filePath: "/assets/docs/institucion/modelos/MODELO_EDUCATIVO_2024_ISTS.pdf",
   },

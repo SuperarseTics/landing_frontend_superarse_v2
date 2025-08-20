@@ -11442,4 +11442,37 @@ width: 100%; height: auto; display: block;
     object-fit: contain; /* muestra la imagen completa sin recortar */
     border-radius: 10px; /* opcional: bordes redondeados */
 }
+.plataformas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px; /* Ajusta el espacio entre las imágenes */
+  justify-items: center; /* Centra las imágenes horizontalmente */
+  align-items: center; /* Centra las imágenes verticalmente */
+}
 
+.img-plataformas {
+  width: 300px; /* Define un ancho fijo */
+  height: 200px; /* Define un alto fijo */
+  object-fit: contain; /* Ajusta la imagen dentro de las dimensiones sin distorsionarla */
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.plataforma-item a:hover .img-plataformas {
+  transform: scale(1.05);
+}
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 768px) {
+  .plataformas-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
+  }
+}
+
+@media (max-width: 576px) {
+  .plataformas-grid {
+    grid-template-columns: 1fr; /* 1 columna en teléfonos */
+  }
+}
