@@ -32,13 +32,13 @@ const headerData = {
         {
             enlace: 'https://superarse.q10.com',
             texto: 'Q10',
-            clases: 'nav-item nav-link text-white',
+            clases: 'navbar-brand',
             target: '_blank'
         },
         {
             enlace: 'https://teams.microsoft.com/v2/',
             texto: 'Teams',
-            clases: 'nav-item nav-link text-white',
+            clases: 'navbar-brand',
             target: '_blank'
         },
         {
