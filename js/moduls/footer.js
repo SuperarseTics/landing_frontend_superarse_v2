@@ -35,6 +35,7 @@ const footerData = {
             { texto: "Biblioteca", enlace: "#" },
             { texto: "Calendarios", enlace: "#" },
             { texto: "Plataformas", enlace: "/moduls/Plataformas/plataformas.html" }
+            
         ]
     },
     // Contenido de la cuarta columna (Admisiones)

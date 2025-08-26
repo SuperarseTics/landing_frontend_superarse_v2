@@ -23,17 +23,17 @@ const authoritiesData = [
     altText: "Foto de Msc. Ramiro Obando, Director Administrativo Financiero"
   },
   {
+    name: "Lic. Iván Tamayo",
+    position: "DIRECTOR DE INFRAESTRUCTURA",
+    email: "ivan.tamayo@tuhuella.dog",
+    image: "/assets/img/institucion/autoridades/IVAN TAMAYO.png",
+    altText: "Foto de Iván Tamayo, Promotor"
+  },
+  {
     name: "Téc. Vanessa Salazar",
     position: "SECRETARIA GENERAL",
     email: "melany.salazar@superarse.edu.ec",
     image: "/assets/img/institucion/autoridades/VANESSA SALAZAR.png",
     altText: "Foto de Téc. Vanessa Salazar, Secretaria General"
   },
-  {
-    name: "Iván Tamayo",
-    position: "PROMOTOR",
-    email: "ivan.tamayo@tuhuella.dog",
-    image: "/assets/img/institucion/autoridades/IVAN TAMAYO.png",
-    altText: "Foto de Iván Tamayo, Promotor"
-  }
 ];

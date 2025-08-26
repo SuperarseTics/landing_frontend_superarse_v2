@@ -3,7 +3,7 @@
 const facilitiesData = [
   {
     icono: "flaticon-050-fence",
-    titulo: "Procesos Académicos",
+    titulo: "Planificación Académica",
     enlace: "../../moduls/subMenu/procesosAcademicos/procesosAcedemicos.html", // Reemplaza '#' con la URL real
   },
   {

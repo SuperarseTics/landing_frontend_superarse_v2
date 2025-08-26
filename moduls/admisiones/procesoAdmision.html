@@ -3,136 +3,166 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta content="Free HTML Templates" name="keywords" />
-    <meta content="Free HTML Templates" name="description" />
     <title>Proceso de Admisión</title>
 
-    <!-- Favicon -->
+    <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+/>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
     <link href="/assets/img/content/logo/superarse_gris.png" rel="icon" />
-    <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap"
       rel="stylesheet"
     />
-    <!-- Font Awesome -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
       rel="stylesheet"
     />
-     <!-- Flaticon Font -->
     <link href="/lib/flaticon/font/flaticon.css" rel="stylesheet" />
-    
-    <!-- Libraries Stylesheet -->
-
     <link
       href="/lib/owlcarousel/assets/owl.carousel.min.css"
       rel="stylesheet"
     />
     <link href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
-     <!-- Customized Bootstrap Stylesheet -->
-
     <link href="/css/style.css" rel="stylesheet" />
   </head>
   <body>
+    
     <div class="container-fluid bg-light position-relative shadow"></div>
+    
     <div class="container-fluid py-5">
       <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-16">
-           <br></br>
+        <div class="row justify-content-center container-top">
+          <div class="col-lg-12">
             <p class="section-title px-5">
               <span class="px-2">Admisiones</span>
             </p>
             <h1 class="mb-4 text-center">Proceso de Admisión</h1>
+
             <div class="p-4 border rounded shadow-sm">
-              <h3 class="mb-4 text-center">Guía de Admisión y Matrícula</h3>
-
-              <div class="mb-4">
-                <h4 class="mb-3">1. Descargar Hoja de Inscripción</h4>
-                <p class="text-muted" style="text-align: justify;">
-                  Descarga la hoja de inscripción, llena con tus datos
-                  personales, firma el documento, escanea y envía en formato PDF
-                  al correo
-                  <a href="mailto:matriculas@superarse.edu.ec"
-                    >matriculas@superarse.edu.ec</a
-                  >
-                  con el asunto
-                  <strong class="text-primary">HOJA DE INSCRIPCIÓN</strong>.
-                </p>
-                <div class="text-center">
-                  <a
-                    href="#"
-                    target="_blank"
-                    class="btn btn-primary py-2 px-4"
-                  >
-                    <i class="fa fa-file-pdf mr-2"></i> Descargar Hoja de
-                    Inscripción
-                  </a>
+              <div class="row">
+                <div class="col-md-6 col-lg-3 mb-4">
+                  <div class="card card-custom">
+                    <img
+                      src="https://img.freepik.com/fotos-premium/chico-joven-estudiante-pensando-sintiendose-dudoso-confundido-diferentes-opciones-preguntandose-que-decision-tomar_1194-337106.jpg?w=2000"
+                      class="card-img-top"
+                      alt="Imagen de la Carta 1"
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title">Primer Paso</h5>
+                      <p class="card-text">
+                        Escoge la carrera en base a tu perfil vocacional
+                      </p>
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        data-toggle="modal"
+                        data-target="#genericModal"
+                        data-image="https://i.pinimg.com/736x/d3/78/4d/d3784d9a9814877d5c90f16ba3898361--infographics-ecuador.jpg"
+                        data-title="Oferta Académica"
+                      >
+                        OFERTA ACADÉMICA
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
 
-              <div class="mb-4">
-                <h4 class="mb-3">2. Completar Proceso de Matrícula</h4>
-                <p class="text-muted" style="text-align: justify;">
-                  Para completar el proceso de matrícula, es importante enviar
-                  el comprobante de pago al correo
-                  <a href="mailto:matriculas@superarse.edu.ec"
-                    >matriculas@superarse.edu.ec</a
-                  >
-                  con el asunto
-                  <strong class="text-primary">PAGO DE MI MATRICULA</strong>.
-                  Conoce más al descargar el instructivo.
-                </p>
-                <div class="text-center">
-                  <a
-                    href="/assets/docs/Admisiones/Proceso de Matrícula..pdf"
-                    target="_blank"
-                    class="btn btn-primary py-2 px-4"
-                  >
-                    <i class="fa fa-file-pdf mr-2"></i> Descargar Instructivo de
-                    Matrícula
-                  </a>
+                <div class="col-md-6 col-lg-3 mb-4">
+                  <div class="card card-custom">
+                    <img
+                      src="https://via.placeholder.com/286x180.png?text=Imagen+Carta+2"
+                      class="card-img-top"
+                      alt="Imagen de la Carta 2"
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title">Segundo Paso</h5>
+                      <p class="card-text">
+                        Realiza el pago de la primera cuota
+                      </p>
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        data-toggle="modal"
+                        data-target="#genericModal"
+                        data-image="https://tse3.mm.bing.net/th/id/OIP.xnmOuAO9y6ykfG1YQmvpEgAAAA?w=384&h=532&rs=1&pid=ImgDetMain&o=7&rm=3"
+                        data-title="Canales de Pago"
+                        data-text="<p class='text-left' style='color: #FF5733;'>IMPORTANTE: Adjunta una fotografía nítida del comprobante de depósito o transferencia, junto con los siguientes datos, y envíalos a tu asesor.</p>
+                        <ul class='text-left' >
+                          <li><i class='fas fa-user'></i> Nombres completos.</li>
+                          <li><i class='fas fa-id-card'></i> Número de cédula.</li>
+                          <li><i class='fas fa-envelope'></i> Correo.</li>
+                          <li><i class='fas fa-phone'></i> Contacto principal.</li>
+                          <li><i class='fas fa-phone-alt'></i> Contacto Secundario (Obligatorio).</li>
+                          <li><i class='fas fa-birthday-cake'></i> Edad.</li>
+                          <li><i class='fas fa-calendar-alt'></i> Fecha de nacimiento.</li>
+                          <li><i class='fas fa-city'></i> Provincia.</li>
+                          <li><i class='fas fa-map-marker-alt'></i> Sector.</li>
+                          <li><i class='fas fa-home'></i> Dirección.</li>
+                          <li><i class='fas fa-graduation-cap'></i> Carrera.</li>
+                          <li><i class='fas fa-chalkboard-teacher'></i> Modalidad.</li>
+                        </ul>"
+                      >
+                        CANALES DE PAGO
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
 
-              <div class="mb-4">
-                <h4 class="mb-3">Requisitos de Entrega</h4>
-                <p class="text-muted" style="text-align: justify;">
-                  Entrega los siguientes requisitos de manera presencial en el
-                  Campus Matriz o envía a través de tu Courier de preferencia:
-                </p>
-                <ul class="list-group list-group-flush border rounded p-3" id="lista-requisitos"></ul>
-              </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                  <div class="card card-custom">
+                    <img
+                      src="https://via.placeholder.com/286x180.png?text=Imagen+Carta+3"
+                      class="card-img-top"
+                      alt="Imagen de la Carta 3"
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title">Tercer Paso</h5>
+                      <p class="card-text">Llena el Contrato de Inscripción</p>
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        data-toggle="modal"
+                        data-target="#genericModal"
+                        data-image="https://via.placeholder.com/600x400.png?text=Imagen+en+Modal+3"
+                        data-title="Contrato de Inscripción"
+                        data-text="<p class='text-left'>Descarga el contrato aquí para completarlo.</p><a href='#'>Enlace para descargar</a>"
+                      >
+                        DESCÁRGALO AQUÍ
+                      </button>
+                    </div>
+                  </div>
+                </div>
 
-              <div class="mb-0">
-                <h4 class="mb-3">Contacto</h4>
-                <p class="text-muted">
-                  Si tienes inquietudes, no dudes en comunicarte con nuestro:
-                </p>
-                <ul class="list-group list-group-flush border rounded p-3">
-                  <li class="list-group-item">
-                    <i class="fa fa-building mr-2 text-primary"></i>
-                    Departamento Área de Estudiantes
-                  </li>
-                  <li class="list-group-item">
-                    <i class="fa fa-phone mr-2 text-primary"></i> 0995901732 o
-                    al (02) 3930980 - Ext 100
-                  </li>
-                  <li class="list-group-item">
-                    <i class="fa fa-envelope mr-2 text-primary"></i>
-                    <a href="mailto:matriculas@superarse.edu.ec"
-                      >matriculas@superarse.edu.ec</a
-                    >
-                  </li>
-                </ul>
-                <p class="text-muted mt-3" style="text-align: justify;">
-                  <i class="fa fa-info-circle mr-2 text-warning"></i> Si eres
-                  estudiante antiguo, recuerda que, para iniciar tu proceso de
-                  matrícula, debes enviar tu comprobante de pago de matrícula en
-                  respuesta al correo donde recibiste tu CAPA. (Revisar el
-                  correo institucional).
-                </p>
+                <div class="col-md-6 col-lg-3 mb-4">
+                  <div class="card card-custom">
+                    <img
+                      src="https://via.placeholder.com/286x180.png?text=Imagen+Carta+4"
+                      class="card-img-top"
+                      alt="Imagen de la Carta 4"
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title">Cuarto Paso</h5>
+                      <p class="card-text">
+                        Enviar los Requisitos a tu Asesor
+                      </p>
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        data-toggle="modal"
+                        data-target="#genericModal"
+                        data-image="https://via.placeholder.com/600x400.png?text=Imagen+en+Modal+4"
+                        data-title="Requisitos"
+                        data-text="<p class='text-left'>Asegúrate de enviar toda la documentación necesaria a tu asesor.</p>"
+                      >
+                        REQUISITOS
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -140,24 +170,72 @@
       </div>
     </div>
 
-     <div class="footer-container"></div>
+    <div
+      class="modal fade"
+      id="genericModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="genericModalLabel"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable"
+        role="document"
+      >
+        <div class="modal-content rounded">
+          <div class="modal-header">
+            <h5 class="modal-title" id="genericModalLabel"></h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body text-center">
+            <img src="" id="modalImage" class="img-fluid rounded" alt="Imagen en Modal" />
+            <div id="modalText" class="mt-3"></div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <h1 class="mb-4 text-center">TU FUTURO NO ESPERA, INSCRÍBETE HOY</h1>
+    <div class="color-bar-stripes"></div>
+
+    <div class="footer-container"></div>
     <script src="/lib/easing/easing.min.js"></script>
     <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="/lib/isotope/isotope.pkgd.min.js"></script>
     <script src="/lib/lightbox/js/lightbox.min.js"></script>
-
-    <!-- Template Javascript -->
     <script src="/js/moduls/header.js"></script>
     <script src="/js/moduls/footer.js"></script>
     <script src="/js/moduls/administrationAndIndustryData.js"></script>
     <script src="/js/global.js"></script>
     <script src="/js/main.js"></script>
-
     <script src="/js/moduls/Admisiones/procesoAdmisiones.js"></script>
 
+    <script>
+      $("#genericModal").on("show.bs.modal", function (event) {
+        var button = $(event.relatedTarget);
+        var imageUrl = button.data("image");
+        var modalTitle = button.data("title");
+        var modalText = button.data("text");
+
+        var modal = $(this);
+        modal.find("#modalImage").attr("src", imageUrl);
+        modal.find(".modal-title").text(modalTitle);
+        modal.find("#modalText").html(modalText);
+      });
+
+      $("#genericModal").on("hidden.bs.modal", function () {
+        var modal = $(this);
+        modal.find("#modalImage").attr("src", "");
+        modal.find(".modal-title").text("");
+        modal.find("#modalText").html("");
+      });
+    </script>
   </body>
 </html>

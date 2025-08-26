@@ -1,7 +1,51 @@
-// bienestarEstudiantil.js
+// /js/moduls/BienestarEstudiantil/bienestarEstudiantil.js
 
+// Configuración del PDF.js Worker para el visor de PDF
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+const pdfStates = {};
+
+// Función para renderizar una página del PDF
+async function renderPage(canvasId, pageNum) {
+    const state = pdfStates[canvasId];
+    if (!state || pageNum < 1 || pageNum > state.pdfDoc.numPages) return;
+
+    state.pageNum = pageNum;
+    const canvas = document.getElementById(canvasId);
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    const page = await state.pdfDoc.getPage(pageNum);
+    const containerWidth = canvas.parentElement.clientWidth || canvas.clientWidth;
+    const viewport = page.getViewport({ scale: 1 });
+    const scale = containerWidth / viewport.width;
+    const scaledViewport = page.getViewport({ scale });
+
+    canvas.width = scaledViewport.width;
+    canvas.height = scaledViewport.height;
+
+    await page.render({ canvasContext: ctx, viewport: scaledViewport }).promise;
+
+    const paginator = document.querySelector(`.pdf-paginator[data-canvas-id="${canvasId}"]`);
+    if (paginator) {
+        paginator.querySelector('.page-num').textContent = state.pageNum;
+        paginator.querySelector('.page-count').textContent = state.pdfDoc.numPages;
+        paginator.querySelector('[data-action="prev"]').disabled = state.pageNum <= 1;
+        paginator.querySelector('[data-action="next"]').disabled = state.pageNum >= state.pdfDoc.numPages;
+    }
+}
+
+// Función para cargar un PDF completo
+async function loadPdfAndRender(pdfUrl, canvasId) {
+    const pdfDoc = await pdfjsLib.getDocument(pdfUrl).promise;
+    pdfStates[canvasId] = { pdfDoc, pageNum: 1 };
+    renderPage(canvasId, 1);
+}
+
+// Lógica principal al cargar el documento
 document.addEventListener("DOMContentLoaded", function () {
-    // Objeto de datos con los títulos como claves y el contenido HTML como valores.
+    // Objeto de datos con los títulos y el contenido HTML
     const bienestarData = {
         "Acompañamiento Psicoemocional": `<h3 class="text-uppercase text-primary mb-3">Acompañamiento Psicoemocional</h3>
             <p>En el Tecnológico Superarse nos preocupamos por tu bienestar emocional. A través de este servicio, recibirás atención, apoyo y acompañamiento para fortalecer tu salud mental. Puedes solicitar consultas de manera presencial o virtual, según tu necesidad.</p>
@@ -88,8 +132,8 @@ document.addEventListener("DOMContentLoaded", function () {
                         <div class="carousel-item active"><img src="/assets/img/bienestarEstudiantil/servicios/danza/1.png" class="d-block w-100" alt="Danza 1"></div>
                         <div class="carousel-item"><img src="/assets/img/bienestarEstudiantil/servicios/danza/2.png" class="d-block w-100" alt="Danza 2"></div>
                         <div class="carousel-item"><img src="/assets/img/bienestarEstudiantil/servicios/danza/3.png" class="d-block w-100" alt="Danza 3"></div>
-                         <div class="carousel-item"><img src="/assets/img/bienestarEstudiantil/servicios/danza/4.png" class="d-block w-100" alt="Danza 4"></div>
-                          <div class="carousel-item"><img src="/assets/img/bienestarEstudiantil/servicios/danza/5.png" class="d-block w-100" alt="Danza "></div>
+                        <div class="carousel-item"><img src="/assets/img/bienestarEstudiantil/servicios/danza/4.png" class="d-block w-100" alt="Danza 4"></div>
+                        <div class="carousel-item"><img src="/assets/img/bienestarEstudiantil/servicios/danza/5.png" class="d-block w-100" alt="Danza "></div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carruselDanza" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -213,13 +257,23 @@ document.addEventListener("DOMContentLoaded", function () {
                     <strong>Teléfono:</strong> 02-3 930 980 ext. 111<br>
                     <strong>WhatsApp:</strong> 099 840 9293
                 </p>
-            </div>`
+            </div>`,
+        "Propuesta Pedagógica": `<h2 class="text-uppercase text-primary mb-3">Propuesta Pedagógica</h2>
+            <p>Aquí puedes visualizar nuestra propuesta pedagógica directamente.</p>
+            <div class="pdf-container" style="width: 100%;">
+                <canvas id="pdf-viewer-propuesta" style="width: 100%; border: 1px solid #ccc;"></canvas>
+                <div class="text-center mt-3 pdf-paginator" data-canvas-id="pdf-viewer-propuesta">
+                    <button data-action="prev" class="btn btn-primary mx-2">Anterior</button>
+                    <span class="mx-2">Página: <span class="page-num">0</span> / <span class="page-count">0</span></span>
+                    <button data-action="next" class="btn btn-primary mx-2">Siguiente</button>
+                </div>
+            </div>`,
     };
 
     const academicPlansContainer = document.getElementById("academic-plans-container");
     const dynamicContent = document.getElementById("dynamic-content");
 
-    // Iterar sobre las claves del objeto de datos
+    // Lógica para crear el menú lateral
     for (const title in bienestarData) {
         if (bienestarData.hasOwnProperty(title)) {
             const button = document.createElement("a");
@@ -232,8 +286,17 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.querySelectorAll(".list-group-item-action").forEach(btn => btn.classList.remove("active"));
                 this.classList.add("active");
                 dynamicContent.innerHTML = bienestarData[title];
-            });
 
+                // Verificar si se debe cargar un PDF
+                if (title === "Propuesta Pedagógica") {
+                    setTimeout(() => {
+                        loadPdfAndRender(
+                            '/assets/docs/servicios/propuestaPedagogica/PROPUESTA_PEDAGOGICA.pdf',
+                            'pdf-viewer-propuesta'
+                        );
+                    }, 100);
+                }
+            });
             academicPlansContainer.appendChild(button);
         }
     }
@@ -243,59 +306,113 @@ document.addEventListener("DOMContentLoaded", function () {
     if (firstButton) {
         firstButton.click();
     }
+
+    // NUEVA LÓGICA PARA LOS BOTONES PRINCIPALES
+    window.showContent = function(service) {
+        // Remover la clase 'active' de todos los botones del menú lateral
+        document.querySelectorAll(".list-group-item-action").forEach(btn => btn.classList.remove("active"));
+        
+        let content = '';
+
+        if (service === 'salud') {
+            content = `
+                <h2 class="text-uppercase text-primary mb-3" style="text-align: center;">En Caso de Violencia Basada en Genero</h2>
+                <p style="text-align: justify;">El presente formulario tiene como objetivo recopilar denuncias de los miembros de la comunidad educativa del Instituto Superior Tecnológico Superarse sobre cualquier tipo de violencia contemplada en el Protocolo de Prevención y Actuación ante casos de acoso, discriminación y violencia basada en género u orientación sexual, incluyendo manifestaciones físicas, psicológicas, sexuales, verbales, cibernéticas, simbólicas u otras formas establecidas en dicho protocolo. Desarrollado por la Coordinación de Bienestar Institucional, este instrumento busca identificar posibles situaciones de vulneración de derechos asociadas a prejuicios de género, identidad sexual, origen étnico-cultural, condición socioeconómica u otros factores discriminatorios, permitiendo activar los mecanismos de acompañamiento, investigación y sanción correspondientes para garantizar un entorno educativo libre de violencia. La información obtenida será tratada con confidencialidad y utilizada para implementar medidas preventivas y correctivas que fortalezcan la convivencia institucional.</p>
+                <div class="d-flex justify-content-center">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScKuypiP-LoLt4-QtKw4ycF37TJSXwY4YZZk_XN9rP519yYfw/viewform" class="btn btn-danger mx-2" target="_blank">
+                        BOTÓN DE AYUDA
+                    </a>
+                </div>
+            `;
+            dynamicContent.innerHTML = content;
+
+        } else if (service === 'apoyo') {
+            // Contenido del Plan de Igualdad
+            content = `
+                <div class="row">
+                    <div class="col-lg-4">
+                        <h6 class="mb-3">2023</h6>
+                        <div class="list-group pdf-submenu" role="tablist">
+                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/planDeigualdad/2023/PLAN-2023.PDF" data-canvas-id="pdf-viewer-igualdad">Plan de Igualdad 2023</a>
+                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/planDeigualdad/2023/DIAGNOSTICO-2023.PDF" data-canvas-id="pdf-viewer-igualdad">Diagnóstico del Plan de Igualdad</a>
+                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/planDeigualdad/2023/RESULTADOS-2023.PDF" data-canvas-id="pdf-viewer-igualdad">Resultados del plan de igualdad</a>
+                            <br />
+                        </div>
+                        <h6 class="mb-3">2024</h6>
+                        <div class="list-group pdf-submenu" role="tablist">
+                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/planDeigualdad/2024/PLAN-2024.PDF" data-canvas-id="pdf-viewer-igualdad">Plan de Igualdad 2024</a>
+                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/planDeigualdad/2024/DIAGNOSTICO-2024.PDF" data-canvas-id="pdf-viewer-igualdad">Diagnóstico del Plan de Igualdad</a>
+                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/planDeigualdad/2024/RESULTADOS-2024.PDF" data-canvas-id="pdf-viewer-igualdad">Resultados del plan de igualdad</a>
+                            <br />
+                        </div>
+                        <h6 class="mb-3">2025</h6>
+                        <div class="list-group pdf-submenu" role="tablist">
+                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/planDeigualdad/2025/PLAN-2025.PDF" data-canvas-id="pdf-viewer-igualdad">Plan de Igualdad 2025</a>
+                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="/assets/docs/planDeigualdad/2025/DIAGNOSTICO-2025.PDF" data-canvas-id="pdf-viewer-igualdad">Diagnóstico del Plan de Igualdad</a>
+                            <a class="list-group-item list-group-item-action" href="#" data-pdf-src="#" data-canvas-id="pdf-viewer-igualdad">Resultados del plan de igualdad</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="pdf-viewer-container border rounded shadow-sm bg-white">
+                            <canvas id="pdf-viewer-igualdad" class="pdf-canvas"></canvas>
+                        </div>
+                        <div class="pdf-paginator" data-canvas-id="pdf-viewer-igualdad">
+                            <button class="btn btn-primary" data-action="prev">Anterior</button>
+                            <span class="page-info">Página: <span class="page-num">0</span> / <span class="page-count">0</span></span>
+                            <button class="btn btn-primary" data-action="next">Siguiente</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            dynamicContent.innerHTML = content;
+
+            // Manejar eventos de los sub-botones del Plan de Igualdad
+            setTimeout(() => {
+                const firstLink = document.querySelector('#dynamic-content .pdf-submenu .list-group-item-action');
+                if (firstLink) {
+                    firstLink.classList.add('active');
+                    loadPdfAndRender(firstLink.dataset.pdfSrc, firstLink.dataset.canvasId);
+                }
+
+                document.querySelectorAll('#dynamic-content .pdf-submenu .list-group-item-action').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        document.querySelectorAll('#dynamic-content .pdf-submenu .list-group-item-action').forEach(el => el.classList.remove('active'));
+                        link.classList.add('active');
+                        const pdfUrl = link.dataset.pdfSrc;
+                        const canvasId = link.dataset.canvasId;
+                        loadPdfAndRender(pdfUrl, canvasId);
+                    });
+                });
+
+                document.querySelectorAll('#dynamic-content .pdf-paginator button').forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        const action = e.target.dataset.action;
+                        const paginator = e.target.closest('.pdf-paginator');
+                        const canvasId = paginator.dataset.canvasId;
+                        const state = pdfStates[canvasId];
+                        if (!state) return;
+                        if (action === 'prev' && state.pageNum > 1) {
+                            renderPage(canvasId, state.pageNum - 1);
+                        } else if (action === 'next' && state.pageNum < state.pdfDoc.numPages) {
+                            renderPage(canvasId, state.pageNum + 1);
+                        }
+                    });
+                });
+            }, 100);
+        }
+    };
 });
-// Configurar worker de PDF.js
-pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
 
-// Estado por visor/canvas
-const pdfStates = {}; // { [canvasId]: { pdfDoc, pageNum } }
-
-// Render de página
-async function renderPage(canvasId, pageNum) {
-    const state = pdfStates[canvasId];
-    if (!state || pageNum < 1 || pageNum > state.pdfDoc.numPages) return;
-
-    state.pageNum = pageNum;
-    const canvas = document.getElementById(canvasId);
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    const page = await state.pdfDoc.getPage(pageNum);
-    const containerWidth = canvas.parentElement.clientWidth || canvas.clientWidth;
-    const viewport = page.getViewport({ scale: 1 });
-    const scale = containerWidth / viewport.width;
-    const scaledViewport = page.getViewport({ scale });
-
-    canvas.width = scaledViewport.width;
-    canvas.height = scaledViewport.height;
-
-    await page.render({ canvasContext: ctx, viewport: scaledViewport }).promise;
-
-    // Actualizar paginador
-    const paginator = document.querySelector(`.pdf-paginator[data-canvas-id="${canvasId}"]`);
-    if (paginator) {
-        paginator.querySelector('.page-num').textContent = state.pageNum;
-        paginator.querySelector('.page-count').textContent = state.pdfDoc.numPages;
-        paginator.querySelector('[data-action="prev"]').disabled = state.pageNum <= 1;
-        paginator.querySelector('[data-action="next"]').disabled = state.pageNum >= state.pdfDoc.numPages;
-    }
-}
-
-// Cargar PDF
-async function loadPdfAndRender(pdfUrl, canvasId) {
-    const pdfDoc = await pdfjsLib.getDocument(pdfUrl).promise;
-    pdfStates[canvasId] = { pdfDoc, pageNum: 1 };
-    renderPage(canvasId, 1);
-}
-
-// Configurar botones de paginador
+// Configurar botones de paginador para el menú lateral
 document.addEventListener('click', function(e){
     if(e.target.dataset.action){
-        const canvasId = e.target.closest('.pdf-paginator').dataset.canvasId;
+        const paginator = e.target.closest('.pdf-paginator');
+        if (!paginator) return;
+        const canvasId = paginator.dataset.canvasId;
         const state = pdfStates[canvasId];
-        if(e.target.dataset.action === 'prev' && state.pageNum>1) renderPage(canvasId, state.pageNum-1);
-        if(e.target.dataset.action === 'next' && state.pageNum<state.pdfDoc.numPages) renderPage(canvasId, state.pageNum+1);
+        if(!state) return;
+        if(e.target.dataset.action === 'prev' && state.pageNum > 1) renderPage(canvasId, state.pageNum-1);
+        if(e.target.dataset.action === 'next' && state.pageNum < state.pdfDoc.numPages) renderPage(canvasId, state.pageNum+1);
     }
 });
