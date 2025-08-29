@@ -23,7 +23,7 @@ const titulacionData = [
     `,
     link: "/assets/docs/Titulacion/CALENDARIO MAYO - OCTUBRE 2025 .pdf",
     buttonIcon: "fa fa-calendar-alt mr-2",
-    buttonText: "Ver Calendario",
+    
     
   },
   {

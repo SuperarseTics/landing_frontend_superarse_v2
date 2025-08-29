@@ -12,11 +12,11 @@ const frasesAnimadas = [
   // SENESCYT azul, AVAL gris
   () => {
     const senescytSpan = document.createElement("span");
-    senescytSpan.textContent = "SENESCYT";
+    senescytSpan.textContent = "REGISTRO";
     senescytSpan.style.color = colores.azul;
     
     const avalSpan = document.createElement("span");
-    avalSpan.textContent = " AVAL";
+    avalSpan.textContent = " SENESCYT";
     avalSpan.style.color = colores.gris;
     
     return [senescytSpan, avalSpan];

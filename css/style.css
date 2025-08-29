@@ -7,6 +7,10 @@
  */
 :root {
   --blue: #007bff;
+  --BlueInstitucional:#0B77BD;
+  --GreenInstitucional:#8bdf31;
+  --OrangeInstitucional:#fabd2e;
+  --YellowInstitucional:#ef7a15;
   --indigo: #6610f2;
   --purple: #6f42c1;
   --pink: #e83e8c;
@@ -32,7 +36,7 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Avenir Next",Avenir Next;
+  --font-family-sans-serif: "Avenir Next bold",Avenir Next bold;
   --font-family-monospace: Avenir Next, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
@@ -11297,7 +11301,7 @@ a.text-dark:focus {
 
 .card:hover .card-img-top {
   /* Escala la imagen al 150% de su tamaño original */
-  transform: scale(1.2);
+  transform: scale(1.1);
   /* Propiedad para una transición suave del efecto */
   transition: transform 0.3s ease-in-out;
 }
@@ -11518,8 +11522,8 @@ body {
 
 /* Estilos de las imágenes para que sobresalgan */
 .imagen-container img {
-    width: 352px;
-    height: 252px;
+    width: 300px;
+    height: 200px;
     object-fit: cover;
     display: block;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -11555,11 +11559,33 @@ body {
         margin-bottom: 20px;
     }
 }
-.color-bar-stripes {
-    width: 50%;
+.color-bar-container {
+    display: flex;
+    width: 50%; /* O el ancho que desees para el contenedor completo */
     height: 10px;
-   background: linear-gradient(to right, #0066a9 12%, #69a33e 50%, #f9a826 80%, #ff0000 90%);
-    margin: 0 auto; /* Centra la barra horizontalmente */
+    margin: 0 auto;
+}
+
+/* Define el mismo ancho para todos los contenedores de colores */
+.color-stripe {
+    width: 25%;
+    height: 100%; /* Opcional: asegura que todos tengan la misma altura */
+}
+
+.color-stripe-1 {
+    background-color: #0B77BD; /* Azul */
+}
+
+.color-stripe-2 {
+    background-color: #8bdf31; /* Verde */
+}
+
+.color-stripe-3 {
+    background-color: #fabd2e; /* Naranja */
+}
+
+.color-stripe-4 {
+    background-color: #ef7a15; /* Amarillo */
 }
 .video-responsive-container {
     position: relative;
@@ -11594,8 +11620,6 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
 }
-
-
 .card-custom:hover {
     transform: translateY(-5px);
 }
@@ -11622,17 +11646,45 @@ body {
 .color-personalizado {
     color: #E07212; /* Usa el código de color que prefieras */
 }
+/* Estilos comunes para todos los cuadros de texto */
+.seccion {
+  display: flex;
+  justify-content: center; /* Centra los elementos */
+  align-items: center;
+  gap: 30px; /* Agrega un espacio fijo entre la imagen y el texto */
+}
 .cuadro-texto {
-  /* Oculta los elementos inicialmente */
+  flex: 1; /* Ocupa el mismo espacio que la imagen, ajusta si quieres que sea más pequeño */
   opacity: 0;
-  /* Mueve los elementos para que parezca que entran desde un lado */
-  transform: translateX(-95px);
-  /* Define una transición suave para la animación */
-  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+  transition: opacity 0.9s ease-out, transform 2s ease-out;
+}
+
+
+/* Estado inicial: los elementos que vienen de la izquierda */
+.cuadro-texto.desde-izquierda {
+  transform: translateX(-250px);
+}
+
+/* Estado inicial: los elementos que vienen de la derecha */
+.cuadro-texto.desde-derecha {
+  transform: translateX(250px); /* Valor positivo para la derecha */
 }
 
 /* Esta clase se añadirá con JavaScript para mostrar y animar el elemento */
 .cuadro-texto.aparece {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateX(0); /* Todos terminan en la misma posición */
+}
+.fila-desplazable {
+  display: flex; /* Coloca los elementos hijos en una fila */
+  flex-wrap: nowrap; /* Evita que los elementos se muevan a una nueva línea */
+  overflow-x: auto; /* Habilita el desplazamiento horizontal si es necesario */
+  gap: 5px; /* Crea un espacio entre las tarjetas */
+  padding-bottom: 20px; /* Deja espacio para que la barra de desplazamiento sea visible */
+}
+
+/* Opcional: Esto asegura que las tarjetas no se encojan */
+.card-custom {
+  flex-shrink: 0;
+  width: 250px; /* Ancho fijo para cada tarjeta, ajústalo si lo necesitas */
 }

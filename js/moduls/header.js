@@ -120,7 +120,7 @@ const headerData = {
             texto: 'Servicios',
             items: [
                 { enlace: 'https://biblioteca.superarse.edu.ec', texto: 'Biblioteca Dra. Mery Navas', target: '_blank' },
-               { enlace: '/moduls/subMenu/BienestarInstitucional/BienestarInstitucional.html', texto: 'Bienestar Institucinonal ' },
+               { enlace: '/moduls/subMenu/BienestarInstitucional/BienestarInstitucional.html', texto: 'Bienestar Institucional ' },
                { enlace: 'https://biblioteca.superarse.edu.ec', texto: 'Infraestructura', target: '_blank' },
                 
             ]
