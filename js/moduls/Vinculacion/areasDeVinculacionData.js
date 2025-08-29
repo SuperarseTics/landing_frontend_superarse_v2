@@ -7,7 +7,7 @@ const areasDeVinculacionData = [
     content: `
       <p>
         Aquí se detallará el proceso metodológico y las etapas clave que
-        sigue el ISTS para llevar a cabo sus actividades de vinculación
+        sigue el Tecnológico Superarse para llevar a cabo sus actividades de vinculación
         con la sociedad, desde la identificación de necesidades hasta la
         evaluación de impacto. Esto puede incluir un diagrama de flujo o
         una descripción paso a paso.
@@ -39,7 +39,7 @@ const areasDeVinculacionData = [
     content: `
       <p>
         Un mensaje del responsable de vinculación o de la máxima autoridad
-        del ISTS, destacando la importancia de esta función para la
+        del Tecnológico Superarse, destacando la importancia de esta función para la
         institución y su impacto en la sociedad.
       </p>
       <p>
@@ -60,7 +60,7 @@ const areasDeVinculacionData = [
       <p>
         Descripción del modelo que integra la Investigación, el
         Desarrollo, la Innovación y la Vinculación con la Sociedad dentro
-        del ISTS. Explica cómo estas áreas se retroalimentan y contribuyen
+        del Tecnológico Superarse. Explica cómo estas áreas se retroalimentan y contribuyen
         al avance del conocimiento y a la solución de problemas sociales.
       </p>
       <p>
@@ -173,7 +173,7 @@ const areasDeVinculacionData = [
     title: "Relaciones Interinstitucionales",
     content: `
       <p>
-        Detalle de los convenios, alianzas y colaboraciones que el ISTS
+        Detalle de los convenios, alianzas y colaboraciones que el Tecnológico Superarse
         mantiene con otras instituciones académicas, empresas,
         organizaciones no gubernamentales y entidades públicas, tanto a
         nivel nacional como internacional.
@@ -195,7 +195,7 @@ const areasDeVinculacionData = [
     content: `
       <p>
         Aquí se destacarán las actividades, eventos y participación del
-        ISTS en iniciativas comunitarias, ferias, talleres o campañas
+        Tecnológico Superarse en iniciativas comunitarias, ferias, talleres o campañas
         sociales que demuestran su impacto directo y tangible en el
         entorno local.
       </p>

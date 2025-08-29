@@ -17,7 +17,7 @@ const headerData = {
         },
         {
            
-            enlace: '#',
+            enlace: '/moduls/noticiasContactos/contactanos.html',
             texto: 'Superarse Conectados |',
             clases :"navbar-brand",
             target: '_blank'
@@ -121,7 +121,7 @@ const headerData = {
             items: [
                 { enlace: 'https://biblioteca.superarse.edu.ec', texto: 'Biblioteca Dra. Mery Navas', target: '_blank' },
                { enlace: '/moduls/subMenu/BienestarInstitucional/BienestarInstitucional.html', texto: 'Bienestar Institucinonal ' },
-               
+               { enlace: 'https://biblioteca.superarse.edu.ec', texto: 'Infraestructura', target: '_blank' },
                 
             ]
         },
@@ -134,10 +134,16 @@ const headerData = {
             ]
         },
         {
-            texto: 'Vinculación ',
-            enlace: '/moduls/subMenu/vinculacionSociedad/vinculacionSociedad.html'
+            texto: 'Vinculación con la sociedad ',
+            //enlace: '/moduls/subMenu/vinculacionSociedad/vinculacionSociedad.html'
+            items: [
+                { enlace: '/moduls/Admisiones/porQueElegirnos.html', texto: 'Programas y proyectos de vinculación con la sociedad' },
+                { enlace: '/moduls/Admisiones/procesoAdmision.html', texto: 'Practicas Pre-Profesionales' },
+                { enlace: '/moduls/Admisiones/procesoAdmision.html', texto: 'Relaciones InterInstitucionales' },
+                { enlace: '/moduls/Admisiones/procesoAdmision.html', texto: 'Presencia en la comunidad' }
             
-        },
+            ]
+        }, 
         {
             texto: 'Investigación',
             enlace: '/moduls/subMenu/investigacion/investigacion.html'
@@ -149,7 +155,6 @@ const headerData = {
                 { enlace: '#', texto: 'Congreso Topografía' },
                 { enlace: '#', texto: 'Seminario Equino' },
                 { enlace: '#', texto: 'Simposio Administración' },
-                { enlace: '/moduls/noticiasContactos/contactanos.html', texto: 'Contáctanos' }
             ]
         }
     ],

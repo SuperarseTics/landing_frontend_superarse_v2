@@ -17,13 +17,14 @@ const titulacionData = [
     buttonText: "Conocer más",
   },
   {
-    title: "CALENDARIO DE TITULACIÓN",
+    title: "CALENDARIO DE  TRABAJO DE TITULACIÓN",
     description: `
       Consulta el calendario oficial con todas las fechas clave para el proceso de titulación, incluyendo plazos de entrega, defensas y ceremonias.
     `,
     link: "/assets/docs/Titulacion/CALENDARIO MAYO - OCTUBRE 2025 .pdf",
     buttonIcon: "fa fa-calendar-alt mr-2",
     buttonText: "Ver Calendario",
+    
   },
   {
     title: "CALENDARIO DE EXAMEN COMPLEXIVO",

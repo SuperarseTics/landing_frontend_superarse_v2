@@ -46,7 +46,7 @@ const practicasData = [
       },
       {
         text: "Plan de Aprendizaje y rotación",
-        link: "/assets/modules/practicas/plan_aprendizaje_rotacion.pdf",
+        link: "/assets/docs/PracticasPreprofesionales/Plan-de-Aprendizaje-y-rotacion.docx",
       },
       {
         text: "Ficha de asistencia",

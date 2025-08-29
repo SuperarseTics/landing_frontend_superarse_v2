@@ -11622,3 +11622,17 @@ body {
 .color-personalizado {
     color: #E07212; /* Usa el código de color que prefieras */
 }
+.cuadro-texto {
+  /* Oculta los elementos inicialmente */
+  opacity: 0;
+  /* Mueve los elementos para que parezca que entran desde un lado */
+  transform: translateX(-95px);
+  /* Define una transición suave para la animación */
+  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+
+/* Esta clase se añadirá con JavaScript para mostrar y animar el elemento */
+.cuadro-texto.aparece {
+  opacity: 1;
+  transform: translateX(0);
+}
