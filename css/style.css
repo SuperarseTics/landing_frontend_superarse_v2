@@ -36,8 +36,13 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Avenir Next bold",Avenir Next bold;
-  --font-family-monospace: Avenir Next, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+   --font-family-sans-serif: "Avenir Next", "Avenir Next Regular", sans-serif;
+  --font-family-bold: "Avenir Next bold", sans-serif;
+  --font-family-demi: "Avenir Next Demi Bold", sans-serif;
+  --font-family-medium: "Avenir Next Medium", sans-serif;
+  --font-family-heavy: "Avenir Next Heavy", sans-serif;
+  --font-family-ultra-light: "Avenir Next Ultra Light", sans-serif;
+  --font-family-italic: "Avenir Next Italic", sans-serif;
 }
 
 *,
@@ -47,7 +52,7 @@
 }
 
 html {
-  font-family:Avenir Next;
+  font-family:var(--font-family-sans-serif);
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -68,7 +73,7 @@ section {
 
 body {
   margin: 0;
-  font-family: "Avenir Next",Avenir Next;
+  font-family: var(--font-family-sans-serif);
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -199,7 +204,7 @@ pre,
 code,
 kbd,
 samp {
-  font-family: Avenir Next, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: Avenir, "Avenir Next", "Avenir Next LT Pro", sans-serif;
   font-size: 1em;
 }
 
@@ -261,9 +266,11 @@ select,
 optgroup,
 textarea {
   margin: 0;
-  font-family: Avenir Next;
-  font-size: Avenir Next;
-  line-height: Avenir Next;
+  font-family: "Avenir Next", "Avenir Next Regular", sans-serif;
+    /* Un tamaño de fuente estándar y legible */
+  font-size: 1rem;
+  /* La altura de línea para un buen espaciado */
+  line-height: 1.5;
 }
 
 button,
@@ -395,7 +402,7 @@ h6,
 .h5,
 .h6 {
   margin-bottom: 0.5rem;
-  font-family: "Avenir Next", Avenir Next;
+  font-family: var(--font-family-heavy);
   font-weight: bold;
   line-height: 1.2;
   color: #00394f;
@@ -6526,7 +6533,7 @@ a.close.disabled {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: "Avenir Next",Avenir Next;
+  font-family: "Avenir Next", "Avenir Next Regular", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -6651,7 +6658,7 @@ a.close.disabled {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: "Avenir Next",Avenir Next;
+  font-family: "Avenir Next Bold", "Avenir Next Demi Bold", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -8772,7 +8779,7 @@ button.bg-dark:focus {
 
 .pt-5,
 .py-5 {
-  padding-top: 3rem !important;
+  padding-top: 1rem !important;
 }
 
 .pr-5,
@@ -10683,7 +10690,8 @@ button.bg-dark:focus {
 }
 
 .text-monospace {
-  font-family: Avenir Next, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+  /* This will use the main Avenir font family */
+  font-family: var(--font-family-sans-serif) !important;
 }
 
 .text-justify {
@@ -11249,10 +11257,33 @@ a.text-dark:focus {
   list-style-type: none;
 }
 
-.video-Inst {
-  width: 100%;
-  height: auto;
+.video-responsive-container {
+    position: relative;
+    width: 100%;
+    /* Margen en pantallas móviles */
+    margin: 1.5rem auto; 
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
 }
+
+.video-inst {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Media query para pantallas de computadora (ancho mayor a 992px) */
+@media (min-width: 992px) {
+    .video-responsive-container {
+        /* Reduce el margen en pantallas de escritorio */
+        margin: 2rem auto; 
+    }
+}
+
+
 
 /* Estilos para el botón flotante de WhatsApp */
 .whatsapp-float {
@@ -11388,7 +11419,19 @@ width: 100%; height: auto; display: block;
   align-items: center;
   text-align: center;
   padding: 20px;
-  font-family: "Avenir Next",Avenir Next;
+}
+.stat-number {
+  /* Use a bold or heavy font for the number */
+  font-family: "Avenir Next Bold", sans-serif;
+  font-size: 2.5em; /* Make the number larger */
+  color: #333; /* Use a dark color */
+}
+
+.stat-text {
+  /* Use a regular or medium font for the text */
+  font-family: "Avenir Next Medium", sans-serif;
+  font-size: 1.2em;
+  color: #666; /* Use a softer color */
 }
 
 .stat-item {
@@ -11480,19 +11523,19 @@ width: 100%; height: auto; display: block;
     grid-template-columns: 1fr; /* 1 columna en teléfonos */
   }
 }
+/*################################## ESTILOS MODULO DE ADMISIONES ####################################################*/
 
 #texto-animado {
-  font-size: 48px;
-  font-family: sans-serif;
-  font-weight: bold;
-  
-  /* Transición suave para el cambio de color */
-  transition: color 1s ease-in-out;
+    font-size: 48px;
+    font-family: sans-serif;
+    font-weight: bold;
+    transition: color 1s ease-in-out;
 }
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #f4f4f4;
+/* Reduce el tamaño del texto en dispositivos móviles */
+@media (max-width: 768px) {
+    #texto-animado {
+        font-size: 28px;
+    }
 }
 
 .main-container {
@@ -11506,6 +11549,8 @@ body {
     align-items: center;
     margin-bottom: 50px;
     position: relative;
+    /* Espacio entre los elementos en desktop */
+    gap: 50px;
 }
 
 /* Define el tamaño y la posición de las imágenes */
@@ -11513,6 +11558,7 @@ body {
     z-index: 10;
     transition: transform 0.3s ease-in-out;
     position: relative;
+    flex-shrink: 0;
 }
 
 /* Efecto de zoom y elevación al pasar el mouse */
@@ -11522,8 +11568,8 @@ body {
 
 /* Estilos de las imágenes para que sobresalgan */
 .imagen-container img {
-    width: 300px;
-    height: 200px;
+    width: 300px; /* Tamaño fijo para desktop */
+    height: 200px; /* Tamaño fijo para desktop */
     object-fit: cover;
     display: block;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -11551,55 +11597,63 @@ body {
 /* Media Queries para dispositivos más pequeños */
 @media (max-width: 768px) {
     .seccion {
-        flex-direction: column;
+        flex-direction: column; /* Apila los elementos verticalmente */
+        align-items: center;
+        gap: 20px; /* Espacio entre los elementos apilados */
     }
 
     .imagen-container.izquierda, .imagen-container.derecha {
-        margin: 0;
-        margin-bottom: 20px;
+        margin: 0; /* Elimina los márgenes negativos en móviles */
+    }
+
+    .imagen-container img {
+        width: 100%;
+        max-width: 300px; /* Tamaño máximo para que no se vea gigante */
+        height: auto;
+    }
+    
+    .cuadro-texto {
+        width: 100%;
+        padding: 15px;
     }
 }
 .color-bar-container {
     display: flex;
-    width: 50%; /* O el ancho que desees para el contenedor completo */
+    width: 50%;
     height: 10px;
     margin: 0 auto;
 }
 
-/* Define el mismo ancho para todos los contenedores de colores */
 .color-stripe {
     width: 25%;
-    height: 100%; /* Opcional: asegura que todos tengan la misma altura */
+    height: 100%;
 }
 
 .color-stripe-1 {
-    background-color: #0B77BD; /* Azul */
+    background-color: #0B77BD;
 }
 
 .color-stripe-2 {
-    background-color: #8bdf31; /* Verde */
+    background-color: #8bdf31;
 }
 
 .color-stripe-3 {
-    background-color: #fabd2e; /* Naranja */
+    background-color: #fabd2e;
 }
 
 .color-stripe-4 {
-    background-color: #ef7a15; /* Amarillo */
+    background-color: #ef7a15;
 }
 .video-responsive-container {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
     max-width: 100%;
-    /* La siguiente línea ha sido eliminada para que no haya fondo negro. */
-    /* background: #000; */ 
 }
-/* Agrega una clase para controlar el espacio vertical en el contenedor principal */
 .my-5 {
-    margin-top: 0rem !important; /* Reduce el margen superior */
-    margin-bottom: -10rem !important; /* Reduce el margen inferior */
+    margin-top: 0rem !important;
+    margin-bottom: -10rem !important;
 }
 
 .video-responsive-container iframe,
@@ -11612,7 +11666,7 @@ body {
     border: 0;
 }
 .number.orange-dark::before {
-  content: "+ ";
+    content: "+ ";
 }
 .card-custom {
     border: none;
@@ -11635,56 +11689,1079 @@ body {
 }
 /* Estilo para el modal */
 .modal-dialog {
-  max-width: 500px; /* Tamaño máximo del modal en pantallas grandes */
+    max-width: 500px;
 }
 
-/* Estilo para el botón de la X (para que se vea más claro si lo necesitas) */
 .modal-header .close {
-  padding: 1rem 1rem;
-  margin: -1rem -1rem -1rem auto;
+    padding: 1rem 1rem;
+    margin: -1rem -1rem -1rem auto;
 }
 .color-personalizado {
-    color: #E07212; /* Usa el código de color que prefieras */
+    color: #E07212;
 }
-/* Estilos comunes para todos los cuadros de texto */
-.seccion {
-  display: flex;
-  justify-content: center; /* Centra los elementos */
-  align-items: center;
-  gap: 30px; /* Agrega un espacio fijo entre la imagen y el texto */
-}
+
+/* Estilos de animación */
 .cuadro-texto {
-  flex: 1; /* Ocupa el mismo espacio que la imagen, ajusta si quieres que sea más pequeño */
-  opacity: 0;
-  transition: opacity 0.9s ease-out, transform 2s ease-out;
+    opacity: 0;
+    transition: opacity 0.9s ease-out, transform 2s ease-out;
 }
 
-
-/* Estado inicial: los elementos que vienen de la izquierda */
 .cuadro-texto.desde-izquierda {
-  transform: translateX(-250px);
+    transform: translateX(-250px);
 }
 
-/* Estado inicial: los elementos que vienen de la derecha */
 .cuadro-texto.desde-derecha {
-  transform: translateX(250px); /* Valor positivo para la derecha */
+    transform: translateX(250px);
 }
 
-/* Esta clase se añadirá con JavaScript para mostrar y animar el elemento */
 .cuadro-texto.aparece {
-  opacity: 1;
-  transform: translateX(0); /* Todos terminan en la misma posición */
-}
-.fila-desplazable {
-  display: flex; /* Coloca los elementos hijos en una fila */
-  flex-wrap: nowrap; /* Evita que los elementos se muevan a una nueva línea */
-  overflow-x: auto; /* Habilita el desplazamiento horizontal si es necesario */
-  gap: 5px; /* Crea un espacio entre las tarjetas */
-  padding-bottom: 20px; /* Deja espacio para que la barra de desplazamiento sea visible */
+    opacity: 1;
+    transform: translateX(0);
 }
 
-/* Opcional: Esto asegura que las tarjetas no se encojan */
-.card-custom {
-  flex-shrink: 0;
-  width: 250px; /* Ancho fijo para cada tarjeta, ajústalo si lo necesitas */
+.fila-desplazable {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 5px;
+    padding-bottom: 20px;
+    -webkit-overflow-scrolling: touch;
 }
+
+.card-custom {
+    flex-shrink: 0;
+    width: 250px;
+}
+/* Media Queries para dispositivos más pequeños */
+@media (max-width: 768px) {
+    .seccion {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    /* Mantiene las animaciones de los cuadros de texto */
+    .cuadro-texto.desde-izquierda {
+        transform: translateX(-50px); /* Movimiento más corto */
+    }
+
+    .cuadro-texto.desde-derecha {
+        transform: translateX(50px);  /* Movimiento más corto */
+    }
+
+    .cuadro-texto.aparece {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.p-4 {
+    padding: 10px !important; /* Reducimos el padding en pantallas pequeñas */
+}
+
+
+
+/* Media Query para dispositivos pequeños */
+@media (max-width: 576px) {
+    .container, .container-fluid {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .col-lg-12 .p-4 {
+        padding: 5px; /* Padding aún menor para pantallas muy estrechas */
+    }
+    .container-top {
+        padding: 0 10px; /* Asegura que el contenedor superior no se desborde */
+    }
+}
+/*################################################## ESTILOS BIENESTAR INTITUCIONAL################################################*/
+
+/* Contenedor principal del carrusel */
+
+.custom-carousel-wrapper {
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0 50px;
+    box-sizing: border-box;
+    /* ! REMOVED: display: flex; from here, it's not needed. */
+    justify-content: center;
+    align-items: center;
+}
+
+/* El carril de las imágenes */
+.custom-carousel-track {
+    display: flex;
+    width: fit-content;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Estilos de cada imagen dentro del carrusel */
+.custom-carousel-item {
+    flex: 0 0 100%;
+    min-width: 100%;
+    margin: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    
+    /* Para centrar el contenido y dar flexibilidad */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    /* Efecto de escala */
+    transform: scale(0.8);
+    opacity: 0.6;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+/* Efecto de zoom al pasar el mouse */
+.custom-carousel-item:hover {
+    transform: scale(1.05); /* Ligeramente más grande al pasar el mouse */
+    opacity: 1; /* Se vuelve completamente visible */
+    z-index: 2; /* Asegura que el elemento en hover esté por encima de los demás */
+}
+
+/* Estilos para la imagen en sí */
+.custom-carousel-item img {
+    width: 90%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* El elemento activo del carrusel */
+.custom-carousel-item.active {
+    transform: scale(1);
+    opacity: 1;
+    z-index: 2;
+}
+
+/* Botones de navegación */
+.custom-carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.5em;
+    z-index: 3;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-carousel-nav.custom-prev {
+    left: 0;
+}
+
+.custom-carousel-nav.custom-next {
+    right: 0;
+}
+/* Media Query para dispositivos móviles: */
+@media (max-width: 768px) {
+    .custom-carousel-nav.custom-prev {
+        left: 0;
+    }
+    .custom-carousel-nav.custom-next {
+        right: 0;
+    }
+}
+/* Puntos de navegación */
+.custom-dots-container {
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    margin-top: 20px;
+    z-index: 3;
+}
+
+.custom-dot {
+    height: 10px;
+    width: 10px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    cursor: pointer;
+}
+
+.custom-dot.active {
+    background-color: #717171;
+}
+/* Estilos para el flip card - Asegúrate de incluir tu CSS original también */
+    /* Estilos para el flip card - Asegúrate de incluir tu CSS original también */
+/* --- Estilos para la tarjeta flip-card de Acompañamiento --- */
+
+/* Contenedor principal de la tarjeta, asegura que sea responsivo */
+.flip-cardp {
+    background-color: transparent;
+    width: 100%; /* La tarjeta ocupa todo el ancho de su columna */
+    max-width: 400px; /* Limita el ancho en pantallas grandes para evitar que sea muy ancha */
+    aspect-ratio: 1 / 1.25; /* Mantiene la proporción de 4:5, ajusta a tu gusto */
+    min-height: 400px; /* Altura mínima para asegurar que el contenido se ajuste */
+    perspective: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* El contenedor interno */
+.flip-cardp-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 15px;
+}
+
+.flip-cardp:hover .flip-cardp-inner {
+    transform: rotateY(180deg);
+}
+
+/* Cara frontal y trasera */
+.flip-cardp-front, .flip-cardp-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    overflow: hidden; /* Oculta cualquier parte de la imagen que se desborde */
+}
+
+/* LA IMAGEN SE AJUSTA Y CUBRE TODO EL ESPACIO */
+.flip-cardp-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Esta es la propiedad clave para que la imagen cubra todo el contenedor */
+    border-radius: 15px;
+}
+
+/* Contenedor de la cara trasera */
+.flip-cardp-back {
+    background-color: #5DADE2;
+    color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra el contenido verticalmente */
+    align-items: center; /* Centra el contenido horizontalmente */
+    padding: 20px;
+}
+.flip-cardp-back h4 {
+    margin-bottom: 10px;
+    color: #6C7BBF;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    text-transform: uppercase;
+    font-size: 1.2rem;
+}
+
+.flip-cardp-back p {
+    text-align: justify;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+/* Contenido de la cara trasera */
+.back-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* ¡Centra los elementos aquí! */
+    height: 100%;
+    text-align: center; /* Asegura que el texto también esté centrado */
+}
+
+.icon-section {
+    margin-bottom: 20px;
+}
+
+.icon {
+    font-size: 3rem; 
+    margin-bottom: 10px;
+    color: #404040;
+}
+.flip-icon {
+    font-size: 1.5rem;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.flip-cardp-back p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.whatsapp-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.whatsapp-link:hover .icon,
+.whatsapp-link:hover p {
+    color: #D325D0; 
+    transition: color 0.3s ease;
+}
+/* --- Estilos para las cajitas estáticas y las cajitas informativas --- */
+.cajita-estatica {
+    background-color: #f7b445;
+    border-radius: 15px;
+    padding: 20px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    /* Estilos de rotación eliminados para un diseño más limpio y responsivo,
+       pero puedes añadirlos de nuevo con @media queries si lo deseas */
+}
+
+.cajita-informativa {
+    flex: 1 1 100px; /* Flexbox para que se adapten al ancho de la pantalla */
+    margin: 10px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 200px;
+}
+
+.cajita-informativa:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+/* --- Ajustes responsivos con Media Queries --- */
+@media (max-width: 991.98px) {
+    .flip-cardp-back h4 {
+        font-size: 1.1rem;
+    }
+    .flip-cardp-back p {
+        font-size: 0.9rem;
+    }
+}
+/* --- Estilos para el Carrusel --- */
+/* --- Estilos para la sección superior --- */
+.top-section-widgets {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem; /* Espacio entre el carrusel y el círculo */
+}
+
+@media (min-width: 992px) {
+    .top-section-widgets {
+        flex-direction: row;
+        gap: 0;
+    }
+}
+
+/* --- Estilos para el Carrusel de imágenes --- */
+.gallery-container {
+    width: 100%; /* Ocupa todo el ancho en móviles */
+    max-width: 500px; /* Tamaño máximo para que no sea enorme en escritorio */
+    height: 333px; /* Proporción de la imagen 500x333 */
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 200%; /* Para que los dos elementos se alineen */
+    height: 100%;
+}
+
+.gallery-item {
+    flex-shrink: 0;
+    width: 50%;
+    height: 100%;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Las imágenes se adaptan sin deformarse */
+}
+
+/* --- Estilos para el Círculo de información --- */
+/* --- Animación de rotación para el círculo --- */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* --- Contenedor principal del círculo --- */
+.circle-container {
+    position: relative;
+    width: 350px; /* Tamaño del círculo */
+    height: 350px;
+    border-radius: 50%;
+    margin: 0 auto; /* Centrar el círculo */
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    animation: spin 30s linear infinite; /* Anima la rotación */
+}
+
+/* --- Estilos para cada sector del círculo --- */
+.circle-sector {
+    position: absolute;
+    width: 50%; /* Cada sector ocupa la mitad del ancho */
+    height: 50%; /* Cada sector ocupa la mitad de la altura */
+    top: 50%; /* Posicionamos todos en el centro */
+    left: 50%; /* Posicionamos todos en el centro */
+    transform-origin:0% 0%; /* El punto de rotación es la esquina superior izquierda de cada sector */
+    overflow: hidden; /* Asegura que el contenido no se desborde */
+    display: flex; /* Para centrar el texto */
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box; /* Incluye padding en el tamaño */
+    padding: 60px; /* Padding interno para que el texto no toque los bordes */
+}
+
+/* Rotación de cada sector para formar el círculo completo */
+.circle-sector.sector-1 {
+    background-color: #4A90E2; /* Azul */
+    transform: rotate(-90deg); /* Top-left */
+}
+.circle-sector.sector-2 {
+    background-color: #7ED321; /* Verde */
+    transform: rotate(0deg); /* Top-right */
+}
+.circle-sector.sector-3 {
+    background-color: #F5A623; /* Naranja */
+    transform: rotate(90deg); /* Bottom-right */
+}
+.circle-sector.sector-4 {
+    background-color: #E63946; /* Rojo */
+    transform: rotate(180deg); /* Bottom-left */
+}
+
+/* Estilos para el texto dentro de cada sector */
+.sector-text {
+    position: relative; /* Cambiado a relative para que el posicionamiento sea más sencillo */
+    color: white;
+    font-weight: bold;
+    font-size: 0.7rem; /* Tamaño de fuente ajustado */
+    text-align: right;
+    line-height: 1.2;
+    z-index: 2;
+    white-space: normal; /* Permitir que el texto se rompa en varias líneas */
+    max-width: 90%; /* Limitar el ancho del texto */
+
+    /* Contra-rotación del texto para que siempre se vea horizontal */
+    transform: rotate(0deg); /* Esto se ajustará individualmente */
+}
+
+/* Ajustes de contra-rotación específicos para cada texto */
+.circle-sector.sector-1 .sector-text {
+    transform: rotate(90deg); /* Contra-rota el -90deg del sector */
+}
+.circle-sector.sector-2 .sector-text {
+    transform: rotate(0deg); /* No necesita contra-rotación */
+}
+.circle-sector.sector-3 .sector-text {
+    transform: rotate(-90deg); /* Contra-rota el 90deg del sector */
+}
+.circle-sector.sector-4 .sector-text {
+    transform: rotate(-180deg); /* Contra-rota el 180deg del sector */
+}
+
+/* --- Ajustes responsivos para el círculo --- */
+@media (max-width: 768px) {
+    .circle-container {
+        width: 280px;
+        height: 280px;
+    }
+    .circle-sector {
+        padding: 5px; /* Menos padding en pantallas pequeñas */
+    }
+    .sector-text {
+        font-size: 0.75rem; /* Fuente más pequeña en móviles */
+    }
+}
+
+/* --- Estilos para las cajitas de información inferiores --- */
+.cajita-psicopedagogica {
+    flex: 1 1 200px; /* Flexbox para que se adapten al ancho de la pantalla */
+    margin: 10px;
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 160px;
+}
+.cajita-psicopedagogica:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+/* Contenedor principal de las tarjetas giratorias */
+.flip-card {
+    background-color: transparent;
+    width: 100%;
+    height: 450px; /* Altura fija para las tarjetas */
+    perspective: 1000px; /* Efecto 3D para el giro */
+    border-radius: 15px;
+}
+
+/* Contenedor del frente y la espalda */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s; /* Velocidad de la animación de giro */
+    transform-style: preserve-3d;
+    border-radius: 15px;
+}
+/* --- Animación de rotación para el círculo --- */
+
+/* Lado frontal y trasero de la tarjeta */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Oculta la parte trasera por defecto */
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 15px;
+    color: white; /* Color del texto */
+}
+
+/* Estilos específicos para el frente */
+.flip-card-front {
+    transform: rotateY(0deg);
+}
+
+/* Estilos específicos para la espalda */
+.flip-card-back {
+    transform: rotateY(180deg);
+}
+
+/* Estilos al girar la tarjeta (con el mouse) */
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Colores de fondo de cada tarjeta */
+.card-socioeconomica { background-color: #4A90E2; } /* Azul */
+.card-inclusion { background-color: #7ED321; } /* Verde */
+.card-especial { background-color: #F8E71C; } /* Amarillo */
+.card-excelencia { background-color: #D0021B; } /* Rojo/Naranja */
+
+/* Estilos de los iconos */
+.icon-grande {
+    font-size: 4rem; /* Tamaño de los iconos principales */
+    margin-bottom: 15px;
+}
+
+.flip-icon {
+    font-size: 1.5rem;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.7); /* Icono de giro más sutil */
+}
+
+.flip-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.flip-card p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.flip-card-back h4 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.flip-card-back ul {
+    list-style: none; /* Quita viñetas por defecto */
+    padding: 0;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.flip-card-back ul li {
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.flip-card-back ul li::before {
+    content: "•"; /* Usa un círculo como viñeta */
+    color: white;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    position: absolute;
+    left: 0;
+}
+
+
+/* Adaptación responsiva para tablets y móviles */
+@media (max-width: 768px) {
+    .flip-card {
+        height: 320px; /* Ajusta la altura para pantallas más pequeñas */
+    }
+    .icon-grande {
+        font-size: 3rem;
+    }
+    .flip-card h3 {
+        font-size: 1.5rem;
+    }
+    .flip-card p {
+        font-size: 1rem;
+    }
+    .flip-card-back h4 {
+        font-size: 1.3rem;
+    }
+}
+/* Estilos adicionales si los necesitas */
+        .btn-custom {
+            background-color: #209995;
+            color: white;
+            border-radius: 50px;
+            border: none;
+            padding: 10px 25px;
+            font-weight: bold;
+        }
+
+#bienestar-content {
+  min-height: 250px; /* Asegura que el contenedor no se contraiga */
+  transition: all 0.3s ease-in-out; /* Transición suave al cambiar el contenido */
+}
+
+/* BECAS MOVIMIENTO DE LOS INCONOS */
+/* Estilos para los pasos de postulación a becas */
+.proceso-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+.paso {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    text-align: center;
+}
+.paso.mostrar {
+    opacity: 1;
+    transform: translateY(0);
+}
+.paso img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 15px;
+}
+.card-info {
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+/* Tu CSS adicional para la página */
+/* ... */
+/* --- Estilos para el contenedor del carrusel, para que parezca una "carta" --- */
+.image-gallery-card {
+    height: 100%; /* Ocupa la altura de su columna */
+    width: 100%;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column; /* Para organizar la imagen y miniaturas verticalmente */
+    overflow: hidden; /* Asegura que nada se desborde del borde redondeado de la "carta" */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-gallery-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Estilos ESPECÍFICOS para el Carrusel dentro de la "carta" --- */
+
+.main-image-wrapper { /* Contenedor de la imagen principal */
+    position: relative;
+    width: 100%;
+    /* Ajusta este padding-bottom si el espacio arriba/abajo de la imagen (dentro de la "carta") es incorrecto */
+    padding-bottom: 70%; /* Un valor común para contenido visual. Ajusta si la imagen se ve muy grande/pequeña. */
+    overflow: hidden;
+    background-color: #f0f0f0;
+    display: flex; /* Centrar la imagen vertical y horizontalmente */
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1; /* Permite que este contenedor use el espacio disponible */
+}
+
+#mainImageGraduados { /* ID de la imagen principal */
+    /* CAMBIO CLAVE AQUÍ: Usamos 'contain' para que la imagen se ajuste dentro del contenedor */
+    object-fit: contain; /* ¡La imagen se escala para caber completamente, sin recortes! */
+    width: 100%;
+    height: 100%;
+    /* Puedes quitar position absolute, top, left si object-fit: contain funciona bien por sí solo */
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.main-image-caption { /* Descripción de la imagen principal */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 6px;
+    text-align: center;
+    font-size: 0.85em;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10; /* Asegura que la descripción esté por encima de la imagen */
+}
+
+.main-image-wrapper:hover .main-image-caption {
+    opacity: 1;
+}
+
+.thumbnails-container { /* Contenedor de las miniaturas y botones de navegación */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 3px;
+    background-color: #eee;
+    border-top: 1px solid #ddd;
+    flex-shrink: 0;
+}
+
+.thumbnails-wrapper { /* Contenedor de solo las miniaturas */
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 4px;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.thumbnail { /* Estilos de cada miniatura */
+    width: 50px;
+    height: 38px;
+    object-fit: cover; /* Las miniaturas sí pueden recortarse para llenar su pequeño espacio */
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    transition: border-color 0.3s ease, transform 0.2s ease;
+    flex-shrink: 0;
+}
+
+.thumbnail:hover {
+    transform: scale(1.05);
+}
+
+.thumbnail.active-thumbnail { /* Miniatura activa */
+    border-color: #007bff;
+}
+
+.thumbnail-nav-graduados { /* Botones de navegación */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 8px;
+    cursor: pointer;
+    font-size: 0.9em;
+    border-radius: 4px;
+    margin: 0 2px;
+    transition: background-color 0.3s ease;
+    flex-shrink: 0;
+}
+
+.thumbnail-nav-graduados:hover {
+    background-color: #0056b3;
+}
+
+/* Ocultar scrollbar de miniaturas para una apariencia más limpia */
+.thumbnails-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.thumbnails-wrapper {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Ajuste para que las columnas tengan la misma altura */
+.row.g-4.justify-content-center.align-items-stretch {
+    align-items: stretch;
+}
+/* Estilos generales para el cuerpo de la página */
+.club-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+/* Estilos de los botones de los clubes */
+/* Elimina esta clase si no la usas en otro lugar */
+/*
+.club-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+*/
+
+/* Estilos de los botones de los clubes */
+.club-button {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 15px;
+    cursor: pointer;
+    padding: 30px 20px;
+    width: 250px; /* Asegura un ancho fijo para cada botón */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+}
+
+.club-button:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.club-button h3 {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1B445E;
+    transition: color 0.3s ease-in-out;
+}
+
+.club-button:hover h3 {
+    color: #0056b3;
+}
+
+/* Estilos para los íconos de los clubes */
+.club-icon {
+    font-size: 5rem; /* Define el tamaño del ícono */
+    color: #383D3D; /* Color por defecto de los íconos */
+    transition: color 0.3s ease-in-out;
+}
+
+.club-button:hover .club-icon {
+    color: #0056b3;
+}
+
+/* Estilos adicionales para el modal */
+.modal-content {
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal-header {
+    background-color: #007bff;
+    color: white;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border: none;
+}
+
+.modal-title {
+    font-weight: bold;
+}
+
+.modal-body {
+    padding: 30px;
+}
+.club-container {
+    display: flex;
+    justify-content: around; /* o 'center' si quieres que se centren */
+    flex-wrap: wrap;
+    gap: 0px; /* Aquí controlas el espacio, puedes cambiar 50px por el valor que prefieras */
+}
+/* Estilos existentes de la galería */
+.galeria-club {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px; /* Ajusta el espacio entre las fotos aquí */
+    margin-top: 20px;
+}
+
+.galeria-club img {
+    width: 100%; /* Las imágenes ocupan todo el ancho en móviles */
+    max-width: 300px; /* Tamaño máximo para pantallas grandes */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    /* Añadir transición para el efecto suave */
+    transition: transform 0.3s ease-in-out; 
+}
+
+/* Nuevo estilo para el efecto de zoom al pasar el mouse */
+.galeria-club img:hover {
+    transform: scale(1.10); /* Escala la imagen al 105% de su tamaño original */
+    cursor: pointer; /* Cambia el cursor para indicar que es interactivo */
+}
+
+
+/* Para que se vean mejor en pantallas grandes */
+@media (min-width: 768px) {
+    .galeria-club img {
+        width: calc(33.333% - 15px); /* Se muestran tres imágenes por fila */
+    }
+}
+/* Estilos para el contenedor de la tarjeta giratoria */
+.C-flip-cardp {
+    background-color: transparent;
+    width: 100%;
+    max-width: 350px;
+    min-height: 400px; /* Altura mínima para la tarjeta */
+    height: auto; 
+    perspective: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* El contenedor interno (frontal y trasero) */
+.C-flip-cardp-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+/* La parte frontal y trasera son absolutas para que se superpongan */
+.C-flip-cardp-front, 
+.C-flip-cardp-back {
+    position: absolute;
+    width: 100%;
+    height: 100%; 
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0; /* Asegúrate de que no haya padding aquí si quieres que la imagen toque los bordes */
+    box-sizing: border-box; 
+    background-color: #fff; /* Asegura un fondo si la imagen no cubre todo */
+    overflow: hidden; /* Muy importante para recortar lo que se salga de la imagen */
+}
+
+/* ESTE ES EL CAMBIO CLAVE PARA LA IMAGEN */
+.C-flip-cardp-front img {
+    width: 100%; /* La imagen ocupará el 100% del ancho disponible */
+    height: 100%; /* La imagen ocupará el 100% de la altura disponible */
+    object-fit: cover; /* ¡Asegura que la imagen cubra todo el espacio! */
+    border-radius: 15px; /* Para que la imagen también tenga los bordes redondeados */
+}
+
+
+/* Estilos de la parte trasera */
+.C-flip-cardp-back {
+    transform: rotateY(180deg);
+    padding: 20px; /* Añade padding aquí para el texto de la parte trasera */
+    background-color: #fff;
+}
+
+/* Cuando se pasa el mouse, la tarjeta gira */
+.C-flip-cardp:hover .C-flip-cardp-inner {
+    transform: rotateY(180deg);
+}
+
+/* Icono de giro */
+.C-flip-icon {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 1.2rem;
+    color: #007bff;
+    opacity: 0.8;
+}
+/* Carruseles de bienestar */
+#carrusel-lengua-senas-container img,
+#carrusel-protocolo-container img,
+#carrusel-sensibilizacion-container img,
+#carrusel-espacios-container img,
+#carrusel-senaletica-container img,
+#carrusel-IntiRaymi-container img {
+    /* Establece un tamaño fijo para todas las imágenes */
+    width: 300px;
+    height: 200px;
+    
+    /* Mantiene la proporción y recorta el exceso para que no se distorsione */
+    object-fit: cover;
+    
+    /* Centrado de la imagen */
+    margin: 0 auto;
+    display: block; 
+}
+/* Este contenedor define el área para la imagen y su relación de aspecto */
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    /* 56.25% para una relación de aspecto de 16:9, puedes cambiarlo */
+    padding-top: 56.25%; 
+    overflow: hidden;
+    margin: 0 auto; /* Centra el contenedor si es necesario */
+}
+
+/* Las imágenes se adaptan al 100% de su contenedor */
+.image-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+

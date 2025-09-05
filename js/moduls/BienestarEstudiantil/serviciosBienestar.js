@@ -47,20 +47,7 @@ async function loadPdfAndRender(pdfUrl, canvasId) {
 document.addEventListener("DOMContentLoaded", function () {
     // Objeto de datos con los títulos y el contenido HTML
     const bienestarData = {
-        "Acompañamiento Psicoemocional": `<h3 class="text-uppercase text-primary mb-3">Acompañamiento Psicoemocional</h3>
-            <p>En el Tecnológico Superarse nos preocupamos por tu bienestar emocional. A través de este servicio, recibirás atención, apoyo y acompañamiento para fortalecer tu salud mental. Puedes solicitar consultas de manera presencial o virtual, según tu necesidad.</p>
-            <p>Accede a un espacio seguro y confidencial donde podrás mejorar tu bienestar personal, desarrollar habilidades de comunicación, fortalecer tu capacidad de resolución de problemas y adquirir herramientas clave para enfrentar los desafíos de la vida diaria.</p>
-            <img class="img-fluid rounded mb-4" src="/assets/img/bienestarEstudiantil/servicios/acompañamiento.png" alt="Imagen apoyo Acompañamiento Psicoemocional" />
-            <h4>Horarios de atención:</h4>
-            <p>Lunes a Viernes<br>08h00 - 17h00</p>
-            <div class="text-center my-4">
-                <p><b>¡No dudes en contactarnos!</b></p>
-                <p>
-                    <b>Correos electrónicos:</b> asistencia.bienestar@superarse.edu.ec; becas@superarse.edu.ec; coordinacion.bienestar@superarse.edu.ec.<br>
-                    <b>Teléfono:</b> 02-3 930 980 ext. 111<br>
-                    <b>WhatsApp:</b> 099 840 9293
-                </p>
-            </div>`,
+        "Acompañamiento Psicosocial": ``,
         "Acompañamiento Psicopedagógico": `<h3 class="text-uppercase text-primary mb-3">Acompañamiento Psicopedagógico</h3>
             <p>Para lograr la inclusión en la educación se necesita de un proceso de acompañamiento psicopedagógico para estudiantes con Necesidades Especiales Educativa (NEE) realizado por la Coordinación de Bienestar Institucional. Para ello se sigue el siguiente proceso:</p>
             <ul>

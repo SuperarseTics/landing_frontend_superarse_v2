@@ -1685,6 +1685,7 @@ document.addEventListener('DOMContentLoaded', () => {
     generarCarrusel('carrusel-sensibilizacion-container', 'carruselSensibilizacion', carruselData.sensibilizacion);
     generarCarrusel('carrusel-espacios-container', 'carruselEspacios', carruselData.espacios);
     generarCarrusel('carrusel-senaletica-container', 'carruselSenaletica', carruselData.senaletica);
+    generarCarrusel('carrusel-IntiRaymi-container', 'carruselIntiRaymi', carruselData.IntiRaymi);
   }
 });
 

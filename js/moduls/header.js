@@ -17,33 +17,33 @@ const headerData = {
         },
         {
            
-            enlace: '/moduls/noticiasContactos/contactanos.html',
+            enlace: 'https://superarse.ec/',
             texto: 'Superarse Conectados |',
-            clases :"navbar-brand",
+            clases :"navbar-brand d-none d-lg-block",
             target: '_blank'
         },
         {
         
             enlace: 'https://becasuperarse.ec/',
             texto: 'Because he´s Nice |',
-            clases :"navbar-brand",
+            clases :"navbar-brand d-none d-lg-block",
             target: '_blank'
         },
         {
             enlace: 'https://superarse.q10.com',
             texto: 'Q10',
-            clases: 'navbar-brand',
+            clases: 'navbar-brand d-none d-lg-block',
             target: '_blank'
         },
         {
             enlace: 'https://teams.microsoft.com/v2/',
             texto: 'Teams',
-            clases: 'navbar-brand',
+            clases: 'navbar-brand d-none d-lg-block',
             target: '_blank'
         },
         {
             texto: 'Calendarios',
-            clases: 'nav-link dropdown-toggle text-white',
+            clases: 'nav-link dropdown-toggle text-white d-none d-lg-block',
             items: [
                 { enlace: '/assets/calendarios/*', texto: 'Calendario Académico' },
                 { enlace: '/assets/calendarios/*', texto: 'Calendario de Titulación' },
@@ -121,7 +121,8 @@ const headerData = {
             items: [
                 { enlace: 'https://biblioteca.superarse.edu.ec', texto: 'Biblioteca Dra. Mery Navas', target: '_blank' },
                { enlace: '/moduls/subMenu/BienestarInstitucional/BienestarInstitucional.html', texto: 'Bienestar Institucional ' },
-               { enlace: 'https://biblioteca.superarse.edu.ec', texto: 'Infraestructura', target: '_blank' },
+               { enlace: '#', texto: 'Infraestructura ' },
+               { enlace: '/moduls/noticiasContactos/contactanos.html', texto: 'Contactanos' },
                 
             ]
         },
